@@ -1,12 +1,14 @@
 package com.nbs.it_cs_ce_mcq;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class QuestionsActivity extends AppCompatActivity {
@@ -23,6 +25,13 @@ public class QuestionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_questions);
 
         init();
+
+        QuestionsAdapter quesAdapter=new QuestionsAdapter(DbQuery.g_quesList);
+        questionsView.setAdapter(quesAdapter);
+
+        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        questionsView.setLayoutManager(layoutManager);
 
     }
 
