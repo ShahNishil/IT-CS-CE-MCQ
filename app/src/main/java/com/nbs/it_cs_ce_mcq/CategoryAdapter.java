@@ -53,8 +53,8 @@ public class CategoryAdapter extends BaseAdapter {
                 DbQuery.g_selected_cat_index=i;
 
 
-                Intent intent=new Intent(view.getContext(),TestActivity.class);
-                view.getContext().startActivity(intent);
+                Intent intent=new Intent(myView.getContext(),TestActivity.class);
+                myView.getContext().startActivity(intent);
             }
         });
 
