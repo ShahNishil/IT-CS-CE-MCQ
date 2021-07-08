@@ -19,11 +19,12 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.nbs.it_cs_ce_mcq.databinding.ActivityMainBinding;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,22 +43,21 @@ public class MainActivity extends AppCompatActivity {
             switch (menuItem.getItemId())
             {
                 case R.id.nav_home:
-                    bottomNavigationView.setSelectedItemId(R.id.nav_home);
+                    setFragement(new CategoryFragment());
                     return true;
 
                 case R.id.nav_leaderboard:
-                    bottomNavigationView.setSelectedItemId(R.id.nav_leaderboard);
+                    setFragement(new LeaderBoardFragment());
                     return true;
 
                 case R.id.nav_account:
-                    bottomNavigationView.setSelectedItemId(R.id.nav_account);
+                    setFragement(new AccountFragment());
                     return true;
             }
             return false;
+
         }
     };
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
-        /**binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
+        /**  binding.appBarMain.toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

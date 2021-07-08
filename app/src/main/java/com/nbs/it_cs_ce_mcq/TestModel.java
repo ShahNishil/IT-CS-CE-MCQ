@@ -1,6 +1,6 @@
 package com.nbs.it_cs_ce_mcq;
 
-public class TestModel {
+public class  TestModel {
 
     private String testID;
     private int topScore;
