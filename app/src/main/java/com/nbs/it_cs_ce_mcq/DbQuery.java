@@ -91,7 +91,6 @@ public class DbQuery {
     public  static void loadCategories(final MyCompleteListener completeListener)
     {
         g_catList.clear();
-
         g_firestore.collection("QUIZ").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>()
                 {
@@ -105,19 +104,19 @@ public class DbQuery {
                             docList.put(doc.getId(),doc);
                         }
 
-                        QueryDocumentSnapshot catListDooc=docList.get("Categories");
+                        QueryDocumentSnapshot catListDooc = docList.get("Categories");
 
                         long catCount=catListDooc.getLong("COUNT");
 
                         for(int i=1; i<=catCount; i++)
                         {
-                            String catID=catListDooc.getString("CAT" + String.valueOf(i)+"_ID");
+
+                            String catID=catListDooc.getString("CAT" + String.valueOf(i) + "_ID");
                             QueryDocumentSnapshot catDoc=docList.get(catID);
 
                             int noOfTest=catDoc.getLong("NO_OF_TESTS").intValue();
                             String catName=catDoc.getString("NAME");
                             g_catList.add(new categoryModel(catID,catName,noOfTest));
-
 
                         }
 
@@ -183,6 +182,7 @@ public class DbQuery {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         int noOfTests=g_catList.get(g_selected_cat_index).getNoOfTests();
+
                         for (int i=1; i<=noOfTests; i++)
                         {
                             g_testList.add(new TestModel(

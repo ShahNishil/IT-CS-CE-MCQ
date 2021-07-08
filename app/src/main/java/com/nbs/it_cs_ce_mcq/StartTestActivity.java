@@ -94,7 +94,6 @@ public class StartTestActivity extends AppCompatActivity {
 
     private void setData()
     {
-
         catName.setText(g_catList.get(DbQuery.g_selected_cat_index).getName());
         testNo.setText("Test No. " + String.valueOf(DbQuery.g_selected_test_index + 1));
         totalQ.setText(String.valueOf(DbQuery.g_quesList.size()));
