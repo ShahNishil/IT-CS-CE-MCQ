@@ -1,6 +1,5 @@
 package com.nbs.it_cs_ce_mcq;
 
-import android.accessibilityservice.GestureDescription;
 import android.util.ArrayMap;
 
 import androidx.annotation.NonNull;
@@ -28,7 +27,6 @@ public class DbQuery {
     public static int g_selected_test_index=0;
     public static int g_selected_cat_index=0;
     public static List<QuestionModel> g_quesList=new ArrayList<>();
-
 
     public static ProfileModel myProfile=new ProfileModel("NA",null);
 
@@ -133,6 +131,7 @@ public class DbQuery {
                 });
     }
 
+
     public static void loadquestions(final MyCompleteListener completeListener)
     {
         g_quesList.clear();
@@ -220,5 +219,40 @@ public class DbQuery {
         });
 
     }
+
+    public static void loadTestDataL(final MyCompleteListener completeListener)
+    {
+
+        g_testList.clear();
+        g_firestore.collection("QUIZ").document(g_catList.get(g_selected_cat_index).getDocID())
+                .collection("TESTS_LIST").document("TESTS_INFO")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>(){
+
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        int noOfTests=g_catList.get(g_selected_cat_index).getNoOfTests();
+
+                        for (int i=1; i<=noOfTests; i++)
+                        {
+                            g_testList.add(new TestModel(
+                                    documentSnapshot.getString("TEST"+String.valueOf(i)+"_ID"),
+                                    0,
+                                    documentSnapshot.getLong("TEST"+String.valueOf(i)+"_TIME").intValue()
+                            ));
+                        }
+
+                        completeListener.onSuccess();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        completeListener.onFailure();
+                    }
+                });
+
+    }
+
 
 }
