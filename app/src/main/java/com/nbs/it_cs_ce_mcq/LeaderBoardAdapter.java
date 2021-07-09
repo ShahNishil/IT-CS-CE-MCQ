@@ -52,7 +52,7 @@ public class LeaderBoardAdapter extends BaseAdapter {
             {
                 DbQuery.g_selected_cat_index=i;
 
-                Intent intent=new Intent(myView.getContext(),ReadActivity.class);
+                Intent intent=new Intent(myView.getContext(), ReadActivity.class);
                 myView.getContext().startActivity(intent);
             }
         });
