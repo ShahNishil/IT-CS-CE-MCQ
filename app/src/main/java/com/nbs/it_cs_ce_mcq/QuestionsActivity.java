@@ -2,6 +2,8 @@ package com.nbs.it_cs_ce_mcq;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.SnapHelper;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -34,11 +37,13 @@ public class QuestionsActivity extends AppCompatActivity {
     private ImageView quesListB;
     private int quesID;
     QuestionsAdapter quesAdapter;
+    private DrawerLayout drawer;
+    private ImageButton drawerCloseB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions);
+        setContentView(R.layout.questions_list_layout);
 
         init();
 
@@ -70,6 +75,8 @@ public class QuestionsActivity extends AppCompatActivity {
         prevQuesB=findViewById(R.id.prev_quesB);
         nextQuesB=findViewById(R.id.next_quesB);
         quesListB=findViewById(R.id.ques_list_gridB);
+        drawer=findViewById(R.id.drawer_layout);
+        drawerCloseB=findViewById(R.id.drawerCloseB);
 
         quesID=0;
         tvQuesID.setText("1/" + String.valueOf(g_quesList.size()));
@@ -136,8 +143,33 @@ public class QuestionsActivity extends AppCompatActivity {
                 quesAdapter.notifyDataSetChanged();
             }
         });
+         quesListB.setOnContextClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view)
+             {
+                 if(drawer.isDrawerOpen(GravityCompat.END))
+                 {
 
+                 }
+             }
+             }
+
+         });
+
+         drawerCloseB.setOnClickListener(new View.OnClickListener) {
+             @Override
+                public void onClick(View view)
+        {
+            if(drawer.isDrawerOpen(GravityCompat.END))
+            {
+                drawer.closeDrawer(Gravity.END);
+            }
+        }
     }
+    }
+
+
+
 
     private void startTimer()
     {
