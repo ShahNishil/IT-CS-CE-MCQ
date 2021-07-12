@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CertificateActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text="Certificate Details"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:padding="12dp"
+        />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/time"
+        />
+
+    <EditText
+        android:id="@+id/editTextSub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ems="10"
+        android:hint="Subject"
+        android:inputType="textCapWords"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName"
+        />
+
+    <EditText
+        android:id="@+id/editTextId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:ems="10"
+        android:hint="Certificate Id"
+        android:inputType="textCapWords"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSub"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_corner_button"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_margin="12dp"
+        android:elevation="5dp"
+        android:translationZ="3dp"
+        android:stateListAnimator="@null"
+        android:text="SUBMIT"
+        app:layout_constraintTop_toBottomOf="@+id/editTextId" />
+
+
+</LinearLayout>

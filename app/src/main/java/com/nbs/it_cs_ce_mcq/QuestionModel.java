@@ -8,6 +8,7 @@ public class QuestionModel {
     private String optionC;
     private String optionD;
     private int correctAns;
+    private String topic;
     private int selectedAns;
 
     public QuestionModel(String question, String optionA, String optionB, String optionC, String optionD, int correctAns, int selectedAns) {
@@ -77,5 +78,13 @@ public class QuestionModel {
 
     public void setCorrectAns(int correctAns) {
         this.correctAns = correctAns;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 }

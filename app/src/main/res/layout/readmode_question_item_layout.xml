@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_question"
+        android:layout_margin="8dp"
+        android:background="@color/white"
+        android:padding="8dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="Question No 1"
+        android:textStyle="bold"
+        android:scrollbars="vertical"
+        android:inputType="textMultiLine"
+        android:elevation="5dp"
+        android:translationZ="3dp"
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/optionA"
+        android:layout_margin="8dp"
+        android:textColor="@color/black"
+        android:background="@drawable/unselected_btn"
+        android:text="Option A"
+        android:textSize="16sp"
+        android:elevation="3dp"
+        android:translationZ="3dp"
+        android:stateListAnimator="@null"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/optionB"
+        android:layout_margin="8dp"
+        android:textColor="@color/black"
+        android:background="@drawable/unselected_btn"
+        android:text="Option B"
+        android:textSize="16sp"
+        android:elevation="3dp"
+        android:translationZ="3dp"
+        android:stateListAnimator="@null"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/optionC"
+        android:layout_margin="8dp"
+        android:textColor="@color/black"
+        android:background="@drawable/unselected_btn"
+        android:text="Option C"
+        android:textSize="16sp"
+        android:elevation="3dp"
+        android:translationZ="3dp"
+        android:stateListAnimator="@null"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/optionD"
+        android:layout_margin="8dp"
+        android:textColor="@color/black"
+        android:background="@drawable/unselected_btn"
+        android:text="Option D"
+        android:textSize="16sp"
+        android:elevation="3dp"
+        android:translationZ="3dp"
+        android:stateListAnimator="@null"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/showAnswer"
+        android:layout_margin="8dp"
+        android:textColor="@color/white"
+        android:text="SHOW ANSWER"
+        android:background="@color/colorPrimary"
+        android:textSize="18sp"
+        android:elevation="3dp"
+        android:translationZ="3dp"
+        android:stateListAnimator="@null"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/tv_question_correctanswer"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:text="Answer"
+        android:textStyle="bold"
+        />
+
+
+</LinearLayout>

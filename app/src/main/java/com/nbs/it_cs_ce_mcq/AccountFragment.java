@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 **/
 public class AccountFragment extends Fragment {
 
-    private Button logoutB;
+    private Button logoutB, certificate;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -30,11 +30,13 @@ public class AccountFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_account, container, false);
         logoutB=view.findViewById(R.id.logoutB);
-        logoutB.setOnClickListener(new View.OnClickListener() {
+        logoutB.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
 
@@ -61,6 +63,20 @@ public class AccountFragment extends Fragment {
             }
         });
 
+        certificate=view.findViewById(R.id.certificate);
+        certificate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CertificateActivity.class);
+            }
+        });
+
+
         return view;
     }
+
+
 }
+
+
+

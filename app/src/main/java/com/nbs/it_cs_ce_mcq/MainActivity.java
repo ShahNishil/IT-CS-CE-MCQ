@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView drawerProfileName, drawerProfileText;
 
 
+
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener()
     {
         @Override
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
