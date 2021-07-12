@@ -43,7 +43,7 @@ public class QuestionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.questions_list_layout);
+        setContentView(R.layout.activity_questions);
 
         init();
 
@@ -109,15 +109,13 @@ public class QuestionsActivity extends AppCompatActivity {
 
     }
 
-    private void setClickListeners()
-    {
+    private void setClickListeners() {
 
         prevQuesB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (quesID > 0)
-                {
+                if (quesID > 0) {
                     questionsView.smoothScrollToPosition(quesID - 1);
                 }
 
@@ -128,8 +126,7 @@ public class QuestionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (quesID < g_quesList.size() - 1)
-                {
+                if (quesID < g_quesList.size() - 1) {
                     questionsView.smoothScrollToPosition(quesID + 1);
                 }
 
@@ -143,33 +140,27 @@ public class QuestionsActivity extends AppCompatActivity {
                 quesAdapter.notifyDataSetChanged();
             }
         });
-         quesListB.setOnContextClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view)
-             {
-                 if(drawer.isDrawerOpen(GravityCompat.END))
-                 {
-
-                 }
-             }
-             }
-
-         });
-
-         drawerCloseB.setOnClickListener(new View.OnClickListener) {
-             @Override
-                public void onClick(View view)
-        {
-            if(drawer.isDrawerOpen(GravityCompat.END))
-            {
-                drawer.closeDrawer(Gravity.END);
+        quesListB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (drawer.isDrawerOpen(GravityCompat.END)) {
+                    drawer.openDrawer(GravityCompat.END);
+                }
             }
-        }
+        });
+
+        drawerCloseB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (drawer.isDrawerOpen(GravityCompat.END)) {
+                    drawer.closeDrawer(GravityCompat.END);
+                }
+            }
+
+        });
+
+
     }
-    }
-
-
-
 
     private void startTimer()
     {
