@@ -31,4 +31,3 @@ console.log("Document written with ID: ", docRef.id);
 console.error("Error adding document: ", error);
 });
 });
-//solving branch issue 2
