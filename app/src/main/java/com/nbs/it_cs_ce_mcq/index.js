@@ -11,19 +11,37 @@ var db = firebase.firestore();
 
 var menu =[
 {
-"NAME":"vb.net",
-"NUMBER_OF_TESTS":4
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"AAAA",
+"QUESTION":"2+5",
+"A":"2",
+"B":"3",
+"C":"7",
+"D":"2",
+"ANSWER":3,
 },
 {
-"NAME":"javascript",
-"NUMBER_OF_TESTS":4
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"AAAA",
+"QUESTION":"2+0",
+"A":"2",
+"B":"3",
+"C":"7",
+"D":"2",
+"ANSWER":1,
 }
 ]
 
 menu.forEach(function(obj) {
-db.collection("QUIZ").add({
-NAME: obj.NAME,
-NUMBER_OF_TESTS:obj.NUMBER_OF_TESTS,
+db.collection("Questions").add({
+CATEGORY: obj.CATEGORY,
+TEST:obj.TEST,
+QUESTION:obj.QUESTION,
+A:obj.A,
+B:obj.B,
+C:obj.C,
+D:obj.D,
+ANSWER:obj.ANSWER,
 }).then(function(docRef) {
 console.log("Document written with ID: ", docRef.id);
 })
