@@ -1,8 +1,6 @@
 package com.nbs.it_cs_ce_mcq;
 
-
-
-        import androidx.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
         import androidx.appcompat.app.AppCompatActivity;
 
         import android.graphics.Bitmap;
