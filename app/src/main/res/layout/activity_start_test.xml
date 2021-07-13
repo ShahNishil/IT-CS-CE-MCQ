@@ -30,7 +30,22 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="70dp"
-        android:text="Test No. 2"
+        android:text="Test No : 2"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ll2"/>
+
+    <TextView
+        android:id="@+id/st_test_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="45dp"
+        android:text="Test Name : "
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"

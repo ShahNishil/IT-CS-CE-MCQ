@@ -187,7 +187,43 @@ public class DbQuery {
                             g_testList.add(new TestModel(
                                     documentSnapshot.getString("TEST"+String.valueOf(i)+"_ID"),
                                     0,
-                                    documentSnapshot.getLong("TEST"+String.valueOf(i)+"_TIME").intValue()
+                                    documentSnapshot.getLong("TEST"+String.valueOf(i)+"_TIME").intValue(),
+                                    documentSnapshot.getString("TEST"+String.valueOf(i)+"_TOPIC")
+                            ));
+                        }
+
+                        completeListener.onSuccess();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        completeListener.onFailure();
+                    }
+                });
+
+    }
+
+    public static void loadTestDataRead(final MyCompleteListener completeListener)
+    {
+
+        g_testList.clear();
+        g_firestore.collection("QUIZ").document(g_catList.get(g_selected_cat_index).getDocID())
+                .collection("TESTS_LIST").document("TESTS_INFO")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>(){
+
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        int noOfTests=g_catList.get(g_selected_cat_index).getNoOfTests();
+
+                        for (int i=1; i<=noOfTests; i++)
+                        {
+                            g_testList.add(new TestModel(
+                                    documentSnapshot.getString("TEST"+String.valueOf(i)+"_ID"),
+                                    0,
+                                    documentSnapshot.getLong("TEST"+String.valueOf(i)+"_TIME").intValue(),
+                                    documentSnapshot.getString("TEST"+String.valueOf(i)+"_TOPIC")
                             ));
                         }
 

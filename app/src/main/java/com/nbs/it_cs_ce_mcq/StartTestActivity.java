@@ -12,12 +12,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import static com.nbs.it_cs_ce_mcq.DbQuery.g_catList;
 import static com.nbs.it_cs_ce_mcq.DbQuery.loadquestions;
 
 public class StartTestActivity extends AppCompatActivity {
 
-    private TextView catName, testNo, totalQ, bestScore,time;
+    private TextView catName, testNo, totalQ, bestScore,time, testName;
     private Button startTestB;
     private ImageView backB;
     private Dialog progressDialog;
@@ -73,6 +75,7 @@ public class StartTestActivity extends AppCompatActivity {
         time=findViewById(R.id.st_time);
         startTestB=findViewById(R.id.start_testB);
         backB=findViewById(R.id.st_backB);
+        testName=findViewById(R.id.st_test_name);
 
         backB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,10 +98,11 @@ public class StartTestActivity extends AppCompatActivity {
     private void setData()
     {
         catName.setText(g_catList.get(DbQuery.g_selected_cat_index).getName());
-        testNo.setText("Test No. " + String.valueOf(DbQuery.g_selected_test_index + 1));
+        testNo.setText("Test No : " + String.valueOf(DbQuery.g_selected_test_index + 1));
         totalQ.setText(String.valueOf(DbQuery.g_quesList.size()));
         bestScore.setText(String.valueOf(DbQuery.g_testList.get(DbQuery.g_selected_test_index).getTopScore()));
         time.setText(String.valueOf(DbQuery.g_testList.get(DbQuery.g_selected_test_index).getTime()));
+   //     testName.setText("Test Name : " + String.valueOf(DbQuery.g_selected_test_index).getTopicName());
     }
 
 }

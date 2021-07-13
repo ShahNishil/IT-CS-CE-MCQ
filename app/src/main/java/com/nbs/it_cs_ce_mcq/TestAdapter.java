@@ -31,7 +31,8 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull TestAdapter.ViewHolder holder, int position) {
         int progress=testList.get(position).getTopScore();
-        holder.setData(position,progress);
+        String testname =testList.get(position).getTopicName();
+        holder.setData(position,progress,testname);
     }
 
     @Override
@@ -44,20 +45,21 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
         private TextView testNo;
         private TextView topScore;
         private ProgressBar progressBar;
-
+        private TextView testTopic;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             testNo=itemView.findViewById(R.id.testNo);
             topScore=itemView.findViewById(R.id.scoretext);
             progressBar=itemView.findViewById(R.id.testProgressbar);
-
+            testTopic=itemView.findViewById(R.id.testTopic);
         }
 
-        private void setData(int pos, int progress)
+        private void setData(int pos, int progress, String testname)
         {
 
             testNo.setText("Test No : " + String.valueOf(pos+1));
+            testTopic.setText("Test Name : " + String.valueOf(testname));
             topScore.setText(String.valueOf(progress) + " %");
             progressBar.setProgress(progress);
 

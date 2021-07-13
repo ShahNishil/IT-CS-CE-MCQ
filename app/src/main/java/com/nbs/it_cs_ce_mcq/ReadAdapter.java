@@ -23,15 +23,15 @@ public class ReadAdapter extends RecyclerView.Adapter<ReadAdapter.ViewHolder> {
     @Override
     public ReadAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.test_item_layout,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.readtopic_item_layout,parent,false);
 
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ReadAdapter.ViewHolder holder, int position) {
-        int progress=testList.get(position).getTopScore();
-        holder.setData(position,progress);
+        String topicname=testList.get(position).getTopicName();
+        holder.setData(position,topicname);
     }
 
     @Override
@@ -41,25 +41,22 @@ public class ReadAdapter extends RecyclerView.Adapter<ReadAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView testNo;
-        private TextView topScore;
-        private ProgressBar progressBar;
+        private TextView topicNo;
+        private TextView topicName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            testNo=itemView.findViewById(R.id.testNo);
-            topScore=itemView.findViewById(R.id.scoretext);
-            progressBar=itemView.findViewById(R.id.testProgressbar);
+            topicNo=itemView.findViewById(R.id.topicNo);
+            topicName=itemView.findViewById(R.id.topicName);
 
         }
 
-        private void setData(int pos, int progress)
+        private void setData(int pos, String topicname)
         {
 
-            testNo.setText("Topic No : " + String.valueOf(pos+1));
-            topScore.setText(String.valueOf(progress) + " %");
-            progressBar.setProgress(progress);
+            topicNo.setText("Topic No : " + String.valueOf(pos+1));
+            topicName.setText("Topic Name : " + String.valueOf(topicname));
 
             itemView.setOnClickListener(new View.OnClickListener() {
 

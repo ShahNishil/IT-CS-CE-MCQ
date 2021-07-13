@@ -53,7 +53,7 @@ public class ReadActivity extends AppCompatActivity {
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         testView.setLayoutManager(layoutManager);
 
-        DbQuery.loadTestData(new MyCompleteListener() {
+        DbQuery.loadTestDataRead(new MyCompleteListener() {
             @Override
             public void onSuccess() {
 
@@ -88,3 +88,4 @@ public class ReadActivity extends AppCompatActivity {
     }
 
 }
+
