@@ -12,19 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ITCSCEMCQ">
-        <activity android:name=".StartTestActivity"></activity>
+        <activity android:name=".StartTestActivity"/>
         <activity android:name=".QuestionsActivity" />
         <activity android:name=".TestActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ReadActivity" />
+        <activity android:name=".ReadmodeQuestionActivity" />
+        <activity android:name=".StartTopicActivity" />
         <activity android:name=".CertificateActivity" />
+
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.ITCSCEMCQ.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" /> 
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

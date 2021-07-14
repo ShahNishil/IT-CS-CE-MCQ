@@ -45,7 +45,7 @@ public class QuestionsActivity extends AppCompatActivity {
         quesAdapter=new QuestionsAdapter(DbQuery.g_quesList);
         questionsView.setAdapter(quesAdapter);
 
-        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         questionsView.setLayoutManager(layoutManager);
 

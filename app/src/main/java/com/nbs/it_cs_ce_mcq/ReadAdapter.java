@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -65,7 +64,7 @@ public class ReadAdapter extends RecyclerView.Adapter<ReadAdapter.ViewHolder> {
 
                     DbQuery.g_selected_test_index= pos;
 
-                    Intent intent=new Intent(itemView.getContext(),StartTestActivity.class);
+                    Intent intent=new Intent(itemView.getContext(), StartTopicActivity.class);
                     itemView.getContext().startActivity(intent);
 
                 }

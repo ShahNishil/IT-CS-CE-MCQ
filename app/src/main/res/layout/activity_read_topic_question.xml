@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".StartTopicActivity">
+    tools:context=".StartTopicActivity" >
 
     <TextView
         android:id="@+id/st_cat_name"
@@ -30,7 +30,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="70dp"
-        android:text="Test No : 2"
+        android:text="Topic No : 2"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -45,7 +45,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="45dp"
-        android:text="Test Name : "
+        android:text="Topic Name : "
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -54,7 +54,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ll2"/>
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ll2"
         app:layout_constraintBottom_toTopOf="@+id/start_testB"
@@ -71,8 +71,7 @@
             app:cardElevation="5dp"
             android:layout_weight="1"
             app:cardUseCompatPadding="true"
-            app:cardCornerRadius="5dp"
-            >
+            app:cardCornerRadius="5dp" >
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -106,112 +105,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/st_total_ques"
                     android:text="5"
-                    android:layout_weight="1"
-                    android:gravity="bottom"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="160dp"
-            android:layout_weight="1"
-            app:cardElevation="5dp"
-            app:cardUseCompatPadding="true"
-            app:cardCornerRadius="5dp"
-            >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:paddingTop="16dp"
-                >
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/award"
-                    android:layout_marginBottom="8dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="bottom"
-                    android:text="Best Score"
-                    android:layout_weight="1"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="80"
-                    android:id="@+id/st_best_score"
-                    android:layout_weight="1"
-                    android:gravity="bottom"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="160dp"
-            app:cardElevation="5dp"
-            android:layout_weight="1"
-            app:cardUseCompatPadding="true"
-            app:cardCornerRadius="5dp"
-            >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:paddingTop="16dp"
-                >
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/time"
-                    android:layout_marginBottom="8dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="bottom"
-                    android:text="Time"
-                    android:layout_weight="1"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/st_time"
-                    android:text="25 m"
                     android:layout_weight="1"
                     android:gravity="bottom"
                     android:textColor="@color/black"
