@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,9 +14,9 @@
         android:layout_margin="8dp"
         android:background="@color/white"
         android:padding="8dp"
-        android:gravity="center"
+        android:gravity="left"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:text="Question No 1"
         android:textStyle="bold"
         android:scrollbars="vertical"
@@ -23,7 +25,7 @@
         android:translationZ="3dp"
         android:layout_weight="1"
         />
-
+</ScrollView>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +34,7 @@
         android:textColor="@color/black"
         android:background="@drawable/unselected_btn"
         android:text="Option A"
-        android:textSize="16sp"
+        android:textSize="11sp"
         android:elevation="3dp"
         android:translationZ="3dp"
         android:stateListAnimator="@null"
@@ -46,7 +48,7 @@
         android:textColor="@color/black"
         android:background="@drawable/unselected_btn"
         android:text="Option B"
-        android:textSize="16sp"
+        android:textSize="11sp"
         android:elevation="3dp"
         android:translationZ="3dp"
         android:stateListAnimator="@null"
@@ -60,7 +62,7 @@
         android:textColor="@color/black"
         android:background="@drawable/unselected_btn"
         android:text="Option C"
-        android:textSize="16sp"
+        android:textSize="11sp"
         android:elevation="3dp"
         android:translationZ="3dp"
         android:stateListAnimator="@null"
@@ -74,7 +76,7 @@
         android:textColor="@color/black"
         android:background="@drawable/unselected_btn"
         android:text="Option D"
-        android:textSize="16sp"
+        android:textSize="11sp"
         android:elevation="3dp"
         android:translationZ="3dp"
         android:stateListAnimator="@null"
