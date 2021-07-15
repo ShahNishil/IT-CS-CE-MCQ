@@ -113,31 +113,7 @@ var menu =[
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST1",
-"QUESTION":"What should be the execution order, if a class has a method, static block, instance block, and constructor, as shown below?
-
-            public class First_C {
-                  public void myMethod()
-                {
-                System.out.println("Method");
-                }
-
-                {
-                System.out.println(" Instance Block");
-                }
-
-                public void First_C()
-                {
-                System.out.println("Constructor ");
-                }
-                static {
-                    System.out.println("static block");
-                }
-                public static void main(String[] args) {
-                First_C c = new First_C();
-                c.First_C();
-                c.myMethod();
-              }
-            }   ",
+"QUESTION":"What should be the execution order, if a class has a method, static block, instance block, and constructor, as shown below? \n public class First_C { \n public void myMethod() \n { \n System.out.println(\"Method\"); \n } \n { \n System.out.println(\" Instance Block\"); \n } \n public void First_C() \n { \n System.out.println(\"Constructor \"); \n } \n static { \n System.out.println(\"static block\"); \n } \n public static void main(String[] args) { \n First_C c = new First_C(); \n c.First_C(); \n c.myMethod(); \n } \n }",
 "A":"Instance block, method, static block, and constructor",
 "B":"Method, constructor, instance block, and static block",
 "C":"Static block, method, instance block, and constructor",
