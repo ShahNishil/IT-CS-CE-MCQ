@@ -93,12 +93,7 @@ import androidx.annotation.RequiresApi;
 
         }
         });
-       /**
-        try {
-            createPdf();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }**/
+
     }
     /**
      private void createPdf(String name, String age, String number, String location) throws FileNotFoundException{

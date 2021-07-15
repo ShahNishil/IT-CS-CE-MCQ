@@ -62,9 +62,10 @@ public class AccountFragment extends Fragment {
 
         certificate=view.findViewById(R.id.certificate);
         certificate.setOnClickListener(new View.OnClickListener() {
-            @Override
+
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), CertificateActivity.class);
+                startActivity(intent);
             }
         });
 
