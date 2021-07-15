@@ -203,33 +203,26 @@ import androidx.annotation.RequiresApi;
         Table table3=new Table(width3);
         table3.setMargins(150,0,0,10);
         table3.addCell(new Cell().add(new Paragraph(id).setFontSize(10).setFontColor(ColorConstants.BLACK)).setBorder(Border.NO_BORDER));
-/**
- float[] width4={920f};
- Table table4=new Table(width4);
- DateTimeFormatter dateFormatter1=DateTimeFormatter.ofPattern("dd/MM/yyyy");
- table4.addCell(new Cell().add(new Paragraph("Date").setFontSize(14).setFontColor(ColorConstants.BLACK)).setBorder(Border.NO_BORDER));
- table4.addCell(new Cell().add(new Paragraph(LocalDate.now().format(dateFormatter1).toString())));
 
- float[] width5={920f};
- Table table5=new Table(width5);
- DateTimeFormatter dateFormatter2=DateTimeFormatter.ofPattern("dd/MM/yyyy");
- table5.addCell(new Cell().add(new Paragraph("Date")));
- table5.addCell(new Cell().add(new Paragraph(LocalDate.now().format(dateFormatter2).toString())));
- **/
+        float[] width4={70f};
+        Table table4=new Table(width4);
+        table4.setMargins(-176,0,0,388);
+        DateTimeFormatter dateFormatter1=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        table4.addCell(new Cell().add(new Paragraph(LocalDate.now().format(dateFormatter1).toString()).setFontSize(14).setFontColor(ColorConstants.BLACK)).setBorder(Border.NO_BORDER));
+
+        float[] width5={70f};
+        Table table5=new Table(width5);
+        DateTimeFormatter dateFormatter2=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        table5.setMargins(63,0,0,180);
+        table5.addCell(new Cell().add(new Paragraph(LocalDate.now().format(dateFormatter2).toString()).setFontSize(14).setFontColor(ColorConstants.BLACK)).setBorder(Border.NO_BORDER).setUnderline());
 
 
         document.add(image1);
         document.add(table1);
         document.add(table2);
         document.add(table3);
-        //   document.add(table4);
-        // document.add(table5);
-
-
-        // PdfCanvas canvas = new PdfCanvas(pdfDocument.addNewPage());
-        // canvas.addImageFittedIntoRectangle(ImageDataFactory.create(bitmapData1), pageSize, false);
-
-//     document.add(new Paragraph("Berlin!"));
+        document.add(table4);
+        document.add(table5);
 
         document.close();
         Toast.makeText(this, "Pdf Created", Toast.LENGTH_SHORT).show();
