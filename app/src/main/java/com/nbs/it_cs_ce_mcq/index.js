@@ -1837,6 +1837,223 @@ class San \n
 "D":"40 20",
 "ANSWER":2,
 },
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST14",
+"QUESTION":" What is multithreaded programming?",
+"A":"It’s a process in which two different processes run simultaneously ",
+"B":"It’s a process in which two or more parts of same process run simultaneously",
+"C":"It’s a process in which many different process are able to access same information",
+"D":"It’s a process in which a single process can access information from many sources",
+"ANSWER":2,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST14",
+"QUESTION":" Which of these are types of multitasking?",
+"A":"Process based",
+"B":"Thread based",
+"C":"Process and Thread based",
+"D":"None of the mentioned",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST14",
+"QUESTION":"Thread priority in Java is?",
+"A":"int",
+"B":"float",
+"C":"long",
+"D":"double",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST14",
+"QUESTION":"What will happen if two thread of the same priority are called to be processed simultaneously?",
+"A":"Anyone will be executed first lexographically",
+"B":"Both of them will be executed simultaneously",
+"C":"None of them will be executed",
+"D":"It is dependent on the operating system",
+"ANSWER":4,
+},
+
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST14",
+"QUESTION":"Which of these statements is incorrect?",
+"A":"By multithreading CPU idle time is minimized, and we can take maximum use of it ",
+"B":"By multitasking CPU idle time is minimized, and we can take maximum use of it",
+"C":"Two thread in Java can have the same priority",
+"D":"A thread can exist only in two states, running and blocked",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST14",
+"QUESTION":". What will be the output of the following Java code?\nclass multithreaded_programing\n{\n public static void main(String args[])\n{\n Thread t = Thread.currentThread();\n System.out.println(t);        \n  } }",
+"A":"Thread[5,main] ",
+"B":" Thread[main,5]",
+"C":"Thread[main,0]",
+"D":"Thread[main,5,main]",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST14",
+"QUESTION":" What is the priority of the thread in the following Java Program?
+
+    class multithreaded_programing
+    {
+        public static void main(String args[])
+        {
+            Thread t = Thread.currentThread();
+            System.out.println(t);
+        }
+    }",
+"A":"4",
+"B":"5",
+"C":"0",
+"D":"1",
+"ANSWER":2,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST14",
+"QUESTION":" What is the name of the thread in the following Java Program?
+
+    class multithreaded_programing
+    {
+        public static void main(String args[])
+        {
+            Thread t = Thread.currentThread();
+            System.out.println(t);
+        }
+    }",
+"A":"main",
+"B":"thread",
+"C":"system",
+"D":"none",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST15",
+"QUESTION":"Which of these packages contains all the classes and methods required for even handling in Java?",
+"A":" java.applet ",
+"B":"java.awt",
+"C":"java.event",
+"D":"java.awt.event",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST15",
+"QUESTION":"What is an event in delegation event model used by Java programming language?",
+"A":"An event is an object that describes a state change in a source ",
+"B":" An event is an object that describes a state change in processing",
+"C":"An event is an object that describes any change by the user and system",
+"D":"An event is a class used for defining object, to create events",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST15",
+"QUESTION":"Which of these methods are used to register a keyboard event listener?",
+"A":"KeyListener() ",
+"B":"addKistener()",
+"C":"addKeyListener()",
+"D":"eventKeyboardListener()",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST15",
+"QUESTION":" Which of these methods are used to register a mouse motion listener?",
+"A":"addMouse() ",
+"B":"addMouseListener()",
+"C":"addMouseMotionListner()",
+"D":"eventMouseMotionListener()",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST15",
+"QUESTION":" What is a listener in context to event handling?",
+"A":" A listener is a variable that is notified when an event occurs ",
+"B":" A listener is a object that is notified when an event occurs",
+"C":"A listener is a method that is notified when an event occurs",
+"D":"None of the mentioned",
+"ANSWER":2,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST15",
+"QUESTION":" Event class is defined in which of these libraries?",
+"A":"java.io",
+"B":"java.lang",
+"C":"java.util",
+"D":"java",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST15",
+"QUESTION":"Which of these methods can be used to determine the type of event?",
+"A":" getID()",
+"B":" getSource()",
+"C":"getEvent()",
+"D":"getEventObject()",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST15",
+"QUESTION":"Which of these class is super class of all the events?",
+"A":"EventObject ",
+"B":"EventClass",
+"C":"ActionEvent",
+"D":"ItemEvent",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST15",
+"QUESTION":" Which of these events will be notified if scroll bar is manipulated?",
+"A":"ActionEvent ",
+"B":" ComponentEvent",
+"C":"AdjustmentEvent",
+"D":"WindowEvent",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST15",
+"QUESTION":"Which of these events will be generated if we close an applet’s window?",
+"A":" ActionEvent ",
+"B":"ComponentEvent",
+"C":"AdjustmentEvent",
+"D":"WindowEvent",
+"ANSWER":4,
+},
 ]
 
 menu.forEach(function(obj) {
