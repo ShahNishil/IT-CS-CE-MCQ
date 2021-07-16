@@ -927,7 +927,916 @@ class Output
 "C":"Inline function",
 "D":"Undefined function",
 "ANSWER":2,
-}
+},
+
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST8",
+"QUESTION":"Which of the following can be operands of arithmetic operators?",
+"A":"numeric",
+"B":"character",
+"C":"boolean",
+"D":"both a and b",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST8",
+"QUESTION":"Modulus operator, %, can be applied to which of these?",
+"A":"integer",
+"B":"floating point numbers",
+"C":"both a and b",
+"D":"none of the above",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST8",
+"QUESTION":"Modulus operator, %, can be applied to which of these?\n x++;\n x = x + 1;\n  x += 1;\n x += 1;",
+"A":"1,2&3",
+"B":"1&4",
+"C":"1,2,3&4",
+"D":"3&4",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST8",
+"QUESTION":"Decrement operator, −−, decreases the value of variable by what number?",
+"A":"1",
+"B":"2",
+"C":"3",
+"D":"4",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST8",
+"QUESTION":"Can 8 byte long data type be automatically type cast to 4 byte float data type?",
+"A":"true",
+"B":"false",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST8",
+"QUESTION":"Which of these is not a bitwise operator?",
+"A":"&",
+"B":"&=",
+"C":"!=",
+"D":"l",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST8",
+"QUESTION":"Which operator is used to invert all the digits in a binary representation of a number?",
+"A":"~",
+"B":"<<<",
+"C":">>>",
+"D":"^",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST8",
+"QUESTION":"On applying Left shift operator, <<, on integer bits are lost one they are shifted past which position bit?",
+"A":"1",
+"B":"32",
+"C":"33",
+"D":"31",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST8",
+"QUESTION":"What will be the output of the following Java program?\n  class bitwise_operator\n  { \n public static void main(String args[]) \n  { \n   int var1 = 42;\n    int var2 = ~var1;\n System.out.print(var1 + " " + var2); \n  } \n    }",
+"A":"42 42",
+"B":"43 43",
+"C":"42 -43",
+"D":"42 43",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST8",
+"QUESTION":"Which right shift operator preserves the sign of the value?",
+"A":"<<",
+"B":">>",
+"C":"<<=",
+"D":">>=",
+"ANSWER":2,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST9",
+"QUESTION":"Which of these class is superclass of String and StringBuffer class?",
+"A":"java.util",
+"B":"java.lang",
+"C":"ArrayList",
+"D":"none of the above",
+"ANSWER":2,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST9",
+"QUESTION":"Which of these operators can be used to concatenate two or more String objects?",
+"A":"+",
+"B":"+=",
+"C":"&",
+"D":"||",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST9",
+"QUESTION":"Which of this method of class String is used to obtain a length of String object?",
+"A":"get()",
+"B":"sizeof()",
+"C":"lengthof()",
+"D":"length()",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST9",
+"QUESTION":"Which of these method of class String is used to extract a single character from a String object?",
+"A":"CHARAT()",
+"B":"chatat()",
+"C":"charAt()",
+"D":"ChatAt()",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST9",
+"QUESTION":"Which of these constructors is used to create an empty String object?",
+"A":"String()",
+"B":"String(void)",
+"C":"String(0)",
+"D":"none of the above",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST9",
+"QUESTION":"Which of these is an incorrect statement?",
+"A":"String objects are immutable, they cannot be changed",
+"B":"String object can point to some other reference of String variable",
+"C":"StringBuffer class is used to store string in a buffer for later use",
+"D":"None of the mentioned",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST9",
+"QUESTION":"What will be the output of the following Java program? \nclassString_demo\n {\n  public static void main(String args[]) \n { \n char chars[]
+= {'a', 'b', 'c'};\n String s = new String(chars);\n System.out.println(s); \n } \n } ",
+"A":"a",
+"B":"b",
+"C":"c",
+"D":"a b c",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST9",
+"QUESTION":"What will be the output of the following Java program?\n class String_demo \n { \n public static void main(String args[]) \n { \n
+            int ascii[] = { 65, 66, 67, 68}; \n
+            String s = new String(ascii, 1, 3); \n
+            System.out.println(s); \n
+        } \n
+   }",
+"A":"ABC",
+"B":"BCD",
+"C":"CDA",
+"D":"ABCD",
+"ANSWER":2,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST9",
+"QUESTION":"What will be the output of the following Java program?\n class String_demo \n { \n public static void main(String args[]) \n {\n char chars[] = {'a', 'b', 'c'};\n String s = new String(chars);\n String s1 = "abcd";\n int len1 = s1.length(); \n  int len2 = s.length();\n System.out.println(len1 + " " + len2); \n} \n }",
+"A":"3 0",
+"B":"0 3",
+"C":"3 4",
+"D":"4 3",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST9",
+"QUESTION":"The string method compareTo() returns",
+"A":"true",
+"B":"false",
+"C":"an int value",
+"D":"1",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST10",
+"QUESTION":"Which object Java application uses to create a new process?",
+"A":"process",
+"B":"builder",
+"C":"process builder",
+"D":"content builder",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST10",
+"QUESTION":"Java system properties can be set at runtime.",
+"A":"true",
+"B":"false",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST10",
+"QUESTION":"Which of the following is true about Java system properties?",
+"A":"Java system properties are accessible by any process",
+"B":"Java system properties are accessible by processes they are added to",
+"C":"Java system properties are retrieved by System.getenv()",
+"D":"Java system properties are set by System.setenv()",
+"ANSWER":2,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST10",
+"QUESTION":"Which system property stores installation directory of JRE?",
+"A":"user.home",
+"B":"java.class.path",
+"C":"java.home",
+"D":"user.dir",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST10",
+"QUESTION":"What does System.getProperty(“variable”) return?",
+"A":"compilation error",
+"B":"value stored in variable",
+"C":"runtime error",
+"D":"null",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST10",
+"QUESTION":"How to use environment properties in the class?",
+"A":"@Environment",
+"B":"@Variable",
+"C":"@Property",
+"D":"@Autowired",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST10",
+"QUESTION":"Which environment variable is used to set java path?",
+"A":"JAVA",
+"B":"JAVA_HOME",
+"C":"CLASSPATH",
+"D":"MAVEN_HOME",
+"ANSWER":2,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST10",
+"QUESTION":"How to read a classpath file?",
+"A":"InputStream in = this.getClass().getResource(“SomeTextFile.txt”);",
+"B":"InputStream in = this.getClass().getResourceClasspath(“SomeTextFile.txt”);",
+"C":"InputStream in = this.getClass().getResourceAsStream(“SomeTextFile.txt”);",
+"D":"InputStream in = this.getClass().getResource(“classpath:/SomeTextFile.txt”);",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST10",
+"QUESTION":"How to assign values to variable using property?",
+"A":"@Value("${my.property}")\n private String prop;",
+"B":"@Property("${my.property}")\n private String prop; ",
+"C":"@Environment("${my.property}")\n private String prop;",
+"D":"@Environment("${my.property}")\n private String prop;",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST10",
+"QUESTION":"What is true about the setProperties method?",
+"A":" setProperties method changes the set of Java Properties which are persistent",
+"B":"Changing the system properties within an application will affect future invocations",
+"C":"setProperties method changes the set of Java Properties which are not persistent",
+"D":"setProperties writes the values directly into the file which stores all the properties",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST11",
+"QUESTION":"What is true about private constructor?",
+"A":"Private constructor ensures only one instance of a class exist at any point of time",
+"B":"Private constructor ensures multiple instances of a class exist at any point of time",
+"C":"Private constructor eases the instantiation of a class",
+"D":"Private constructor allows creating objects in other classes",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST11",
+"QUESTION":"What would be the behaviour if this() and super() used in a method?",
+"A":"Runtime error",
+"B":"Throws exception",
+"C":"compile time error",
+"D":"Runs successfully",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST11",
+"QUESTION":"What is false about constructor?",
+"A":"Constructors cannot be synchronized in Java",
+"B":"Java does not provide default copy constructor",
+"C":"Constructor can have a return type",
+"D":"“this” and “super” can be used in a constructor",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST11",
+"QUESTION":"What is true about Class.getInstance()?",
+"A":"Class.getInstance calls ",
+"B":"Class.getInstance is same as new operator ",
+"C":" Class.getInstance needs to have matching constructor",
+"D":"Class.getInstance creates object if class does not have any constructor",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST11",
+"QUESTION":"What is true about Class.getInstance()?",
+"A":"Class.getInstance calls ",
+"B":"Class.getInstance is same as new operator",
+"C":"Class.getInstance needs to have matching constructor",
+"D":"Class.getInstance creates object if class does not have any constructor",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST11",
+"QUESTION":"What is true about constructor?",
+"A":"It can contain return type",
+"B":"It can take any number of parameters",
+"C":"It can have any non access modifiers",
+"D":"Constructor cannot throw an exception",
+"ANSWER":2,
+},
+
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST11",
+"QUESTION":"Abstract class cannot have a constructor.",
+"A":"true",
+"B":"false",
+"ANSWER":2,
+},
+
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST11",
+"QUESTION":"What is true about protected constructor?",
+"A":"Protected constructor can be called directly",
+"B":"Protected constructor can only be called using super()",
+"C":"Protected constructor can be used outside package",
+"D":"protected constructor can be instantiated even if child is in a different package",
+"ANSWER":2,
+},
+
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST11",
+"QUESTION":"What is not the use of “this” keyword in Java?",
+"A":"Passing itself to another method",
+"B":"Calling another constructor in constructor chaining",
+"C":"Referring to the instance variable when local variable has the same name",
+"D":"Passing itself to method of the same class",
+"ANSWER":4,
+},
+
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST11",
+"QUESTION":"What would be the behaviour if one parameterized constructor is explicitly defined?",
+"A":"Compilation error",
+"B":"Compilation succeeds",
+"C":"Runtime error",
+"D":"Compilation succeeds but at the time of creating object using default constructor, it throws compilation error",
+"ANSWER":4,
+},
+
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST12",
+"QUESTION":"Which of this keyword must be used to inherit a class?",
+"A":"super",
+"B":"this",
+"C":"extent",
+"D":"extends",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST12",
+"QUESTION":" A class member declared protected becomes a member of subclass of which type?",
+"A":"public member",
+"B":"private member",
+"C":"private member",
+"D":"static member",
+"ANSWER":2,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST12",
+"QUESTION":"Which of these is correct way of inheriting class A by class B?",
+"A":"class B + class A {}",
+"B":"class B inherits class A {}",
+"C":"class B extends A {}",
+"D":"class B extends class A {}",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST12",
+"QUESTION":" Which two classes use the Shape class correctly?\n A. public class Circle implements Shape \n {\n private int radius;\n} \n B. public abstract class Circle extends Shape \n { \n private int radius; \n   } \nC. public class Circle extends Shape \n { \n private int radius; \npublic void draw(); \n } \nD. public abstract class Circle implements Shape  \n  { \n
+    private int radius; \n
+    public void draw(); \n
+   } \n
+E. public class Circle extends Shape  \n
+   { \n
+    private int radius; \n
+    public void draw() \n
+    { \n
+     /* code here */ \n
+    } \n
+   } \n
+F. public abstract class Circle implements Shape  \n
+   { \n
+     private int radius; \n
+     public void draw() \n
+     { \n
+      /* code here */ \n
+     } \n
+   } \n
+ ",
+"A"":"B,E",
+"B": " A,C",
+"C": "C,E",
+"D": "T,H",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST12",
+"QUESTION":"  What will be the output of the following Java program?
+
+    class A
+    {
+        int i;
+        void display()
+        {
+            System.out.println(i);
+        }
+    }
+    class B extends A
+    {
+        int j;
+        void display()
+        {
+            System.out.println(j);
+        }
+    }
+    class inheritance_demo
+    {
+        public static void main(String args[])
+        {
+            B obj = new B();
+            obj.i=1;
+            obj.j=2;
+            obj.display();
+        }
+   }",
+"A"":" 0"
+"B": "1"
+"C": "2"
+"D": "compilation error"
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST12",
+"QUESTION":"class A \n
+    { \n
+        int i; \n
+        void display() \n
+        { \n
+            System.out.println(i); \n
+        } \n
+    }   \n
+    class B extends A  \n
+    { \n
+        int j; \n
+        void display()  \n
+        { \n
+            System.out.println(j); \n
+        } \n
+    }  \n
+    class inheritance_demo  \n
+    { \n
+        public static void main(String args[]) \n
+        { \n
+            B obj = new B(); \n
+            obj.i=1; \n
+            obj.j=2;   \n
+            obj.display(); \n
+        } \n
+   }",
+"A":"2 2",
+"B":"3 3",
+"C":"2 3",
+"D":"3 2",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST12",
+"QUESTION":"What will be the output of the following Java program? \n
+    class A \n
+    { \n
+        public int i; \n
+        public int j; \n
+        A() \n
+        { \n
+            i = 1; \n
+            j = 2; \n
+	} \n
+    }    \n
+    class B extends A \n
+    { \n
+        int a; \n
+        B() \n
+        { \n
+            super(); \n
+        } \n
+    }    \n
+    class super_use \n
+    { \n
+        public static void main(String args[]) \n
+        { \n
+            B obj = new B(); \n
+            System.out.println(obj.i + " " + obj.j)   \n
+        } \n
+   }",
+"A":"1 2",
+"B":"2 1",
+"C":"runtime error",
+"D":"compilation error",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST12",
+"QUESTION":"Which inheritance in java programming is not supported",
+"A":"Multiple inheritance using classes",
+"B":"Multiple inheritance using interfaces",
+"C":"Multilevel inheritance",
+"D":"Single inheritance",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST12",
+"QUESTION":"Order of execution of constructors in Java Inheritance is",
+"A":"Base to derived class",
+"B":"Derived to base class",
+"C":"Random order",
+"D":"none of the above",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST12",
+"QUESTION":"Inheritance relationship in Java language is",
+"A":"Association",
+"B":"Is-A",
+"C":"Has-A",
+"D":"None",
+"ANSWER":2,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST13",
+"QUESTION":" What is the process of defining two or more methods within same class that have same name but different parameters declaration?",
+"A":"method overloading",
+"B":"method overriding",
+"C":"method hiding",
+"D":"none of the mentioned",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST13",
+"QUESTION":"Which of these can be overloaded?",
+"A":"Methods",
+"B":"Constructors",
+"C":"All of the mentioned",
+"D":"None of the mentioned",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST13",
+"QUESTION":"Which of these is correct about passing an argument by call-by-value process?",
+"A":"Copy of argument is made into the formal parameter of the subroutine",
+"B":"Reference to original argument is passed to formal parameter of the subroutine",
+"C":"Copy of argument is made into the formal parameter of the subroutine and changes made on parameters of subroutine have effect on original argument",
+"D":"Reference to original argument is passed to formal parameter of the subroutine and changes made on parameters of subroutine have effect on original argument",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST13",
+"QUESTION":" What is the process of defining a method in terms of itself, that is a method that calls itself",
+"A":"Polymorphism",
+"B":"Abstraction",
+"C":"Encapsulation",
+"D":"Recursion",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST13",
+"QUESTION":"What will be the output of the following Java code? \n
+class San \n
+{ \n
+ public void m1 (int i,float f) \n
+ { \n
+  System.out.println(" int float method"); \n
+ } \n
+
+ public void m1(float f,int i); \n
+  { \n
+  System.out.println("float int method"); \n
+  } \n
+
+  public static void main(String[]args) \n
+  { \n
+    San s=new San(); \n
+        s.m1(20,20); \n
+  } \n
+}",
+"A":"int float method",
+"B":"float int method",
+"C":"compile time error",
+"D":"run time error",
+"ANSWER":3,
+},
+
+ {
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST13",
+"QUESTION":"What will be the output of the following Java code?
+
+    class overload
+    {
+        int x;
+ 	int y;
+        void add(int a)
+        {
+            x =  a + 1;
+        }
+        void add(int a, int b)
+        {
+            x =  a + 2;
+        }
+    }
+    class Overload_methods
+    {
+        public static void main(String args[])
+        {
+            overload obj = new overload();
+            int a = 0;
+           obj.add(6);
+            System.out.println(obj.x);
+        }
+   }
+       ",
+"A":"5",
+"B":"6",
+"C":"7",
+"D":"8",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST13",
+"QUESTION":"What will be the output of the following Java code?
+
+    class overload
+    {
+        int x;
+ 	int y;
+        void add(int a)
+        {
+            x =  a + 1;
+        }
+        void add(int a , int b)
+        {
+            x =  a + 2;
+        }
+    }
+    class Overload_methods
+    {
+        public static void main(String args[])
+        {
+            overload obj = new overload();
+            int a = 0;
+            obj.add(6, 7);
+            System.out.println(obj.x);
+        }
+    }",
+"A":"6",
+"B":"7",
+"C":"8",
+"D":"9",
+"ANSWER":3,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST13",
+"QUESTION":"What will be the output of the following Java code?
+
+   class overload
+   {
+        int x;
+ 	double y;
+        void add(int a , int b)
+        {
+            x = a + b;
+        }
+        void add(double c , double d)
+        {
+            y = c + d;
+        }
+        overload()
+        {
+            this.x = 0;
+            this.y = 0;
+        }
+    }
+    class Overload_methods
+    {
+        public static void main(String args[])
+        {
+            overload obj = new overload();
+            int a = 2;
+            double b = 3.2;
+            obj.add(a, a);
+            obj.add(b, b);
+            System.out.println(obj.x + " " + obj.y);
+        }
+   }",
+"A":"6 6",
+"B":"6.4 6.4",
+"C":"6.4 6",
+"D":"4 6.4",
+"ANSWER":4,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST13",
+"QUESTION":"What will be the output of the following Java code?
+
+    class test
+    {
+        int a;
+        int b;
+        void meth(int i , int j)
+        {
+            i *= 2;
+            j /= 2;
+        }
+    }
+    class Output
+    {
+        public static void main(String args[])
+        {
+            test obj = new test();
+	    int a = 10;
+            int b = 20;
+            obj.meth(a , b);
+            System.out.println(a + " " + b);
+        }
+    }",
+"A":"10 20",
+"B":"20 10",
+"C":"20 40",
+"D":"40 20",
+"ANSWER":1,
+},
+
+{
+"CATEGORY":"QXMDYGn4BursvyhqYp7b",
+"TEST":"TEST13",
+"QUESTION":"What will be the output of the following Java code?
+
+    class test
+    {
+        int a;
+        int b;
+        test(int i, int j)
+        {
+            a = i;
+            b = j;
+        }
+        void meth(test o)
+        {
+            o.a *= 2;
+            O.b /= 2;
+        }
+    }
+    class Output
+    {
+        public static void main(String args[])
+        {
+            test obj = new test(10 , 20);
+            obj.meth(obj);
+            System.out.println(obj.a + " " + obj.b);
+        }
+    }",
+"A":"10 20",
+"B":"20 10",
+"C":"20 40",
+"D":"40 20",
+"ANSWER":2,
+},
 ]
 
 menu.forEach(function(obj) {
