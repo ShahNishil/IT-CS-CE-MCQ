@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/qa_topicName"
-            android:text="Topic Name : Basic Of Java"
+            android:text="Topic Name : "
             android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_weight="1"
@@ -116,19 +116,20 @@
 
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toTopOf="@+id/ll3"
+        app:layout_constraintTop_toBottomOf="@+id/ll4">
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/questions_view"
         android:layout_margin="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/ll3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll4"
         >
-
-
-
     </androidx.recyclerview.widget.RecyclerView>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
