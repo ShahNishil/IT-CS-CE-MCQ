@@ -143,19 +143,7 @@ var menu =[
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST2",
-"QUESTION":"What will be the output of the following Java program?
- class selection_statements
-    {
-        public static void main(String args[])
-        {
-            int var1 = 5;
-            int var2 = 6;
-            if ((var2 = 1) == var1)
-                System.out.print(var2);
-            else
-                System.out.print(++var2);
-        }
-    }",
+"QUESTION":"What will be the output of the following Java program? \n class selection_statements \n { \n public static void main(String args[]) \n { \n int var1 = 5; \n int var2 = 6; \n if ((var2 = 1) == var1) \n System.out.print(var2); \n else \n System.out.print(++var2); \n } \n }",
 "A":"1",
 "B":"2",
 "C":"3",
@@ -165,29 +153,7 @@ var menu =[
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST2",
-"QUESTION":"What will be the output of the following Java program?
-
-                class Output
-                {
-                    public static void main(String args[])
-                    {
-                         int a = 5;
-                         int b = 10;
-                         first:
-                         {
-                            second:
-                            {
-                               third:
-                               {
-                                   if (a ==  b >> 1)
-                                       break second;
-                               }
-                               System.out.println(a);
-                            }
-                            System.out.println(b);
-                         }
-                    }
-                }",
+"QUESTION":"What will be the output of the following Java program? \n class Output \n { \n public static void main(String args[]) \n { \n int a = 5; \n int b = 10; \n first: \n { \n second: \n { \n third: \n { \n if (a ==  b >> 1) \n break second; \n } \n System.out.println(a); \n } \n System.out.println(b); \n } \n } \n }",
 "A":"5 10",
 "B":"10 5",
 "C":"5",
@@ -217,11 +183,7 @@ var menu =[
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST2",
-"QUESTION":"What is the valid data type for variable “a” to print “Hello World”?
-switch(a)
-{
-   System.out.println("Hello World");
-}",
+"QUESTION":"What is the valid data type for variable “a” to print “Hello World”? \n switch(a) \n { \n System.out.println(\"Hello World\"); \n }",
 "A":" int and float",
 "B":" byte and short",
 "C":" char and long",
@@ -261,22 +223,7 @@ switch(a)
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST3",
-"QUESTION":" What will be the output of the following Java program?
-
-class Output
-{
-        public static void main(String args[])
-        {
-           final int a=10,b=20;
-          while(a<b)
-          {
-
-          System.out.println("Hello");
-          }
-          System.out.println("World");
-
-        }
-}",
+"QUESTION":" What will be the output of the following Java program? \n class Output \n { \n public static void main(String args[]) \n { \n final int a=10,b=20; \n while(a<b) \n { \n System.out.println(\"Hello\"); \n } \n System.out.println(\"World\"); \n } \n }",
 "A":"Hello",
 "B":"run time error",
 "C":"Hello world",
@@ -313,18 +260,9 @@ class Output
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST3",
 "QUESTION":"Choose the correct syntax of the WHILE loop in Java below.",
-"A":"while(condition)
-{
-  //statements
-}",
-"B":"while(condition);
-{
-  //statements
-}",
-"C":"while
-{
-  //statements
-}(condition)",
+"A":"while(condition) \n { \n //statements \n }",
+"B":"while(condition); \n { \n //statements \n }",
+"C":"while \n { \n //statements \n }(condition)",
 "D":" None",
 "ANSWER":1,
 },
@@ -351,18 +289,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST3",
-"QUESTION":"What will be the output of the following Java program?
-
-    class comma_operator
-    {
-        public static void main(String args[])
-        {
-             int sum = 0;
-             for (int i = 0, j = 0; i < 5 & j < 5; ++i, j = i + 1)
-                 sum += i;
- 	     System.out.println(sum);
-        }
-    }",
+"QUESTION":"What will be the output of the following Java program? \n class comma_operator \n { \n public static void main(String args[]) \n { \n int sum = 0; \n for (int i = 0, j = 0; i < 5 & j < 5; ++i, j = i + 1) \n sum += i; \n System.out.println(sum); \n } \n }",
 "A":"5",
 "B":"6",
 "C":"14",
@@ -372,25 +299,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST3",
-"QUESTION":"What will be the output of the following Java program?
-
-    class jump_statments
-    {
-        public static void main(String args[])
-        {
-             int x = 2;
-             int y = 0;
-             for ( ; y < 10; ++y)
-             {
-                 if (y % x == 0)
-                     continue;
-                 else if (y == 8)
-                      break;
-                 else
-                    System.out.print(y + " ");
-             }
-        }
-    }",
+"QUESTION":"What will be the output of the following Java program? \n class jump_statments \n { \n public static void main(String args[]) \n { \n int x = 2; \n int y = 0; \n for ( ; y < 10; ++y) \n { \n if (y % x == 0) \n continue; \n else if (y == 8) \n break; \n else \n System.out.print(y + " "); \n } \n } \n }",
 "A":"1 3 5 7",
 "B":"2 4 6 8",
 "C":"1 3 5 7 9",
@@ -403,10 +312,7 @@ class Output
 "QUESTION":"Choose the Java-Code below with a never-ending loop.",
 "A":"while(true);",
 "B":"for(;true;);",
-"C":"do
-     {
-       ;
-     }while(true);",
+"C":"do \n { \n ; \n }while(true);",
 "D":"all of the above",
 "ANSWER":4,
 },
@@ -463,17 +369,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST4",
-"QUESTION":"What will be the output of the following Java program?
-
-                import java.io.*;
-                class filesinputoutput
-                {
-                    public static void main(String args[])
-                    {
-                        InputStream obj = new FileInputStream("inputoutput.java");
-                        System.out.print(obj.available());
-                    }
-                }",
+"QUESTION":"What will be the output of the following Java program? \n import java.io.*; \n class filesinputoutput \n { \n public static void main(String args[]) \n { \n InputStream obj = new FileInputStream(\"inputoutput.java\"); \n System.out.print(obj.available()); \n } \n }",
 "A":" true",
 "B":" false",
 "C":" prints number of bytes in file",
@@ -493,34 +389,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST4",
-"QUESTION":"What will be the output of the following Java program?
-
-                import java.io.*;
-                class Chararrayinput
-                {
-                    public static void main(String[] args)
-                    {
-            	    String obj  = "abcdefgh";
-                        int length = obj.length();
-                        char c[] = new char[length];
-                        obj.getChars(0, length, c, 0);
-                        CharArrayReader input1 = new CharArrayReader(c);
-                        CharArrayReader input2 = new CharArrayReader(c, 1, 4);
-                        int i;
-                        int j;
-                        try
-                        {
-            		while((i = input1.read()) == (j = input2.read()))
-                            {
-                                System.out.print((char)i);
-                            }
-                   	    }
-                        catch (IOException e)
-                        {
-                            e.printStackTrace();
-            	    }
-            	}
-                }",
+"QUESTION":"What will be the output of the following Java program? \n import java.io.*; \n class Chararrayinput \n { \n public static void main(String[] args) \n { \n String obj  = "abcdefgh"; \n int length = obj.length(); \n char c[] = new char[length]; \n obj.getChars(0, length, c, 0); \n CharArrayReader input1 = new CharArrayReader(c); \n CharArrayReader input2 = new CharArrayReader(c, 1, 4); \n int i; \n int j; \n try \n { \n while((i = input1.read()) == (j = input2.read())) \n { \n System.out.print((char)i); \n } \n } \n catch (IOException e) \n { \n e.printStackTrace(); \n } \n } \n }",
 "A":"abc",
 "B":"abcd",
 "C":"abcde",
@@ -530,33 +399,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST4",
-"QUESTION":"What will be the output of the following Java program?
-
-                import java.io.*;
-                class Chararrayinput
-                {
-                    public static void main(String[] args)
-                    {
-            	    String obj  = "abcdef";
-                        int length = obj.length();
-                        char c[] = new char[length];
-                        obj.getChars(0, length, c, 0);
-                        CharArrayReader input1 = new CharArrayReader(c);
-                        CharArrayReader input2 = new CharArrayReader(c, 0, 3);
-                        int i;
-                        try
-                        {
-            		while((i = input2.read()) != -1)
-                            {
-                                System.out.print((char)i);
-                            }
-                   	    }
-                        catch (IOException e)
-                        {
-                            e.printStackTrace();
-            	    }
-            	}
-                }",
+"QUESTION":"What will be the output of the following Java program? \n import java.io.*; \n class Chararrayinput \n { \n public static void main(String[] args) \n { \n String obj  = "abcdef"; \n int length = obj.length(); \n char c[] = new char[length]; \n obj.getChars(0, length, c, 0); \n CharArrayReader input1 = new CharArrayReader(c); \n CharArrayReader input2 = new CharArrayReader(c, 0, 3); \n int i; \n try \n { \n while((i = input2.read()) != -1) \n { \n System.out.print((char)i); \n } \n } \n catch (IOException e) \n { \n e.printStackTrace(); \n } \n } \n }",
 "A":"abc",
 "B":"abcd",
 "C":"abcde",
@@ -566,31 +409,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST4",
-"QUESTION":"What will be the output of the following Java program?
-
-                import java.io.*;
-                public class filesinputoutput
-                {
-                	public static void main(String[] args)
-                    {
-             	   String obj  = "abc";
-                       byte b[] = obj.getBytes();
-                       ByteArrayInputStream obj1 = new ByteArrayInputStream(b);
-                       for (int i = 0; i < 2; ++ i)
-                       {
-                           int c;
-                           while((c = obj1.read()) != -1)
-                           {
-                        	   if(i == 0)
-                               {
-                        	       System.out.print(Character.toUpperCase((char)c));
-                                   obj2.write(1);
-                        	   }
-                           }
-                           System.out.print(obj2);
-                       }
-                    }
-                }",
+"QUESTION":"What will be the output of the following Java program? \n import java.io.*; \n public class filesinputoutput \n { \n public static void main(String[] args) \n { \n String obj  = "abc"; \n byte b[] = obj.getBytes(); \n ByteArrayInputStream obj1 = new ByteArrayInputStream(b); \n for (int i = 0; i < 2; ++ i) \n { \n int c; \n while((c = obj1.read()) != -1) \n { \n if(i == 0) \n { \n System.out.print(Character.toUpperCase((char)c)); \n obj2.write(1); \n } \n } \n System.out.print(obj2); \n } \n } \n }",
 "A":"AaBaCa",
 "B":" ABCaaa",
 "C":"AaaBaaCaa",
@@ -620,12 +439,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST5",
-"QUESTION":" Which of the following are legal lines of Java code?
-   1. int w = (int)888.8;
-   2. byte x = (byte)100L;
-   3. long y = (byte)100;
-   4. byte z = (byte)100L;
-",
+"QUESTION":" Which of the following are legal lines of Java code? \n 1. int w = (int)888.8; \n 2. byte x = (byte)100L; \n 3. long y = (byte)100; \n 4. byte z = (byte)100L;",
 "A":" 1 and 2 ",
 "B":"2 and 3",
 "C":" 3 and 4",
@@ -695,16 +509,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST5",
-"QUESTION":" What will be the output of the following Java code?
-
-    class booloperators {
-        public static void main(String args[])
-        {
-            boolean var1 = true;
-	    boolean var2 = false;
-	    System.out.println((var1 & var2));
-        }
-    }",
+"QUESTION":" What will be the output of the following Java code? \n class booloperators { \n public static void main(String args[]) \n { \n boolean var1 = true; \n boolean var2 = false; \n System.out.println((var1 & var2)); \n } \n }",
 "A":"0",
 "B":"1",
 "C":"true",
@@ -734,9 +539,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST6",
-"QUESTION":"What will be the output of the following Java code?
-    int arr[] = new int [5];
-    System.out.print(arr);",
+"QUESTION":"What will be the output of the following Java code? \n int arr[] = new int [5]; \n System.out.print(arr);",
 "A":"0 ",
 "B":"value stored in arr[0]",
 "C":"00000",
@@ -756,21 +559,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST6",
-"QUESTION":" What will be the output of the following Java code?
-
-                class array_output
-                {
-                    public static void main(String args[])
-                    {
-                        int array_variable [] = new int[10];
-            	    for (int i = 0; i < 10; ++i)
-                        {
-                            array_variable[i] = i;
-                            System.out.print(array_variable[i] + " ");
-                            i++;
-                        }
-                    }
-                }",
+"QUESTION":" What will be the output of the following Java code? \n class array_output \n { \n public static void main(String args[]) \n { \n int array_variable [] = new int[10]; \n for (int i = 0; i < 10; ++i) \n { \n array_variable[i] = i; \n System.out.print(array_variable[i] + " "); \n i++; \n } \n } \n }",
 "A":" 0 2 4 6 8 ",
 "B":" 1 3 5 7 9",
 "C":"0 1 2 3 4 5 6 7 8 9",
@@ -780,10 +569,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST6",
-"QUESTION":" What is the type of variable ‘b’ and ‘d’ in the following Java snippet?
-
-            int a[], b;
-            int []c, d;",
+"QUESTION":" What is the type of variable ‘b’ and ‘d’ in the following Java snippet? \n int a[], b; \n int []c, d;",
 "A":" ‘b’ and ‘d’ are int  ",
 "B":"‘b’ and ‘d’ are arrays of type int",
 "C":" ‘b’ is int variable; ‘d’ is int array",
@@ -1107,8 +893,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST9",
-"QUESTION":"What will be the output of the following Java program? \nclassString_demo\n {\n  public static void main(String args[]) \n { \n char chars[]
-= {'a', 'b', 'c'};\n String s = new String(chars);\n System.out.println(s); \n } \n } ",
+"QUESTION":"What will be the output of the following Java program? \nclassString_demo\n {\n  public static void main(String args[]) \n { \n char chars[] \n = {'a', 'b', 'c'};\n String s = new String(chars);\n System.out.println(s); \n } \n } ",
 "A":"a",
 "B":"b",
 "C":"c",
@@ -1119,12 +904,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST9",
-"QUESTION":"What will be the output of the following Java program?\n class String_demo \n { \n public static void main(String args[]) \n { \n
-            int ascii[] = { 65, 66, 67, 68}; \n
-            String s = new String(ascii, 1, 3); \n
-            System.out.println(s); \n
-        } \n
-   }",
+"QUESTION":"What will be the output of the following Java program?\n class String_demo \n { \n public static void main(String args[]) \n { \n int ascii[] = { 65, 66, 67, 68}; \n String s = new String(ascii, 1, 3); \n System.out.println(s); \n } \n }",
 "A":"ABC",
 "B":"BCD",
 "C":"CDA",
@@ -1244,10 +1024,10 @@ class Output
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST10",
 "QUESTION":"How to assign values to variable using property?",
-"A":"@Value("${my.property}")\n private String prop;",
-"B":"@Property("${my.property}")\n private String prop; ",
-"C":"@Environment("${my.property}")\n private String prop;",
-"D":"@Environment("${my.property}")\n private String prop;",
+"A":"@Value(\"${my.property}\")\n private String prop;",
+"B":"@Property(\"${my.property}\")\n private String prop; ",
+"C":"@Environment(\"${my.property}\")\n private String prop;",
+"D":"@Environment(\"${my.property}\")\n private String prop;",
 "ANSWER":1,
 },
 
@@ -1411,27 +1191,7 @@ class Output
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST12",
-"QUESTION":" Which two classes use the Shape class correctly?\n A. public class Circle implements Shape \n {\n private int radius;\n} \n B. public abstract class Circle extends Shape \n { \n private int radius; \n   } \nC. public class Circle extends Shape \n { \n private int radius; \npublic void draw(); \n } \nD. public abstract class Circle implements Shape  \n  { \n
-    private int radius; \n
-    public void draw(); \n
-   } \n
-E. public class Circle extends Shape  \n
-   { \n
-    private int radius; \n
-    public void draw() \n
-    { \n
-     /* code here */ \n
-    } \n
-   } \n
-F. public abstract class Circle implements Shape  \n
-   { \n
-     private int radius; \n
-     public void draw() \n
-     { \n
-      /* code here */ \n
-     } \n
-   } \n
- ",
+"QUESTION":" Which two classes use the Shape class correctly?\n A. public class Circle implements Shape \n {\n private int radius;\n} \n B. public abstract class Circle extends Shape \n { \n private int radius; \n   } \nC. public class Circle extends Shape \n { \n private int radius; \npublic void draw(); \n } \nD. public abstract class Circle implements Shape  \n  { \n private int radius; \n public void draw(); \n } \n E. public class Circle extends Shape  \n { \n private int radius; \n public void draw() \n { \n  /* code here */ \n } \n } \n F. public abstract class Circle implements Shape  \n { \n private int radius; \n public void draw() \n { \n  /* code here */ \n } \n } \n  ",
 "A"":"B,E",
 "B": " A,C",
 "C": "C,E",
@@ -1442,34 +1202,7 @@ F. public abstract class Circle implements Shape  \n
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST12",
-"QUESTION":"  What will be the output of the following Java program?
-
-    class A
-    {
-        int i;
-        void display()
-        {
-            System.out.println(i);
-        }
-    }
-    class B extends A
-    {
-        int j;
-        void display()
-        {
-            System.out.println(j);
-        }
-    }
-    class inheritance_demo
-    {
-        public static void main(String args[])
-        {
-            B obj = new B();
-            obj.i=1;
-            obj.j=2;
-            obj.display();
-        }
-   }",
+"QUESTION":"  What will be the output of the following Java program? \n class A \n { \n int i; \n void display() \n { \n System.out.println(i); \n } \n } \n class B extends A \n { \n int j; \n void display() \n { \n System.out.println(j); \n } \n } \n class inheritance_demo \n { \n public static void main(String args[]) \n { \n B obj = new B(); \n obj.i=1; \n obj.j=2; \n obj.display(); \n } \n }",
 "A"":" 0"
 "B": "1"
 "C": "2"
@@ -1480,32 +1213,7 @@ F. public abstract class Circle implements Shape  \n
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST12",
-"QUESTION":"class A \n
-    { \n
-        int i; \n
-        void display() \n
-        { \n
-            System.out.println(i); \n
-        } \n
-    }   \n
-    class B extends A  \n
-    { \n
-        int j; \n
-        void display()  \n
-        { \n
-            System.out.println(j); \n
-        } \n
-    }  \n
-    class inheritance_demo  \n
-    { \n
-        public static void main(String args[]) \n
-        { \n
-            B obj = new B(); \n
-            obj.i=1; \n
-            obj.j=2;   \n
-            obj.display(); \n
-        } \n
-   }",
+"QUESTION":"class A \n{ \n int i; \n void display() \n { \n System.out.println(i); \n } \n }   \n class B extends A  \n { \n int j; \n void display()  \n { \n System.out.println(j); \n } \n }  \n class inheritance_demo  \n { \n public static void main(String args[]) \n { \n B obj = new B(); \n obj.i=1; \n obj.j=2;   \n obj.display(); \n } \n }",
 "A":"2 2",
 "B":"3 3",
 "C":"2 3",
@@ -1516,33 +1224,7 @@ F. public abstract class Circle implements Shape  \n
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST12",
-"QUESTION":"What will be the output of the following Java program? \n
-    class A \n
-    { \n
-        public int i; \n
-        public int j; \n
-        A() \n
-        { \n
-            i = 1; \n
-            j = 2; \n
-	} \n
-    }    \n
-    class B extends A \n
-    { \n
-        int a; \n
-        B() \n
-        { \n
-            super(); \n
-        } \n
-    }    \n
-    class super_use \n
-    { \n
-        public static void main(String args[]) \n
-        { \n
-            B obj = new B(); \n
-            System.out.println(obj.i + " " + obj.j)   \n
-        } \n
-   }",
+"QUESTION":"What will be the output of the following Java program? \n class A \n { \n public int i; \n public int j; \n A() \n { \n i = 1; \n j = 2; \n } \n }    \n class B extends A \n { \n int a; \n B() \n { \n super(); \n } \n }    \n class super_use \n { \n public static void main(String args[]) \n { \n B obj = new B(); \n System.out.println(obj.i + " " + obj.j)   \n } \n }",
 "A":"1 2",
 "B":"2 1",
 "C":"runtime error",
@@ -1630,25 +1312,7 @@ F. public abstract class Circle implements Shape  \n
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST13",
-"QUESTION":"What will be the output of the following Java code? \n
-class San \n
-{ \n
- public void m1 (int i,float f) \n
- { \n
-  System.out.println(" int float method"); \n
- } \n
-
- public void m1(float f,int i); \n
-  { \n
-  System.out.println("float int method"); \n
-  } \n
-
-  public static void main(String[]args) \n
-  { \n
-    San s=new San(); \n
-        s.m1(20,20); \n
-  } \n
-}",
+"QUESTION":"What will be the output of the following Java code? \n class San \n { \n public void m1 (int i,float f) \n { \n System.out.println(" int float method"); \n } \n public void m1(float f,int i); \n { \n System.out.println("float int method"); \n } \n public static void main(String[]args) \n { \n San s=new San(); \n s.m1(20,20); \n } \n }",
 "A":"int float method",
 "B":"float int method",
 "C":"compile time error",
@@ -1659,32 +1323,7 @@ class San \n
  {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST13",
-"QUESTION":"What will be the output of the following Java code?
-
-    class overload
-    {
-        int x;
- 	int y;
-        void add(int a)
-        {
-            x =  a + 1;
-        }
-        void add(int a, int b)
-        {
-            x =  a + 2;
-        }
-    }
-    class Overload_methods
-    {
-        public static void main(String args[])
-        {
-            overload obj = new overload();
-            int a = 0;
-           obj.add(6);
-            System.out.println(obj.x);
-        }
-   }
-       ",
+"QUESTION":"What will be the output of the following Java code? \n class overload \n { \n int x; \n int y; \n void add(int a) \n { \n x =  a + 1; \n } \n void add(int a, int b) \n { \n x =  a + 2; \n } \n } \n class Overload_methods \n { \n public static void main(String args[]) \n { \n overload obj = new overload(); \n int a = 0; \n obj.add(6); \n System.out.println(obj.x); \n } \n }",
 "A":"5",
 "B":"6",
 "C":"7",
@@ -1695,31 +1334,7 @@ class San \n
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST13",
-"QUESTION":"What will be the output of the following Java code?
-
-    class overload
-    {
-        int x;
- 	int y;
-        void add(int a)
-        {
-            x =  a + 1;
-        }
-        void add(int a , int b)
-        {
-            x =  a + 2;
-        }
-    }
-    class Overload_methods
-    {
-        public static void main(String args[])
-        {
-            overload obj = new overload();
-            int a = 0;
-            obj.add(6, 7);
-            System.out.println(obj.x);
-        }
-    }",
+"QUESTION":"What will be the output of the following Java code? \n class overload \n { \n int x; \n int y; \n void add(int a) \n { \n x =  a + 1; \n } \n void add(int a , int b) \n { \n x =  a + 2; \n } \n } \n class Overload_methods \n { \n public static void main(String args[]) \n { \n overload obj = new overload(); \n int a = 0; \n obj.add(6, 7); \n System.out.println(obj.x); \n } \n }",
 "A":"6",
 "B":"7",
 "C":"8",
@@ -1730,38 +1345,7 @@ class San \n
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST13",
-"QUESTION":"What will be the output of the following Java code?
-
-   class overload
-   {
-        int x;
- 	double y;
-        void add(int a , int b)
-        {
-            x = a + b;
-        }
-        void add(double c , double d)
-        {
-            y = c + d;
-        }
-        overload()
-        {
-            this.x = 0;
-            this.y = 0;
-        }
-    }
-    class Overload_methods
-    {
-        public static void main(String args[])
-        {
-            overload obj = new overload();
-            int a = 2;
-            double b = 3.2;
-            obj.add(a, a);
-            obj.add(b, b);
-            System.out.println(obj.x + " " + obj.y);
-        }
-   }",
+"QUESTION":"What will be the output of the following Java code? \n class overload \n { \n int x; \n double y; \n void add(int a , int b) \n { \n x = a + b; \n } \n void add(double c , double d) \n { \n y = c + d; \n } \n overload() \n { \n this.x = 0; \n this.y = 0; \n } \n } \n class Overload_methods \n { \n public static void main(String args[]) \n { \n overload obj = new overload(); \n int a = 2; \n double b = 3.2; \n obj.add(a, a); \n obj.add(b, b); \n System.out.println(obj.x + " " + obj.y); \n } \n }",
 "A":"6 6",
 "B":"6.4 6.4",
 "C":"6.4 6",
@@ -1772,29 +1356,7 @@ class San \n
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST13",
-"QUESTION":"What will be the output of the following Java code?
-
-    class test
-    {
-        int a;
-        int b;
-        void meth(int i , int j)
-        {
-            i *= 2;
-            j /= 2;
-        }
-    }
-    class Output
-    {
-        public static void main(String args[])
-        {
-            test obj = new test();
-	    int a = 10;
-            int b = 20;
-            obj.meth(a , b);
-            System.out.println(a + " " + b);
-        }
-    }",
+"QUESTION":"What will be the output of the following Java code? \n class test \n { \n int a; \n int b; \n void meth(int i , int j) \n { \n i *= 2; \n j /= 2; \n } \n } \n class Output \n { \n public static void main(String args[]) \n { \n test obj = new test(); \n int a = 10; \n int b = 20; \n obj.meth(a , b); \n System.out.println(a + " " + b); \n } \n }",
 "A":"10 20",
 "B":"20 10",
 "C":"20 40",
@@ -1805,32 +1367,7 @@ class San \n
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST13",
-"QUESTION":"What will be the output of the following Java code?
-
-    class test
-    {
-        int a;
-        int b;
-        test(int i, int j)
-        {
-            a = i;
-            b = j;
-        }
-        void meth(test o)
-        {
-            o.a *= 2;
-            O.b /= 2;
-        }
-    }
-    class Output
-    {
-        public static void main(String args[])
-        {
-            test obj = new test(10 , 20);
-            obj.meth(obj);
-            System.out.println(obj.a + " " + obj.b);
-        }
-    }",
+"QUESTION":"What will be the output of the following Java code? \n class test \n { \n int a; \n int b; \n test(int i, int j) \n { \n a = i; \n b = j; \n } \n void meth(test o) \n { \n o.a *= 2; \n O.b /= 2; \n } \n } \n class Output \n { \n public static void main(String args[]) \n { \n test obj = new test(10 , 20); \n obj.meth(obj); \n System.out.println(obj.a + " " + obj.b); \n } \n }",
 "A":"10 20",
 "B":"20 10",
 "C":"20 40",
@@ -1908,16 +1445,7 @@ class San \n
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST14",
-"QUESTION":" What is the priority of the thread in the following Java Program?
-
-    class multithreaded_programing
-    {
-        public static void main(String args[])
-        {
-            Thread t = Thread.currentThread();
-            System.out.println(t);
-        }
-    }",
+"QUESTION":" What is the priority of the thread in the following Java Program? \n class multithreaded_programing \n { \n public static void main(String args[]) \n { \n Thread t = Thread.currentThread(); \n System.out.println(t); \n } \n }",
 "A":"4",
 "B":"5",
 "C":"0",
@@ -1928,16 +1456,7 @@ class San \n
 {
 "CATEGORY":"QXMDYGn4BursvyhqYp7b",
 "TEST":"TEST14",
-"QUESTION":" What is the name of the thread in the following Java Program?
-
-    class multithreaded_programing
-    {
-        public static void main(String args[])
-        {
-            Thread t = Thread.currentThread();
-            System.out.println(t);
-        }
-    }",
+"QUESTION":" What is the name of the thread in the following Java Program? \n class multithreaded_programing \n { \n public static void main(String args[]) \n { \n Thread t = Thread.currentThread(); \n System.out.println(t); \n } \n }",
 "A":"main",
 "B":"thread",
 "C":"system",
