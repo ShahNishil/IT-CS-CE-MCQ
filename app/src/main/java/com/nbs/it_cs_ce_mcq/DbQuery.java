@@ -62,6 +62,31 @@ public class DbQuery {
         });
     }
 
+    public static void saveProfileData(String name, final MyCompleteListener completeListener)
+    {
+
+        Map<String, Object> profileData =new ArrayMap<>();
+        profileData.put("Name", name);
+
+        g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getUid())
+                .update(profileData)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        myProfile.setName(name);
+                        completeListener.onSuccess();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        completeListener.onFailure();
+                    }
+                });
+    }
+
+
     public static void getUserData(final MyCompleteListener completeListener)
     {
 

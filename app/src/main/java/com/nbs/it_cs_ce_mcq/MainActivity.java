@@ -26,6 +26,8 @@ import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
 import com.nbs.it_cs_ce_mcq.databinding.ActivityMainBinding;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -68,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Categories");
+
+
         /**  binding.appBarMain.toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

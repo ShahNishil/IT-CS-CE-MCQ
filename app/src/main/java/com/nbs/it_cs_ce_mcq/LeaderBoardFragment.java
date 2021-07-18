@@ -6,8 +6,9 @@ import android.os.Bundle;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.GridView;
+import android.widget.Toolbar;
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
         import java.util.List;
 
 
@@ -21,7 +22,11 @@ public class LeaderBoardFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_category, container, false);
 
+      //  Toolbar toolbar=getActivity().findViewById(R.id.toolbar);
+      //  ((MainActivity)getActivity()).getSupportActionBar().setTitle("Home");
+
         catView=view.findViewById(R.id.cat_Grid);
+
 
         //loadCategories();
 
