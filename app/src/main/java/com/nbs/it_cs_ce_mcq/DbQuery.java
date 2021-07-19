@@ -62,11 +62,12 @@ public class DbQuery {
         });
     }
 
-    public static void saveProfileData(String name, final MyCompleteListener completeListener)
+    public static void saveProfileData(String name, MyCompleteListener completeListener)
     {
 
-        Map<String, Object> profileData =new ArrayMap<>();
-        profileData.put("Name", name);
+        Map<String, Object> profileData = new ArrayMap<>();
+
+        profileData.put("NAME", name);
 
         g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getUid())
                 .update(profileData)

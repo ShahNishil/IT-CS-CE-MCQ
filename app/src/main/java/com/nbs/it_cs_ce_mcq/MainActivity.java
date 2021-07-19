@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerProfileText.setText(name.toUpperCase().substring(0,1));
 
-        setFragement(new CategoryFragment());
+        setFragement(new LeaderBoardFragment());
     }
 
     @Override

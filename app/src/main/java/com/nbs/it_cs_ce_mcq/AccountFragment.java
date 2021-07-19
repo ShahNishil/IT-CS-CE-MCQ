@@ -96,6 +96,7 @@ import java.util.Objects;
             }
         });
 
+/**
         leaderboardB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,8 +105,7 @@ import java.util.Objects;
         });
 
 
-
-/**        certificate=view.findViewById(R.id.certificate);
+        certificate=view.findViewById(R.id.certificate);
         certificate.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -124,9 +124,9 @@ import java.util.Objects;
         logoutB=view.findViewById(R.id.logoutB);
         profile_img_text=view.findViewById(R.id.profile_img_text);
         name=view.findViewById(R.id.name);
-        rank=view.findViewById(R.id.rank);
+        //rank=view.findViewById(R.id.Rank);
         score=view.findViewById(R.id.total_score);
-        leaderboardB=view.findViewById(R.id.leaderboardB);
+        //leaderboardB=view.findViewById(R.id.leaderboardB);
         bookmarkB=view.findViewById(R.id.bookmarkB);
         profileB=view.findViewById(R.id.profileB);
 

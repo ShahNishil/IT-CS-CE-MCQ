@@ -86,39 +86,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
+        <!--
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical"
-                >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="RANK"
+                            android:gravity="center"
+                            android:textSize="18sp"
+                            android:padding="8dp"
+                            android:layout_weight="1"
+                            />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="RANK"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:padding="8dp"
-                    android:layout_weight="1"
-                    />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/rank"
+                            android:text="NA"
+                            android:textSize="22sp"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:textColor="@color/colorPrimary"
+                            android:layout_weight="1"
+                            />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rank"
-                    android:text="NA"
-                    android:textSize="22sp"
-                    android:gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_weight="1"
-                    />
-
-
-            </LinearLayout>
+                    </LinearLayout>
+        -->
 
 
         <LinearLayout
@@ -217,48 +217,6 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/leaderboardB"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:gravity="center"
-                >
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/award"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="LeaderBoard"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="8dp"
-                    />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:id="@+id/divider2"
-            android:background="?android:attr/listDivider"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/profileB"
                 android:orientation="vertical"
                 android:layout_weight="1"
@@ -281,6 +239,52 @@
                     />
 
             </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/divider2"
+            android:background="?android:attr/listDivider"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+<!--
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/leaderboardB"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/award"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LeaderBoard"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    />
+
+            </LinearLayout>
+-->
 
             <LinearLayout
                 android:layout_width="wrap_content"
