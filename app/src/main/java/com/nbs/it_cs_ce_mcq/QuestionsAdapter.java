@@ -13,6 +13,11 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
+import static com.nbs.it_cs_ce_mcq.DbQuery.ANSWERED;
+import static com.nbs.it_cs_ce_mcq.DbQuery.REVIEW;
+import static com.nbs.it_cs_ce_mcq.DbQuery.UNANSWERED;
+import static com.nbs.it_cs_ce_mcq.DbQuery.g_quesList;
+
 public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.ViewHolder> {
 
     private List<QuestionModel> questionsList;
@@ -109,6 +114,8 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
                 btn.setBackgroundResource(R.drawable.selected_btn);
                 DbQuery.g_quesList.get(quesID).setSelectedAns(option_num);
 
+                changeStatus(quesID, ANSWERED);
+
                 prevSelectedB=btn;
             }
             else
@@ -118,6 +125,8 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
                     btn.setBackgroundResource(R.drawable.unselected_btn);
                     DbQuery.g_quesList.get(quesID).setSelectedAns(-1);
 
+                    changeStatus(quesID, UNANSWERED);
+
                     prevSelectedB=null;
                 }
                 else
@@ -126,10 +135,21 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
                     btn.setBackgroundResource(R.drawable.selected_btn);
 
                     DbQuery.g_quesList.get(quesID).setSelectedAns(option_num);
+
+                    changeStatus(quesID, ANSWERED);
+
                     prevSelectedB=btn;
                 }
             }
 
+        }
+
+        private void changeStatus(int id, int status)
+        {
+            if (g_quesList.get(id).getStatus() != REVIEW)
+            {
+                g_quesList.get(id).setStatus(status);
+            }
         }
 
         private void setOption(Button btn, int option_num, int quesID)
