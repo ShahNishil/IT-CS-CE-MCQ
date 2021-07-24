@@ -39,10 +39,11 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull TestAdapter.ViewHolder holder, int position) {
-        //int progress=testList.get(position).getTopScore();
-        int progress=DbQuery.g_testList.get(position).getTopScore();
+        int progress=testList.get(position).getTopScore();
+        //int progress= g_testList.get(position).getTopScore();
+        //int progress=DbQuery.g_testList.get(position).getTopScore();
         //int progress= DbQuery.g_testList.get(i).getTopScore();
-        //int progress=DbQuery.g_testList.get(g_selected_test_index).getTopScore();
+        //int progress=DbQuery.g_testList.get(position).getTopScore();
 
 
         String testname =testList.get(position).getTopicName();

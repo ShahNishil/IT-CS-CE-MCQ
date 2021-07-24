@@ -128,7 +128,7 @@ public class DbQuery {
 
     }
 
-    public static void loadMyScores(MyCompleteListener completeListener)
+    public static void loadMyScores(final MyCompleteListener completeListener)
     {
         g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getUid())
                 .collection("USER_DATA").document("MY_SCORES")
@@ -158,7 +158,7 @@ public class DbQuery {
                 });
     }
 
-    public static void saveResult(int score, MyCompleteListener completeListener)
+    public static void saveResult(int score, final MyCompleteListener completeListener)
     {
         WriteBatch batch=g_firestore.batch();
 
@@ -182,7 +182,9 @@ public class DbQuery {
                     @Override
                     public void onSuccess(Void aVoid) {
                         if (score>g_testList.get(g_selected_test_index).getTopScore())
+                        {
                             g_testList.get(g_selected_test_index).setTopScore(score);
+                        }
 
                         myPerformance.setScore(score);
                         completeListener.onSuccess();
