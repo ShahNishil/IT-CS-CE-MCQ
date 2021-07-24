@@ -11,9 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+
+import androidx.appcompat.widget.Toolbar;
+
+import com.nbs.it_cs_ce_mcq.Adapters.AnswerAdapter;
+
+import java.util.Objects;
 
 public class ScoreActivity extends AppCompatActivity {
 
@@ -28,11 +32,11 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
 
-        //Toolbar toolbar=findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
-        //getSupportActionBar().setTitle("Result")
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Result");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         progressDialog = new Dialog(ScoreActivity.this);
         progressDialog.setContentView(R.layout.dialog_layout);
@@ -58,7 +62,8 @@ public class ScoreActivity extends AppCompatActivity {
         viewAnsB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(ScoreActivity.this, AnswerActivity.class);
+                startActivity(intent);
             }
         });
 

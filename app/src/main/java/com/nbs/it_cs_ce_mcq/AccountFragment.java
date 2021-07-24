@@ -11,7 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -41,8 +42,8 @@ import java.util.Objects;
 
         initViews(view);
 
-       // Toolbar toolbar=getActivity().findViewById(R.id.toolbar);
-      //  ((MainActivity)getActivity()).getSupportActionBar().setTitle("My Account");
+        Toolbar toolbar=getActivity().findViewById(R.id.toolbar);
+        ((MainActivity)getActivity()).getSupportActionBar().setTitle("My Account");
 
         String username=DbQuery.myProfile.getName();
         profile_img_text.setText(username.toUpperCase().substring(0,1));

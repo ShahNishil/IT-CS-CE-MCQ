@@ -17,6 +17,10 @@ import com.nbs.it_cs_ce_mcq.StartTestActivity;
 
 import java.util.List;
 
+import static com.nbs.it_cs_ce_mcq.DbQuery.g_selected_test_index;
+import static com.nbs.it_cs_ce_mcq.DbQuery.g_testList;
+import static com.nbs.it_cs_ce_mcq.DbQuery.myPerformance;
+
 public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
     private List<TestModel> testList;
 
@@ -35,7 +39,12 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull TestAdapter.ViewHolder holder, int position) {
-        int progress=testList.get(position).getTopScore();
+        //int progress=testList.get(position).getTopScore();
+        int progress=DbQuery.g_testList.get(position).getTopScore();
+        //int progress= DbQuery.g_testList.get(i).getTopScore();
+        //int progress=DbQuery.g_testList.get(g_selected_test_index).getTopScore();
+
+
         String testname =testList.get(position).getTopicName();
         holder.setData(position,progress,testname);
     }
@@ -73,7 +82,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
 
-                    DbQuery.g_selected_test_index= pos;
+                    g_selected_test_index= pos;
 
                     Intent intent=new Intent(itemView.getContext(), StartTestActivity.class);
                     itemView.getContext().startActivity(intent);

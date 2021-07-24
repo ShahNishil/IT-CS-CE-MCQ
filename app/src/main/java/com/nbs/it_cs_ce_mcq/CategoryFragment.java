@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.nbs.it_cs_ce_mcq.Adapters.CategoryAdapter;
 
 
@@ -21,8 +23,8 @@ public class CategoryFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_category, container, false);
 
 
-        // Toolbar toolbar=getActivity().findViewById(R.id.toolbar);
-        // ((MainActivity)getActivity()).getSupportActionBar().setTitle("Categories");
+         Toolbar toolbar=getActivity().findViewById(R.id.toolbar);
+         ((MainActivity)getActivity()).getSupportActionBar().setTitle("Tests");
 
 
         catView=view.findViewById(R.id.cat_Grid);

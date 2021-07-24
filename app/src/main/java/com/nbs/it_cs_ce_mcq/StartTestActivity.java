@@ -102,7 +102,8 @@ public class StartTestActivity extends AppCompatActivity {
         totalQ.setText(String.valueOf(DbQuery.g_quesList.size()));
         bestScore.setText(String.valueOf(DbQuery.g_testList.get(DbQuery.g_selected_test_index).getTopScore()));
         time.setText(String.valueOf(DbQuery.g_testList.get(DbQuery.g_selected_test_index).getTime()));
-   //     testName.setText("Test Name : " + String.valueOf(DbQuery.g_selected_test_index).getTopicName());
+     //
+        // testName.setText("Test Name : " + String.valueOf(DbQuery.g_selected_test_index).getTopicName());
     }
 
 }
