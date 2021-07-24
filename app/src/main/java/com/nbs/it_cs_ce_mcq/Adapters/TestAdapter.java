@@ -1,4 +1,4 @@
-package com.nbs.it_cs_ce_mcq;
+package com.nbs.it_cs_ce_mcq.Adapters;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.nbs.it_cs_ce_mcq.DbQuery;
+import com.nbs.it_cs_ce_mcq.Models.TestModel;
+import com.nbs.it_cs_ce_mcq.R;
+import com.nbs.it_cs_ce_mcq.StartTestActivity;
 
 import java.util.List;
 
@@ -70,7 +75,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
 
                     DbQuery.g_selected_test_index= pos;
 
-                    Intent intent=new Intent(itemView.getContext(),StartTestActivity.class);
+                    Intent intent=new Intent(itemView.getContext(), StartTestActivity.class);
                     itemView.getContext().startActivity(intent);
 
                 }

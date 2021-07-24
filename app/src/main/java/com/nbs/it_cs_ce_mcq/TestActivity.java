@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nbs.it_cs_ce_mcq.Adapters.TestAdapter;
+
 import java.util.Objects;
 
 
@@ -57,10 +59,22 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onSuccess() {
 
-                adapter=new TestAdapter(DbQuery.g_testList);
-                testView.setAdapter(adapter);
+                DbQuery.loadMyScores(new MyCompleteListener() {
+                    @Override
+                    public void onSuccess() {
+                        adapter=new TestAdapter(DbQuery.g_testList);
+                        testView.setAdapter(adapter);
 
-                progressDialog.dismiss();
+                        progressDialog.dismiss();
+
+                    }
+
+                    @Override
+                    public void onFailure() {
+                        progressDialog.dismiss();
+                        Toast.makeText(TestActivity.this, "Something went wrong ! Please try again.", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
             }
 

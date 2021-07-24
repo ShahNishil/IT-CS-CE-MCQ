@@ -1,4 +1,4 @@
-package com.nbs.it_cs_ce_mcq;
+package com.nbs.it_cs_ce_mcq.Adapters;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -10,6 +10,10 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
+
+import com.nbs.it_cs_ce_mcq.DbQuery;
+import com.nbs.it_cs_ce_mcq.QuestionsActivity;
+import com.nbs.it_cs_ce_mcq.R;
 
 import static com.nbs.it_cs_ce_mcq.DbQuery.ANSWERED;
 import static com.nbs.it_cs_ce_mcq.DbQuery.NOT_VISITED;

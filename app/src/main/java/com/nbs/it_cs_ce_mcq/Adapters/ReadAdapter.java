@@ -1,4 +1,4 @@
-package com.nbs.it_cs_ce_mcq;
+package com.nbs.it_cs_ce_mcq.Adapters;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,6 +8,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.nbs.it_cs_ce_mcq.DbQuery;
+import com.nbs.it_cs_ce_mcq.Models.TestModel;
+import com.nbs.it_cs_ce_mcq.R;
+import com.nbs.it_cs_ce_mcq.StartTopicActivity;
 
 import java.util.List;
 

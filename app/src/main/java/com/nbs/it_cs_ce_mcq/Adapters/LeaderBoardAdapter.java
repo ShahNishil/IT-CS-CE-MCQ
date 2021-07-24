@@ -1,4 +1,4 @@
-package com.nbs.it_cs_ce_mcq;
+package com.nbs.it_cs_ce_mcq.Adapters;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -7,13 +7,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.nbs.it_cs_ce_mcq.DbQuery;
+import com.nbs.it_cs_ce_mcq.Models.categoryModel;
+import com.nbs.it_cs_ce_mcq.R;
+import com.nbs.it_cs_ce_mcq.ReadActivity;
+
 import java.util.List;
 
-public class CategoryAdapter extends BaseAdapter {
+public class LeaderBoardAdapter extends BaseAdapter {
 
     private final List<categoryModel> cat_list;
 
-    public CategoryAdapter(List<categoryModel> cat_list)
+    public LeaderBoardAdapter(List<categoryModel> cat_list)
     {
         this.cat_list=cat_list;
     }
@@ -52,8 +57,7 @@ public class CategoryAdapter extends BaseAdapter {
             {
                 DbQuery.g_selected_cat_index=i;
 
-
-                Intent intent=new Intent(myView.getContext(),TestActivity.class);
+                Intent intent=new Intent(myView.getContext(), ReadActivity.class);
                 myView.getContext().startActivity(intent);
             }
         });
@@ -61,7 +65,7 @@ public class CategoryAdapter extends BaseAdapter {
         TextView catName=myView.findViewById(R.id.catName);
         TextView noOfTests=myView.findViewById(R.id.no_of_tests);
         catName.setText(cat_list.get(i).getName());
-        noOfTests.setText( String.valueOf(cat_list.get(i).getNoOfTests()) + " Tests");
+        noOfTests.setText( String.valueOf(cat_list.get(i).getNoOfTests()) + " Topics");
         return myView;
 
     }

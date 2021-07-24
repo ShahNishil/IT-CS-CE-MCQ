@@ -49,7 +49,7 @@ import java.util.Objects;
 
         name.setText(username);
 
-      //  score.setText(String.valueOf(DbQuery.myPerformance.getScore));
+        score.setText(String.valueOf(DbQuery.myPerformance.getScore()));
 
 
         logoutB.setOnClickListener(new View.OnClickListener()
@@ -105,14 +105,6 @@ import java.util.Objects;
         });
 
 
-        certificate=view.findViewById(R.id.certificate);
-        certificate.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CertificateActivity.class);
-                startActivity(intent);
-            }
-        });
 **/
 
         return view;

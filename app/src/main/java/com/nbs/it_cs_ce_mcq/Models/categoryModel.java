@@ -1,4 +1,4 @@
-package com.nbs.it_cs_ce_mcq;
+package com.nbs.it_cs_ce_mcq.Models;
 
 public class categoryModel {
 

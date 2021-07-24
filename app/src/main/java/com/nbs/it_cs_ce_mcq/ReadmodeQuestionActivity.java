@@ -2,7 +2,6 @@ package com.nbs.it_cs_ce_mcq;
 
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -16,13 +15,11 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
-import java.util.concurrent.TimeUnit;
+import com.nbs.it_cs_ce_mcq.Adapters.ReadmodeQuestionAdapter;
 
 import static com.nbs.it_cs_ce_mcq.DbQuery.g_catList;
 import static com.nbs.it_cs_ce_mcq.DbQuery.g_quesList;
 import static com.nbs.it_cs_ce_mcq.DbQuery.g_selected_cat_index;
-import static com.nbs.it_cs_ce_mcq.DbQuery.g_selected_test_index;
-import static com.nbs.it_cs_ce_mcq.DbQuery.g_testList;
 
 public class ReadmodeQuestionActivity extends AppCompatActivity {
 

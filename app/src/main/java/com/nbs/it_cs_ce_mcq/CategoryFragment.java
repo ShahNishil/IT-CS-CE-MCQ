@@ -6,10 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
-import android.widget.Toolbar;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.nbs.it_cs_ce_mcq.Adapters.CategoryAdapter;
 
 
 public class CategoryFragment extends Fragment {

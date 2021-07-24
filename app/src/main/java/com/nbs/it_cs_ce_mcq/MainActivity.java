@@ -45,15 +45,15 @@ public class MainActivity extends AppCompatActivity {
 
             switch (menuItem.getItemId())
             {
-                case R.id.nav_home:
+                case R.id.navigation_home:
                     setFragement(new CategoryFragment());
                     return true;
 
-                case R.id.nav_leaderboard:
+                case R.id.navigation_leaderboard:
                     setFragement(new LeaderBoardFragment());
                     return true;
 
-                case R.id.nav_account:
+                case R.id.navigation_account:
                     setFragement(new AccountFragment());
                     return true;
             }

@@ -13,16 +13,16 @@ import androidx.recyclerview.widget.SnapHelper;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.io.ByteArrayOutputStream;
+import com.nbs.it_cs_ce_mcq.Adapters.QuestionGridAdapter;
+import com.nbs.it_cs_ce_mcq.Adapters.QuestionsAdapter;
+
 import java.util.concurrent.TimeUnit;
 
 import static com.nbs.it_cs_ce_mcq.DbQuery.ANSWERED;
@@ -48,6 +48,8 @@ public class QuestionsActivity extends AppCompatActivity {
     private GridView queslistGV;
     private QuestionGridAdapter gridAdapter;
     private CountDownTimer timer;
+    private long timeleft;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -258,6 +260,8 @@ public class QuestionsActivity extends AppCompatActivity {
                 alertDialog.dismiss();
 
                 Intent intent=new Intent(QuestionsActivity.this, ScoreActivity.class);
+                long totalTime =g_testList.get(g_selected_test_index).getTime()*60*1000;
+                intent.putExtra("TIME_TAKEN", totalTime-timeleft);
                 startActivity(intent);
                 QuestionsActivity.this.finish();
 
@@ -283,7 +287,10 @@ public class QuestionsActivity extends AppCompatActivity {
         long totaltime=g_testList.get(g_selected_test_index).getTime()*60*1000;
         timer=new CountDownTimer(totaltime + 1000 , 1000) {
             @Override
-            public void onTick(long remainingTime) {
+            public void onTick(long remainingTime)
+            {
+                timeleft=remainingTime;
+
                 String time=String.format("%02d:%02d min",
                         TimeUnit.MILLISECONDS.toMinutes(remainingTime),
                         TimeUnit.MILLISECONDS.toSeconds(remainingTime) -
@@ -297,6 +304,8 @@ public class QuestionsActivity extends AppCompatActivity {
             public void onFinish() {
 
                 Intent intent=new Intent(QuestionsActivity.this, ScoreActivity.class);
+                long totalTime =g_testList.get(g_selected_test_index).getTime()*60*1000;
+                intent.putExtra("TIME_TAKEN", totalTime-timeleft);
                 startActivity(intent);
                 QuestionsActivity.this.finish();
 
