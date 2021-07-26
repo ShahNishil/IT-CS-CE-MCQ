@@ -24,7 +24,7 @@ import static com.nbs.it_cs_ce_mcq.DbQuery.g_selected_cat_index;
 public class ReadmodeQuestionActivity extends AppCompatActivity {
 
     private RecyclerView questionsView;
-    private TextView tvQuesID, catNameTV;
+    private TextView tvQuesID, catNameTV, qatopicname;
     private Button showAnswer;
     private ImageButton prevQuesB, nextQuesB;
     private ImageView quesListB;
@@ -61,10 +61,15 @@ public class ReadmodeQuestionActivity extends AppCompatActivity {
         nextQuesB=findViewById(R.id.next_quesB);
         quesListB=findViewById(R.id.ques_list_gridB);
         showAnswer=findViewById(R.id.showAnswer);
+        qatopicname=findViewById(R.id.qa_topicName);
 
         quesID=0;
         tvQuesID.setText("1/" + String.valueOf(g_quesList.size()));
         catNameTV.setText(g_catList.get(g_selected_cat_index).getName());
+
+        String topicname;
+        topicname=getIntent().getStringExtra("TOPIC_NAME");
+        qatopicname.setText(topicname);
     }
 
     private void setSnapHelper()

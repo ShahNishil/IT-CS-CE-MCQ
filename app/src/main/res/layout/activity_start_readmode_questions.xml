@@ -61,7 +61,7 @@
             android:id="@+id/qa_topicName"
             android:text="Topic Name : "
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:layout_weight="1"
             />
 

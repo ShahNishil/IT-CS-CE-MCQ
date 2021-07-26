@@ -40,7 +40,7 @@ public class AnswerActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(DbQuery.g_catList.get(DbQuery.g_selected_cat_index).getName());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        itemView=findViewById(R.id.test_recycler_view);
+        itemView=findViewById(R.id.ans_recycler_view);
 
         progressDialog = new Dialog(AnswerActivity.this);
         progressDialog.setContentView(R.layout.dialog_layout);

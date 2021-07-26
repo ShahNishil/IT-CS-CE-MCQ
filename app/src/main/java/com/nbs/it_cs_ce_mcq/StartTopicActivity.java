@@ -15,6 +15,7 @@ import java.util.List;
 
 import static com.nbs.it_cs_ce_mcq.DbQuery.g_catList;
 import static com.nbs.it_cs_ce_mcq.DbQuery.loadquestions;
+//import static com.nbs.it_cs_ce_mcq.Adapters.ReadAdapter.topicnam;
 
 public class StartTopicActivity extends AppCompatActivity {
 
@@ -23,6 +24,8 @@ public class StartTopicActivity extends AppCompatActivity {
     private ImageView backB;
     private Dialog progressDialog;
     private TextView dialogText;
+    public String topicname;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +87,7 @@ public class StartTopicActivity extends AppCompatActivity {
         startTestB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(StartTopicActivity.this, ReadmodeQuestionActivity.class);
+                Intent intent=new Intent(StartTopicActivity.this, ReadmodeQuestionActivity.class).putExtra("TOPIC_NAME", topicname);
                 startActivity(intent);
                 finish();
             }
@@ -97,7 +100,8 @@ public class StartTopicActivity extends AppCompatActivity {
         catName.setText(g_catList.get(DbQuery.g_selected_cat_index).getName());
         testNo.setText("Topic No : " + String.valueOf(DbQuery.g_selected_test_index + 1));
         totalQ.setText(String.valueOf(DbQuery.g_quesList.size()));
-        //  testName.setText("Topic Name : " + String.valueOf(DbQuery.g_selected_test_index).getTopicName());
+        topicname=getIntent().getStringExtra("TOPIC_NAME");
+        testName.setText("Topic Name : " + topicname);
     }
 
 }

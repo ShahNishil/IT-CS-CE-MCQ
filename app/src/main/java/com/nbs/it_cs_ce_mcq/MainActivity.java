@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.core.view.GravityCompat;
 import android.view.MenuItem;
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FrameLayout main_frame;
     private TextView drawerProfileName, drawerProfileText;
-
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener()
@@ -165,5 +165,6 @@ public class MainActivity extends AppCompatActivity {
          transaction.replace(main_frame.getId(),fragement);
          transaction.commit();
      }
+
 
 }

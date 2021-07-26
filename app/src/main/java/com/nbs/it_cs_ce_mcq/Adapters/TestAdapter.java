@@ -40,12 +40,6 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull TestAdapter.ViewHolder holder, int position) {
         int progress=testList.get(position).getTopScore();
-        //int progress= g_testList.get(position).getTopScore();
-        //int progress=DbQuery.g_testList.get(position).getTopScore();
-        //int progress= DbQuery.g_testList.get(i).getTopScore();
-        //int progress=DbQuery.g_testList.get(position).getTopScore();
-
-
         String testname =testList.get(position).getTopicName();
         holder.setData(position,progress,testname);
     }
@@ -61,6 +55,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
         private TextView topScore;
         private ProgressBar progressBar;
         private TextView testTopic;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -78,6 +73,8 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
             topScore.setText(String.valueOf(progress) + " %");
             progressBar.setProgress(progress);
 
+            String testnam = String.valueOf(testname);
+
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -85,7 +82,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
 
                     g_selected_test_index= pos;
 
-                    Intent intent=new Intent(itemView.getContext(), StartTestActivity.class);
+                    Intent intent=new Intent(itemView.getContext(), StartTestActivity.class).putExtra("TEST_NAME", testnam);
                     itemView.getContext().startActivity(intent);
 
                 }

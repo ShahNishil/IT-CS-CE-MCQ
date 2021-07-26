@@ -18,6 +18,7 @@ import java.util.List;
 
 public class ReadAdapter extends RecyclerView.Adapter<ReadAdapter.ViewHolder> {
     private List<TestModel> testList;
+    //public static String topicnam;
 
     public ReadAdapter(List<TestModel> testList) {
         this.testList = testList;
@@ -62,6 +63,8 @@ public class ReadAdapter extends RecyclerView.Adapter<ReadAdapter.ViewHolder> {
             topicNo.setText("Topic No : " + String.valueOf(pos+1));
             topicName.setText("Topic Name : " + String.valueOf(topicname));
 
+            String topicnam = String.valueOf(topicname);
+
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -69,7 +72,7 @@ public class ReadAdapter extends RecyclerView.Adapter<ReadAdapter.ViewHolder> {
 
                     DbQuery.g_selected_test_index= pos;
 
-                    Intent intent=new Intent(itemView.getContext(), StartTopicActivity.class);
+                    Intent intent=new Intent(itemView.getContext(), StartTopicActivity.class).putExtra("TOPIC_NAME", topicnam);
                     itemView.getContext().startActivity(intent);
 
                 }

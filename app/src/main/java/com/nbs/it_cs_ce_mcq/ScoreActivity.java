@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 import androidx.appcompat.widget.Toolbar;
 
 import com.nbs.it_cs_ce_mcq.Adapters.AnswerAdapter;
+import com.nbs.it_cs_ce_mcq.ui.CertificateActivity;
 
 import java.util.Objects;
 
