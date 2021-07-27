@@ -101,7 +101,6 @@ public class CertificateActivity extends AppCompatActivity {
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void createPdf(String dest, String Name, String Subject, String Id) {
 
         if (new File(dest).exists()) {
@@ -119,7 +118,7 @@ public class CertificateActivity extends AppCompatActivity {
             Document document = new Document(pdfDocument,pageSize,true);
             document.setMargins(0,0,0,0);
 
-            PdfFont font = PdfFontFactory.createFont("assets/fonts/brandon_medium.otf", "UTF-8", true);
+        //    PdfFont font = PdfFontFactory.createFont("assets/fonts/brandon_medium.otf", "UTF-8", true);
 
             Drawable d1= getDrawable(R.drawable.background);
             Bitmap bitmap1=((BitmapDrawable)d1).getBitmap();

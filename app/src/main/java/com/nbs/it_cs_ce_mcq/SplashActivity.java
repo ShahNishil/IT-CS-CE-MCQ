@@ -2,6 +2,9 @@ package com.nbs.it_cs_ce_mcq;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -22,8 +25,8 @@ public class SplashActivity extends AppCompatActivity {
 
         appName= findViewById(R.id.app_name);
 
-         // Typeface typeface= ResourcesCompat.getFont(this, R.font.blacklist);
-        //appName.setTypeface(typeface);
+        //Typeface typeface= ResourcesCompat.getFont(this, R.font.blacklist);
+      //  appName.setTypeface(typeface);
 
         Animation anim= AnimationUtils.loadAnimation(this, R.anim.myanim);
         appName.setAnimation(anim);
