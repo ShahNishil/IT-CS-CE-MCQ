@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CertificateActivity">
-
+    tools:context="com.nbs.it_cs_ce_mcq.ui.CertificateActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"

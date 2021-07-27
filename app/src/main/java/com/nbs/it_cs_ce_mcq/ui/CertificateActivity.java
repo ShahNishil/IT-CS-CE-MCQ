@@ -43,10 +43,8 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.TextAlignment;
-
 import com.nbs.it_cs_ce_mcq.FileUtils;
 import com.nbs.it_cs_ce_mcq.R;
-
 import com.nbs.it_cs_ce_mcq.permission.PermissionsActivity;
 import com.nbs.it_cs_ce_mcq.permission.PermissionsChecker;
 
@@ -69,6 +67,7 @@ public class CertificateActivity extends AppCompatActivity {
     PermissionsChecker checker;
 
     String dest;
+
 
     EditText editTextName, editTextSub, editTextId ;
     Toolbar toolbar;
@@ -102,6 +101,7 @@ public class CertificateActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void createPdf(String dest, String Name, String Subject, String Id) {
 
         if (new File(dest).exists()) {
@@ -171,11 +171,13 @@ public class CertificateActivity extends AppCompatActivity {
             table3.setMargins(160,0,-110,10);
             table3.addCell(new Cell().add(new Paragraph(Id).setFontSize(10).setFontColor(ColorConstants.BLACK)).setBorder(Border.NO_BORDER));
 
+
             float[] width5={70f};
             Table table5=new Table(width5);
             DateTimeFormatter dateFormatter2=DateTimeFormatter.ofPattern("dd/MM/yyyy");
             table5.setMargins(18,0,-110,180);
             table5.addCell(new Cell().add(new Paragraph(LocalDate.now().format(dateFormatter2).toString()).setFontSize(14).setFontColor(ColorConstants.BLACK)).setBorder(Border.NO_BORDER).setUnderline());
+
 
             document.add(image1);
             document.add(title);
@@ -186,9 +188,11 @@ public class CertificateActivity extends AppCompatActivity {
             document.add(table5);
             document.add(table3);
 
+
             document.close();
 
             Toast.makeText(mContext, "Pdf Generated...", Toast.LENGTH_SHORT).show();
+
 
         } catch (IOException e) {
             LOGE("createPdf: Error " + e.getLocalizedMessage());
@@ -210,7 +214,7 @@ public class CertificateActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -221,6 +225,7 @@ public class CertificateActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
