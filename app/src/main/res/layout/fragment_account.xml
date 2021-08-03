@@ -188,31 +188,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bookmarkB"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    >
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_bookmark"
-                        android:tint="@color/red"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Saved Questions"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="8dp"
-                        />
-
-                </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -227,7 +202,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_account"
-                    android:tint="@color/colorPrimary"
+                    app:tint="@color/colorPrimary"
                     />
 
                 <TextView
@@ -299,7 +274,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_logout"
-                    android:tint="@color/colorPrimary"
+                    app:tint="@color/colorPrimary"
                     />
 
                 <TextView

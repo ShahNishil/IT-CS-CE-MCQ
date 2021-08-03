@@ -1,93 +1,114 @@
 package com.nbs.it_cs_ce_mcq;
-
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
-import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.ViewGroup;
+import android.os.CountDownTimer;
+import android.view.View;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nbs.it_cs_ce_mcq.Adapters.AnswerAdapter;
-import com.nbs.it_cs_ce_mcq.Adapters.ReadAdapter;
+import com.nbs.it_cs_ce_mcq.Adapters.QuestionGridAdapter;
+import com.nbs.it_cs_ce_mcq.Adapters.QuestionsAdapter;
 
-import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
+import static com.nbs.it_cs_ce_mcq.DbQuery.ANSWERED;
+import static com.nbs.it_cs_ce_mcq.DbQuery.NOT_VISITED;
+import static com.nbs.it_cs_ce_mcq.DbQuery.REVIEW;
+import static com.nbs.it_cs_ce_mcq.DbQuery.UNANSWERED;
+import static com.nbs.it_cs_ce_mcq.DbQuery.g_catList;
+import static com.nbs.it_cs_ce_mcq.DbQuery.g_quesList;
+import static com.nbs.it_cs_ce_mcq.DbQuery.g_selected_cat_index;
+import static com.nbs.it_cs_ce_mcq.DbQuery.g_selected_test_index;
+import static com.nbs.it_cs_ce_mcq.DbQuery.g_testList;
 
 public class AnswerActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
-    private RecyclerView itemView;
-    private AnswerAdapter adapter;
-    private Dialog progressDialog;
-    private TextView dialogText;
+    private RecyclerView questionsView;
+    private TextView tvQuesID, timerTV, catNameTV;
+    private Button submitB, markB, clearSelB;
+    private ImageButton prevQuesB, nextQuesB, drawerCloseB;
+    private ImageView quesListB, markImage;
+    private int quesID;
+    AnswerAdapter quesAdapter;
+    private DrawerLayout drawer;
+    private GridView queslistGV;
+    private QuestionGridAdapter gridAdapter;
+    private CountDownTimer timer;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
 
-        toolbar=findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
+        init();
 
-        getSupportActionBar().setTitle(DbQuery.g_catList.get(DbQuery.g_selected_cat_index).getName());
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        quesAdapter=new AnswerAdapter(DbQuery.g_quesList);
+        questionsView.setAdapter(quesAdapter);
 
-        itemView=findViewById(R.id.ans_recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        questionsView.setLayoutManager(layoutManager);
 
-        progressDialog = new Dialog(AnswerActivity.this);
-        progressDialog.setContentView(R.layout.dialog_layout);
-        progressDialog.setCancelable(false);
-        progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+       // gridAdapter=new QuestionGridAdapter(this, g_quesList.size());
+       // queslistGV.setAdapter(gridAdapter);
 
-        dialogText = progressDialog.findViewById(R.id.dialog_text);
-        dialogText.setText("Loading...");
+        setSnapHelper();
 
-        progressDialog.show();
+    }
 
-        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-        layoutManager.setOrientation(RecyclerView.VERTICAL);
-        itemView.setLayoutManager(layoutManager);
+    private void init()
+    {
 
-        DbQuery.loadTestDataRead(new MyCompleteListener() {
+        questionsView=findViewById(R.id.ans_recycler_view);
+        //tvQuesID=findViewById(R.id.tv_quesID);
+        //catNameTV=findViewById(R.id.qa_catName);
+       // quesListB=findViewById(R.id.ques_list_gridB);
+
+        quesID=0;
+        //tvQuesID.setText("1/" + String.valueOf(g_quesList.size()));
+        //catNameTV.setText(g_catList.get(g_selected_cat_index).getName());
+
+        //g_quesList.get(0).setStatus(UNANSWERED);
+    }
+
+    private void setSnapHelper()
+    {
+
+        SnapHelper snapHelper=new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(questionsView);
+
+        questionsView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onSuccess() {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
 
-                adapter=new AnswerAdapter(DbQuery.g_quesList);
-                itemView.setAdapter(adapter);
-
-                progressDialog.dismiss();
+                View view=snapHelper.findSnapView(recyclerView.getLayoutManager());
+                quesID=recyclerView.getLayoutManager().getPosition(view);
 
             }
 
             @Override
-            public void onFailure() {
-                progressDialog.dismiss();
-                Toast.makeText(AnswerActivity.this, "Something went wrong ! Please try again.", Toast.LENGTH_SHORT).show();
-
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy)
+            {
+                super.onScrolled(recyclerView, dx, dy);
             }
         });
 
-
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item)
-    {
-        if (item.getItemId() == android.R.id.home)
-        {
-            AnswerActivity.this.finish();
-        }
-
-        return super.onOptionsItemSelected(item);
-
-    }
 
 }

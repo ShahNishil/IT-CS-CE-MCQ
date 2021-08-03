@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    >
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/tv_question"
-        android:layout_margin="8dp"
-        android:background="@color/white"
-        android:padding="8dp"
-        android:gravity="left"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:text="Question No 1"
-        android:textStyle="bold"
-        android:scrollbars="vertical"
-        android:inputType="textMultiLine"
-        android:elevation="5dp"
-        android:translationZ="3dp"
-        android:layout_weight="1"
-        />
-    </ScrollView>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_question"
+            android:layout_margin="8dp"
+            android:background="@color/white"
+            android:padding="8dp"
+            android:gravity="left"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="Question No 1"
+            android:textStyle="bold"
+            android:scrollbars="vertical"
+            android:inputType="textMultiLine"
+            android:elevation="5dp"
+            android:translationZ="3dp"
+            android:layout_weight="1"
+            />
 
     <Button
         android:layout_width="match_parent"
@@ -98,3 +99,4 @@
         />
 
 </LinearLayout>
+</ScrollView>

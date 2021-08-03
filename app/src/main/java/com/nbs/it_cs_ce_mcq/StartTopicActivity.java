@@ -15,7 +15,6 @@ import java.util.List;
 
 import static com.nbs.it_cs_ce_mcq.DbQuery.g_catList;
 import static com.nbs.it_cs_ce_mcq.DbQuery.loadquestions;
-//import static com.nbs.it_cs_ce_mcq.Adapters.ReadAdapter.topicnam;
 
 public class StartTopicActivity extends AppCompatActivity {
 

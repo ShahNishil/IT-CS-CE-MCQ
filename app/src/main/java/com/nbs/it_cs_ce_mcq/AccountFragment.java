@@ -81,13 +81,6 @@ import java.util.Objects;
             }
         });
 
-        bookmarkB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         profileB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,17 +89,6 @@ import java.util.Objects;
                 startActivity(intent);
             }
         });
-
-/**
-        leaderboardB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-
-**/
 
         return view;
     }
@@ -119,8 +101,6 @@ import java.util.Objects;
         name=view.findViewById(R.id.name);
         //rank=view.findViewById(R.id.Rank);
         score=view.findViewById(R.id.total_score);
-        //leaderboardB=view.findViewById(R.id.leaderboardB);
-        bookmarkB=view.findViewById(R.id.bookmarkB);
         profileB=view.findViewById(R.id.profileB);
 
 

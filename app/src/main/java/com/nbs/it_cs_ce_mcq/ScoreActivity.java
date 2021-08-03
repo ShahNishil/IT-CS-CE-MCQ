@@ -3,14 +3,19 @@ package com.nbs.it_cs_ce_mcq;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import androidx.appcompat.widget.Toolbar;
@@ -27,6 +32,7 @@ public class ScoreActivity extends AppCompatActivity {
     private long timeTaken;
     private Dialog progressDialog;
     private int finalscore;
+    String testname1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +60,11 @@ public class ScoreActivity extends AppCompatActivity {
         genCertiB.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                Intent intent = new Intent(ScoreActivity.this, CertificateActivity.class);
+                testname1=getIntent().getStringExtra("TEST_NAME");
+                Intent intent = new Intent(ScoreActivity.this, CertificateActivity.class).putExtra("TEST_NAME1", testname1);
                 startActivity(intent);
             }
         });
-
 
         viewAnsB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +95,6 @@ public class ScoreActivity extends AppCompatActivity {
         totalQTV=findViewById(R.id.totalQ);
         correctQTV=findViewById(R.id.correctQ);
         wrongQTV=findViewById(R.id.wrongQ);
-        unattemptedQTV=findViewById(R.id.un_attemptedQ);
         genCertiB=findViewById(R.id.genCertificateB);
         reAttemptB=findViewById(R.id.reattemptB);
         viewAnsB=findViewById(R.id.view_answerB);
@@ -122,7 +127,6 @@ public class ScoreActivity extends AppCompatActivity {
 
         correctQTV.setText(String.valueOf(correctQ));
         wrongQTV.setText(String.valueOf(wrongQ));
-        unattemptedQTV.setText(String.valueOf(unattemptQ));
 
         totalQTV.setText(String.valueOf(DbQuery.g_quesList.size()));
 
@@ -181,6 +185,25 @@ public class ScoreActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
 
+    }
+
+    public void openPDF(View view)
+    {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Context mContext;
+                    String dest;
+                    mContext = getApplicationContext();
+                    dest = FileUtils.getAppPath(mContext) + "Certificate.pdf";
+
+                    FileUtils.openFile(mContext, new File(dest));
+                } catch (Exception e) {
+                    Log.d("TAG", "run: ERror");
+                }
+            }
+        }, 1000);
     }
 
 }

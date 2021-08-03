@@ -1,84 +1,81 @@
 package com.nbs.it_cs_ce_mcq.Adapters;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nbs.it_cs_ce_mcq.AnswerActivity;
 import com.nbs.it_cs_ce_mcq.DbQuery;
 import com.nbs.it_cs_ce_mcq.Models.QuestionModel;
-import com.nbs.it_cs_ce_mcq.Models.TestModel;
 import com.nbs.it_cs_ce_mcq.R;
-import com.nbs.it_cs_ce_mcq.StartTopicActivity;
 
 import java.util.List;
 
-public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder> {
-    private List<QuestionModel> questionList;
+import static com.nbs.it_cs_ce_mcq.DbQuery.ANSWERED;
+import static com.nbs.it_cs_ce_mcq.DbQuery.REVIEW;
+import static com.nbs.it_cs_ce_mcq.DbQuery.UNANSWERED;
+import static com.nbs.it_cs_ce_mcq.DbQuery.g_quesList;
 
-    public AnswerAdapter(List<QuestionModel> questionList) {
-        this.questionList = questionList;
+public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder> {
+
+    private List<QuestionModel> questionsList;
+
+    public AnswerAdapter(List<QuestionModel> questionsList) {
+        this.questionsList = questionsList;
     }
 
     @NonNull
     @Override
-    public AnswerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_answer_layout,parent,false);
-
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_answer_layout, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AnswerAdapter.ViewHolder holder, int position) {
-      //  String topicname=questionList.get(position).getTopicName();
-      //  holder.setData(position,topicname);
+    public void onBindViewHolder(@NonNull AnswerAdapter.ViewHolder viewholder, int i) {
+        viewholder.setData(i);
     }
 
     @Override
     public int getItemCount() {
-        return questionList.size();
+        return questionsList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView topicNo;
-        private TextView topicName;
+        private TextView ques;
+        private TextView optionA, optionB, optionC, optionD, status, answer;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            topicNo=itemView.findViewById(R.id.topicNo);
-            topicName=itemView.findViewById(R.id.topicName);
+            ques=itemView.findViewById(R.id.quesName);
+            optionA=itemView.findViewById(R.id.optionA);
+            optionB=itemView.findViewById(R.id.optionB);
+            optionC=itemView.findViewById(R.id.optionC);
+            optionD=itemView.findViewById(R.id.optionD);
+            answer=itemView.findViewById(R.id.answer);
+            status=itemView.findViewById(R.id.status);
 
         }
 
-        private void setData(int pos, String topicname)
+        private void setData(final int pos)
         {
 
-  //          topicNo.setText("Topic No : " + String.valueOf(pos+1));
-//            topicName.setText("Topic Name : " + String.valueOf(topicname));
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-
-                    DbQuery.g_selected_test_index= pos;
-
-                    Intent intent=new Intent(itemView.getContext(), AnswerActivity.class);
-                    itemView.getContext().startActivity(intent);
-
-                }
-            });
-
+            ques.setText(questionsList.get(pos).getQuestion());
+            optionA.setText(questionsList.get(pos).getOptionA());
+            optionB.setText(questionsList.get(pos).getOptionB());
+            optionC.setText(questionsList.get(pos).getOptionC());
+            optionD.setText(questionsList.get(pos).getOptionD());
+            answer.setText(questionsList.get(pos).getCorrectAns());
+            status.setText(questionsList.get(pos).getStatus());
 
         }
+
 
     }
 }

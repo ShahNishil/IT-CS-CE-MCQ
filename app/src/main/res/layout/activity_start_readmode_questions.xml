@@ -23,7 +23,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:id="@+id/tv_quesID"
             android:text="1/25"
             android:layout_weight="1"
@@ -31,19 +31,6 @@
             android:textSize="20sp"
             android:textStyle="bold"
             />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:id="@+id/ll4"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_bar"
-        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,8 +48,7 @@
             android:id="@+id/qa_topicName"
             android:text="Topic Name : "
             android:textColor="@color/white"
-            android:textSize="14sp"
-            android:layout_weight="1"
+            android:textSize="10sp"
             />
 
     </LinearLayout>
@@ -116,20 +102,16 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/ll3"
-        app:layout_constraintTop_toBottomOf="@+id/ll4">
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:id="@+id/questions_view"
         android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ll3"
+        app:layout_constraintTop_toBottomOf="@+id/top_bar"
         >
     </androidx.recyclerview.widget.RecyclerView>
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

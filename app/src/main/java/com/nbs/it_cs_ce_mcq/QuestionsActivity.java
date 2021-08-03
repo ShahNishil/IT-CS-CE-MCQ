@@ -1,5 +1,4 @@
 package com.nbs.it_cs_ce_mcq;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,6 +48,7 @@ public class QuestionsActivity extends AppCompatActivity {
     private QuestionGridAdapter gridAdapter;
     private CountDownTimer timer;
     private long timeleft;
+    String testname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,6 @@ public class QuestionsActivity extends AppCompatActivity {
 
         gridAdapter=new QuestionGridAdapter(this, g_quesList.size());
         queslistGV.setAdapter(gridAdapter);
-
 
         setSnapHelper();
 
@@ -97,6 +96,7 @@ public class QuestionsActivity extends AppCompatActivity {
         quesID=0;
         tvQuesID.setText("1/" + String.valueOf(g_quesList.size()));
         catNameTV.setText(g_catList.get(g_selected_cat_index).getName());
+        testname=g_catList.get(g_selected_cat_index).getName();
 
         g_quesList.get(0).setStatus(UNANSWERED);
     }
@@ -134,7 +134,8 @@ public class QuestionsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy)
+            {
                 super.onScrolled(recyclerView, dx, dy);
             }
         });
@@ -226,10 +227,47 @@ public class QuestionsActivity extends AppCompatActivity {
         submitB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitTest();
+                submitButton();
             }
         });
 
+    }
+
+    private void submitButton()
+    {
+        int unattemptQ=0;
+        for (int i=0; i<DbQuery.g_quesList.size(); i++) {
+            if (DbQuery.g_quesList.get(i).getSelectedAns() == -1) {
+                unattemptQ++;
+            }
+        }
+
+        if (unattemptQ!=0)
+        {
+            AlertDialog.Builder builder=new AlertDialog.Builder(QuestionsActivity.this);
+            builder.setCancelable(true);
+
+            View view=getLayoutInflater().inflate(R.layout.alert_dialog_layout2,null);
+            Button cancelB=view.findViewById(R.id.cancelB);
+            TextView content=view.findViewById(R.id.content);
+            content.setText("Attempt Remaining Questions ?");
+
+            builder.setView(view);
+
+            AlertDialog alertDialog=builder.create();
+
+            cancelB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.show();
+        }
+        else
+        {
+            submitTest();
+        }
     }
 
     private void submitTest()
@@ -240,6 +278,8 @@ public class QuestionsActivity extends AppCompatActivity {
         View view=getLayoutInflater().inflate(R.layout.alert_dialog_layout,null);
         Button cancelB=view.findViewById(R.id.cancelB);
         Button confirmB=view.findViewById(R.id.confirmB);
+        TextView content=view.findViewById(R.id.content);
+        content.setText("Do You Want To Exit Test ?");
 
         builder.setView(view);
 
@@ -259,7 +299,7 @@ public class QuestionsActivity extends AppCompatActivity {
                 timer.cancel();
                 alertDialog.dismiss();
 
-                Intent intent=new Intent(QuestionsActivity.this, ScoreActivity.class);
+                Intent intent=new Intent(QuestionsActivity.this, ScoreActivity.class).putExtra("TEST_NAME", testname);
                 long totalTime =g_testList.get(g_selected_test_index).getTime()*60*1000;
                 intent.putExtra("TIME_TAKEN", totalTime-timeleft);
                 startActivity(intent);

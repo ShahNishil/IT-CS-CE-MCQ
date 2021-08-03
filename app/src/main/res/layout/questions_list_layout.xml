@@ -27,7 +27,7 @@
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:tint="@color/GREEN"
+        app:tint="@color/GREEN"
         app:srcCompat="@drawable/circle" />
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="128dp"
-        android:tint="@android:color/holo_red_dark"
+        app:tint="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/circle" />
@@ -71,7 +71,7 @@
         android:layout_height="30dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:tint="@color/grey"
+        app:tint="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/circle" />
@@ -82,7 +82,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="128dp"
-        android:tint="@color/pink"
+        app:tint="@color/pink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:srcCompat="@drawable/circle" />

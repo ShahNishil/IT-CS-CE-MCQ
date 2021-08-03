@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -59,6 +60,7 @@ import java.util.Objects;
 import static com.nbs.it_cs_ce_mcq.LogUtils.LOGE;
 import static com.nbs.it_cs_ce_mcq.permission.PermissionsActivity.PERMISSION_REQUEST_CODE;
 import static com.nbs.it_cs_ce_mcq.permission.PermissionsChecker.REQUIRED_PERMISSION;
+import java.util.Random;
 
 public class CertificateActivity extends AppCompatActivity {
 
@@ -69,10 +71,12 @@ public class CertificateActivity extends AppCompatActivity {
     String dest;
 
 
-    EditText editTextName, editTextSub, editTextId ;
+    EditText editTextName, editTextId ;
+    TextView editTextSub;
     Toolbar toolbar;
     private String subStr, idStr, nameStr;
     public static int COUNT=0;
+    String testname2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +98,8 @@ public class CertificateActivity extends AppCompatActivity {
         editTextSub=findViewById(R.id.editTextSub);
         editTextId=findViewById(R.id.editTextId);
 
+        testname2=getIntent().getStringExtra("TEST_NAME1");
+        editTextSub.setText(testname2);
 
         checker = new PermissionsChecker(this);
 
@@ -190,7 +196,7 @@ public class CertificateActivity extends AppCompatActivity {
 
             document.close();
 
-            Toast.makeText(mContext, "Pdf Generated...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "Certificate Generated...", Toast.LENGTH_SHORT).show();
 
 
         } catch (IOException e) {
@@ -210,7 +216,7 @@ public class CertificateActivity extends AppCompatActivity {
         }
 
     }
-
+/**
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -227,29 +233,22 @@ public class CertificateActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+**/
     public void createPDF(View view) {
         if (checker.lacksPermissions(REQUIRED_PERMISSION)) {
             PermissionsActivity.startActivityForResult(CertificateActivity.this, PERMISSION_REQUEST_CODE, REQUIRED_PERMISSION);
         } else {
 
-            String name = editTextName.getText().toString();
-            String subject = editTextSub.getText().toString();
+            String name=editTextName.getText().toString();
+            String subject = testname2;
             String id = editTextId.getText().toString();
 
             nameStr=editTextName.getText().toString().trim();
-            subStr=editTextSub.getText().toString().trim();
             idStr=editTextId.getText().toString().trim();
 
             if (nameStr.isEmpty())
             {
                 editTextName.setError("Enter Your Name");
-                return;
-            }
-
-            if (subStr.isEmpty())
-            {
-                editTextSub.setError("Enter Subject");
                 return;
             }
 
@@ -264,7 +263,8 @@ public class CertificateActivity extends AppCompatActivity {
         }
     }
 
-    public void openPDF(View view) {
+    public void openPDF(View view)
+    {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
