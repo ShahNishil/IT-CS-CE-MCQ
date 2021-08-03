@@ -46,6 +46,7 @@ import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.TextAlignment;
 import com.nbs.it_cs_ce_mcq.FileUtils;
 import com.nbs.it_cs_ce_mcq.R;
+import com.nbs.it_cs_ce_mcq.ScoreActivity;
 import com.nbs.it_cs_ce_mcq.permission.PermissionsActivity;
 import com.nbs.it_cs_ce_mcq.permission.PermissionsChecker;
 
@@ -88,11 +89,10 @@ public class CertificateActivity extends AppCompatActivity {
 
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
+        //Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
 
         getSupportActionBar().setTitle("Certificate Details");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         editTextName=findViewById(R.id.editTextName);
         editTextSub=findViewById(R.id.editTextSub);
@@ -198,6 +198,9 @@ public class CertificateActivity extends AppCompatActivity {
 
             Toast.makeText(mContext, "Certificate Generated...", Toast.LENGTH_SHORT).show();
 
+            Intent intent = new Intent(CertificateActivity.this, ScoreActivity.class);
+            startActivity(intent);
+
 
         } catch (IOException e) {
             LOGE("createPdf: Error " + e.getLocalizedMessage());
@@ -216,6 +219,7 @@ public class CertificateActivity extends AppCompatActivity {
         }
 
     }
+
 /**
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -263,6 +267,7 @@ public class CertificateActivity extends AppCompatActivity {
         }
     }
 
+/**
     public void openPDF(View view)
     {
         new Handler().postDelayed(new Runnable() {
@@ -276,4 +281,6 @@ public class CertificateActivity extends AppCompatActivity {
             }
         }, 1000);
     }
+**/
+
 }

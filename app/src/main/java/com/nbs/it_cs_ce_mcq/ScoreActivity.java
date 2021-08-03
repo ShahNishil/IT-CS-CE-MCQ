@@ -28,11 +28,12 @@ import java.util.Objects;
 public class ScoreActivity extends AppCompatActivity {
 
     private TextView scoreTV, timeTV, totalQTV, correctQTV, wrongQTV, unattemptedQTV, dialogText;
-    private Button genCertiB, reAttemptB, viewAnsB;
+    private Button genCertiB, reAttemptB, viewAnsB, openpdfB;
     private long timeTaken;
     private Dialog progressDialog;
     private int finalscore;
     String testname1;
+    static int count=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,19 @@ public class ScoreActivity extends AppCompatActivity {
         init();
 
         loadData();
+
+        if (count==0) {
+            count++;
+            enable1();
+        }
+        else if(count==1){
+            count++;
+            enable2();
+        }
+        else {
+            openpdfB.setVisibility(View.GONE);
+            genCertiB.setVisibility(View.GONE);
+        }
 
         genCertiB.setOnClickListener(new View.OnClickListener() {
 
@@ -98,6 +112,26 @@ public class ScoreActivity extends AppCompatActivity {
         genCertiB=findViewById(R.id.genCertificateB);
         reAttemptB=findViewById(R.id.reattemptB);
         viewAnsB=findViewById(R.id.view_answerB);
+        openpdfB=findViewById(R.id.appCompatButton2);
+
+    }
+
+    private void enable1()
+    {
+
+        genCertiB.setEnabled(true);
+        openpdfB.setEnabled(false);
+        openpdfB.setVisibility(View.GONE);
+
+    }
+
+    private void enable2()
+    {
+
+        genCertiB.setEnabled(false);
+        openpdfB.setEnabled(true);
+        genCertiB.setVisibility(View.GONE);
+
 
     }
 
