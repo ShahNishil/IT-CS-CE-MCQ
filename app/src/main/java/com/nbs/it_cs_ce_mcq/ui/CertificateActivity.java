@@ -77,6 +77,7 @@ public class CertificateActivity extends AppCompatActivity {
     private String subStr, idStr, nameStr;
     public static int COUNT=0;
     String testname2;
+    String score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +99,8 @@ public class CertificateActivity extends AppCompatActivity {
         editTextId=findViewById(R.id.editTextId);
 
         testname2=getIntent().getStringExtra("TEST_NAME1");
+        score=getIntent().getStringExtra("SCORE");
+
         editTextSub.setText(testname2);
 
         checker = new PermissionsChecker(this);
@@ -106,7 +109,7 @@ public class CertificateActivity extends AppCompatActivity {
 
     }
 
-    public void createPdf(String dest, String Name, String Subject, String Id) {
+    public void createPdf(String dest, String Name, String Subject, String Id, String Mark) {
 
         if (new File(dest).exists()) {
             new File(dest).delete();
@@ -168,7 +171,7 @@ public class CertificateActivity extends AppCompatActivity {
             DateTimeFormatter dateFormatter1=DateTimeFormatter.ofPattern("dd/MM/yyyy");
             table2.addCell(new Cell().add(new Paragraph("has successfully completed E-Quiz on "+Subject+"\n" +
                     "taken on "+LocalDate.now().format(dateFormatter1).toString()+"\n" +
-                    "by NBS Technologies with 100%.\n").setFontSize(14).setFontColor(ColorConstants.BLACK).setTextAlignment(TextAlignment.CENTER)).setBorder(Border.NO_BORDER));
+                    "by NBS Technologies with " + Mark + "%.\n").setFontSize(14).setFontColor(ColorConstants.BLACK).setTextAlignment(TextAlignment.CENTER)).setBorder(Border.NO_BORDER));
 
             float[] width3={920f};
             Table table3=new Table(width3);
@@ -246,6 +249,7 @@ public class CertificateActivity extends AppCompatActivity {
             String name=editTextName.getText().toString();
             String subject = testname2;
             String id = randomnum();
+            String mark = score;
 
             nameStr=editTextName.getText().toString().trim();
 
@@ -255,7 +259,7 @@ public class CertificateActivity extends AppCompatActivity {
                 return;
             }
 
-            createPdf(dest,name,subject,id);
+            createPdf(dest,name,subject,id,mark);
 
         }
     }

@@ -48,7 +48,7 @@ public class ScoreActivity extends AppCompatActivity {
 
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
         if (testname1 != null)
         {
             getSupportActionBar().setTitle("  " + testname1 + " RESULT");
@@ -58,7 +58,7 @@ public class ScoreActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("  " + testname2 + " RESULT");
         }
 
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         progressDialog = new Dialog(ScoreActivity.this);
         progressDialog.setContentView(R.layout.dialog_layout);
@@ -90,8 +90,8 @@ public class ScoreActivity extends AppCompatActivity {
         genCertiB.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                if (correctQ==7) {
-                    Intent intent = new Intent(ScoreActivity.this, CertificateActivity.class).putExtra("TEST_NAME1", testname1);
+                if (correctQ>=7) {
+                    Intent intent = new Intent(ScoreActivity.this, CertificateActivity.class).putExtra("TEST_NAME1", testname1).putExtra("SCORE", finalscore);
                     startActivity(intent);
                     finish();
                 }
@@ -105,7 +105,7 @@ public class ScoreActivity extends AppCompatActivity {
                     TextView content=view.findViewById(R.id.content);
                     TextView title=view.findViewById(R.id.title);
                     title.setText("Generate Certificate");
-                    content.setText("Correct Answer Should Be More Than 7 To Get Certificate");
+                    content.setText("Correct Answer Should Be More Than 7 To Get Certificate.");
 
                     builder.setView(view);
 
