@@ -40,9 +40,12 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
         return questionsList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder
+    {
 
         private TextView ques;
+        private TextView correctAnswer;
+        private int correct;
         private Button optionA, optionB, optionC, optionD, prevSelectedB;
 
         public ViewHolder(@NonNull View itemView) {
@@ -53,6 +56,7 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
             optionB=itemView.findViewById(R.id.optionB);
             optionC=itemView.findViewById(R.id.optionC);
             optionD=itemView.findViewById(R.id.optionD);
+            correctAnswer=itemView.findViewById(R.id.correctanswer);
 
             prevSelectedB=null;
         }
@@ -65,6 +69,8 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
             optionB.setText(questionsList.get(pos).getOptionB());
             optionC.setText(questionsList.get(pos).getOptionC());
             optionD.setText(questionsList.get(pos).getOptionD());
+            correct=questionsList.get(pos).getCorrectAns();
+            correctAnswer.setText("  ");
 
 
             setOption(optionA, 1, pos);
@@ -77,6 +83,7 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
                 @Override
                 public void onClick(View v) {
                     selectOption(optionA, 1, pos);
+                    correctans(pos);
                 }
             });
 
@@ -84,6 +91,7 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
                 @Override
                 public void onClick(View v) {
                     selectOption(optionB, 2, pos);
+                    correctans(pos);
                 }
             });
 
@@ -91,6 +99,7 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
                 @Override
                 public void onClick(View v) {
                     selectOption(optionC, 3, pos);
+                    correctans(pos);
                 }
             });
 
@@ -98,6 +107,7 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
                 @Override
                 public void onClick(View v) {
                     selectOption(optionD, 4, pos);
+                    correctans(pos);
                 }
             });
 
@@ -108,14 +118,24 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
 
             if (prevSelectedB==null)
             {
-                btn.setBackgroundResource(R.drawable.selected_btn);
+                //btn.setBackgroundResource(R.drawable.selected_btn);
+
+                if (option_num==DbQuery.g_quesList.get(quesID).getCorrectAns())
+                {
+                    btn.setBackgroundResource(R.drawable.selected_btn);
+                }
+                else
+                {
+                    btn.setBackgroundResource(R.drawable.selected_btn_wrong);
+                }
+
                 DbQuery.g_quesList.get(quesID).setSelectedAns(option_num);
 
                 prevSelectedB=btn;
             }
             else
             {
-                if (prevSelectedB.getId() == btn.getId())
+           /**     if (prevSelectedB.getId() == btn.getId())
                 {
                     btn.setBackgroundResource(R.drawable.unselected_btn);
                     DbQuery.g_quesList.get(quesID).setSelectedAns(-1);
@@ -124,12 +144,28 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
                 }
                 else
                 {
+              **/
+                if (option_num==DbQuery.g_quesList.get(quesID).getCorrectAns())
+                {
+                    prevSelectedB.setBackgroundResource(R.drawable.unselected_btn);
+                    btn.setBackgroundResource(R.drawable.selected_btn);
+                    DbQuery.g_quesList.get(quesID).setSelectedAns(option_num);
+                    prevSelectedB=btn;
+                }
+                else
+                {
+                    prevSelectedB.setBackgroundResource(R.drawable.unselected_btn);
+                    btn.setBackgroundResource(R.drawable.selected_btn_wrong);
+                    DbQuery.g_quesList.get(quesID).setSelectedAns(option_num);
+                    prevSelectedB=btn;
+                }
+           /**
                     prevSelectedB.setBackgroundResource(R.drawable.unselected_btn);
                     btn.setBackgroundResource(R.drawable.selected_btn);
 
                     DbQuery.g_quesList.get(quesID).setSelectedAns(option_num);
                     prevSelectedB=btn;
-                }
+**/
             }
 
         }
@@ -139,11 +175,35 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
 
             if (DbQuery.g_quesList.get(quesID).getSelectedAns()==option_num)
             {
-                btn.setBackgroundResource(R.drawable.selected_btn);
+                if (DbQuery.g_quesList.get(quesID).getSelectedAns()==DbQuery.g_quesList.get(quesID).getCorrectAns())
+                {
+                    btn.setBackgroundResource(R.drawable.selected_btn);
+                }
+                else
+                {
+                    btn.setBackgroundResource(R.drawable.selected_btn_wrong);
+                }
+                //btn.setBackgroundResource(R.drawable.selected_btn);
             }
             else
             {
                 btn.setBackgroundResource(R.drawable.unselected_btn);
+            }
+        }
+
+        private void correctans(int pos)
+        {
+            if (correct==1) {
+                correctAnswer.setText("Correct Answer: " + questionsList.get(pos).getOptionA());
+            }
+            else if (correct==2) {
+                correctAnswer.setText("Correct Answer: " + questionsList.get(pos).getOptionB());
+            }
+            else if (correct==3) {
+                correctAnswer.setText("Correct Answer: " + questionsList.get(pos).getOptionC());
+            }
+            else if (correct==4) {
+                correctAnswer.setText("Correct Answer: " + questionsList.get(pos).getOptionD());
             }
         }
 

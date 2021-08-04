@@ -1,6 +1,7 @@
 package com.nbs.it_cs_ce_mcq;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Context;
@@ -32,31 +33,46 @@ public class ScoreActivity extends AppCompatActivity {
     private long timeTaken;
     private Dialog progressDialog;
     private int finalscore;
-    String testname1;
-    static int count=0;
+    static String testname1;
+    static String testname2;
+    static int count;
+    int correctQ=0, wrongQ=0, unattemptQ=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
 
+        testname1=getIntent().getStringExtra("TEST_NAME");
+        testname2=getIntent().getStringExtra("TEST_SUB");
+
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle("Result");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
+        if (testname1 != null)
+        {
+            getSupportActionBar().setTitle("  " + testname1 + " RESULT");
+        }
+        if (testname2 != null)
+        {
+            getSupportActionBar().setTitle("  " + testname2 + " RESULT");
+        }
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         progressDialog = new Dialog(ScoreActivity.this);
         progressDialog.setContentView(R.layout.dialog_layout);
         progressDialog.setCancelable(false);
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialogText = progressDialog.findViewById(R.id.dialog_text);
-        dialogText.setText("Loading...");
+        dialogText.setText("Loading....");
         progressDialog.show();
 
         init();
 
         loadData();
+
+        count=getIntent().getIntExtra("COUNT", count);
 
         if (count==0) {
             count++;
@@ -74,9 +90,35 @@ public class ScoreActivity extends AppCompatActivity {
         genCertiB.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                testname1=getIntent().getStringExtra("TEST_NAME");
-                Intent intent = new Intent(ScoreActivity.this, CertificateActivity.class).putExtra("TEST_NAME1", testname1);
-                startActivity(intent);
+                if (correctQ==7) {
+                    Intent intent = new Intent(ScoreActivity.this, CertificateActivity.class).putExtra("TEST_NAME1", testname1);
+                    startActivity(intent);
+                    finish();
+                }
+                else
+                {
+                    AlertDialog.Builder builder=new AlertDialog.Builder(ScoreActivity.this);
+                    builder.setCancelable(true);
+
+                    View view=getLayoutInflater().inflate(R.layout.alert_dialog_layout2,null);
+                    Button cancelB=view.findViewById(R.id.cancelB);
+                    TextView content=view.findViewById(R.id.content);
+                    TextView title=view.findViewById(R.id.title);
+                    title.setText("Generate Certificate");
+                    content.setText("Correct Answer Should Be More Than 7 To Get Certificate");
+
+                    builder.setView(view);
+
+                    AlertDialog alertDialog=builder.create();
+
+                    cancelB.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            alertDialog.dismiss();
+                        }
+                    });
+                    alertDialog.show();
+                }
             }
         });
 
@@ -137,8 +179,6 @@ public class ScoreActivity extends AppCompatActivity {
 
     private void loadData()
     {
-
-        int correctQ=0, wrongQ=0, unattemptQ=0;
 
         for (int i=0; i<DbQuery.g_quesList.size(); i++)
         {

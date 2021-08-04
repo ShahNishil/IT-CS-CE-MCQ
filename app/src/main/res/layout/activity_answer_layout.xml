@@ -90,7 +90,9 @@
             android:layout_marginTop="16dp"
             android:text="CORRECT"
             android:textColor="@color/GREEN"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textStyle="bold"
+            />
 
 
     </LinearLayout>

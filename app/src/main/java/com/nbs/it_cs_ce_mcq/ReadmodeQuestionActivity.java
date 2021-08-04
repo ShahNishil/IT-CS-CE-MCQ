@@ -1,6 +1,5 @@
 package com.nbs.it_cs_ce_mcq;
 
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -60,7 +59,7 @@ public class ReadmodeQuestionActivity extends AppCompatActivity {
         prevQuesB=findViewById(R.id.prev_quesB);
         nextQuesB=findViewById(R.id.next_quesB);
         quesListB=findViewById(R.id.ques_list_gridB);
-        showAnswer=findViewById(R.id.showAnswer);
+        //showAnswer=findViewById(R.id.showAnswer);
         qatopicname=findViewById(R.id.qa_topicName);
 
         quesID=0;
@@ -125,13 +124,13 @@ public class ReadmodeQuestionActivity extends AppCompatActivity {
             }
         });
 
-        showAnswer.setOnClickListener(new View.OnClickListener(){
+        /**showAnswer.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
 
             }
-        });
+        });**/
 
 
     }

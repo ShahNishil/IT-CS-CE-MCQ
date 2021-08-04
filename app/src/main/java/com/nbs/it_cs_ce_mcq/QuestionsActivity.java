@@ -299,7 +299,8 @@ public class QuestionsActivity extends AppCompatActivity {
                 timer.cancel();
                 alertDialog.dismiss();
 
-                Intent intent=new Intent(QuestionsActivity.this, ScoreActivity.class).putExtra("TEST_NAME", testname);
+                int count=0;
+                Intent intent=new Intent(QuestionsActivity.this, ScoreActivity.class).putExtra("TEST_NAME", testname).putExtra("COUNT", count);
                 long totalTime =g_testList.get(g_selected_test_index).getTime()*60*1000;
                 intent.putExtra("TIME_TAKEN", totalTime-timeleft);
                 startActivity(intent);

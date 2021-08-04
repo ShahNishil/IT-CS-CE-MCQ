@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
     }
 /**
     @Override
-    public boolean onNavigationItemSelected(MenuItem menuItem)
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
     {
         int id=menuItem.getItemId();
 
@@ -139,8 +139,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     };
 **/
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -156,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 
 
 

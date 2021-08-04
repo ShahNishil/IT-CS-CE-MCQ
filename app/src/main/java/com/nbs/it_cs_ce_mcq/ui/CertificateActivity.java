@@ -49,6 +49,7 @@ import com.nbs.it_cs_ce_mcq.R;
 import com.nbs.it_cs_ce_mcq.ScoreActivity;
 import com.nbs.it_cs_ce_mcq.permission.PermissionsActivity;
 import com.nbs.it_cs_ce_mcq.permission.PermissionsChecker;
+import java.util.Random;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -61,7 +62,6 @@ import java.util.Objects;
 import static com.nbs.it_cs_ce_mcq.LogUtils.LOGE;
 import static com.nbs.it_cs_ce_mcq.permission.PermissionsActivity.PERMISSION_REQUEST_CODE;
 import static com.nbs.it_cs_ce_mcq.permission.PermissionsChecker.REQUIRED_PERMISSION;
-import java.util.Random;
 
 public class CertificateActivity extends AppCompatActivity {
 
@@ -70,7 +70,6 @@ public class CertificateActivity extends AppCompatActivity {
     PermissionsChecker checker;
 
     String dest;
-
 
     EditText editTextName, editTextId ;
     TextView editTextSub;
@@ -198,8 +197,9 @@ public class CertificateActivity extends AppCompatActivity {
 
             Toast.makeText(mContext, "Certificate Generated...", Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(CertificateActivity.this, ScoreActivity.class);
+            Intent intent = new Intent(CertificateActivity.this, ScoreActivity.class).putExtra("TEST_SUB", Subject);
             startActivity(intent);
+            finish();
 
 
         } catch (IOException e) {
@@ -245,10 +245,9 @@ public class CertificateActivity extends AppCompatActivity {
 
             String name=editTextName.getText().toString();
             String subject = testname2;
-            String id = editTextId.getText().toString();
+            String id = randomnum();
 
             nameStr=editTextName.getText().toString().trim();
-            idStr=editTextId.getText().toString().trim();
 
             if (nameStr.isEmpty())
             {
@@ -256,15 +255,42 @@ public class CertificateActivity extends AppCompatActivity {
                 return;
             }
 
-            if (idStr.isEmpty())
-            {
-                editTextId.setError("id");
-                return;
-            }
-
             createPdf(dest,name,subject,id);
 
         }
+    }
+
+    public String randomnum()
+    {
+
+        // create a string of all characters
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+        // create random string builder
+        StringBuilder sb = new StringBuilder();
+
+        // create an object of Random class
+        Random random = new Random();
+
+        // specify length of random string
+        int length = 7;
+
+        for(int i = 0; i < length; i++) {
+
+            // generate random index number
+            int index = random.nextInt(alphabet.length());
+
+            // get character specified by index
+            // from the string
+            char randomChar = alphabet.charAt(index);
+
+            // append the character to string builder
+            sb.append(randomChar);
+        }
+
+        String randomString = sb.toString();
+       // System.out.println("Random String is: " + randomString);
+        return randomString;
     }
 
 /**

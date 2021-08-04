@@ -1,53 +1,35 @@
 package com.nbs.it_cs_ce_mcq;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.view.View;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.nbs.it_cs_ce_mcq.Adapters.AnswerAdapter;
-import com.nbs.it_cs_ce_mcq.Adapters.QuestionGridAdapter;
-import com.nbs.it_cs_ce_mcq.Adapters.QuestionsAdapter;
+import com.nbs.it_cs_ce_mcq.Adapters.ReadmodeQuestionAdapter;
 
-import java.util.concurrent.TimeUnit;
-
-import static com.nbs.it_cs_ce_mcq.DbQuery.ANSWERED;
-import static com.nbs.it_cs_ce_mcq.DbQuery.NOT_VISITED;
-import static com.nbs.it_cs_ce_mcq.DbQuery.REVIEW;
-import static com.nbs.it_cs_ce_mcq.DbQuery.UNANSWERED;
 import static com.nbs.it_cs_ce_mcq.DbQuery.g_catList;
 import static com.nbs.it_cs_ce_mcq.DbQuery.g_quesList;
 import static com.nbs.it_cs_ce_mcq.DbQuery.g_selected_cat_index;
-import static com.nbs.it_cs_ce_mcq.DbQuery.g_selected_test_index;
-import static com.nbs.it_cs_ce_mcq.DbQuery.g_testList;
 
 public class AnswerActivity extends AppCompatActivity {
 
     private RecyclerView questionsView;
-    private TextView tvQuesID, timerTV, catNameTV;
-    private Button submitB, markB, clearSelB;
-    private ImageButton prevQuesB, nextQuesB, drawerCloseB;
-    private ImageView quesListB, markImage;
+    private TextView tvQuesID, catNameTV, qatopicname;
+    private Button showAnswer;
+    private ImageButton prevQuesB, nextQuesB;
+    private ImageView quesListB;
     private int quesID;
-    AnswerAdapter quesAdapter;
-    private DrawerLayout drawer;
-    private GridView queslistGV;
-    private QuestionGridAdapter gridAdapter;
-    private CountDownTimer timer;
+    AnswerAdapter rmquesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,33 +38,36 @@ public class AnswerActivity extends AppCompatActivity {
 
         init();
 
-        quesAdapter=new AnswerAdapter(DbQuery.g_quesList);
-        questionsView.setAdapter(quesAdapter);
+        rmquesAdapter=new AnswerAdapter(DbQuery.g_quesList);
+        questionsView.setAdapter(rmquesAdapter);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         questionsView.setLayoutManager(layoutManager);
 
-       // gridAdapter=new QuestionGridAdapter(this, g_quesList.size());
-       // queslistGV.setAdapter(gridAdapter);
-
         setSnapHelper();
+
+        setClickListeners();
 
     }
 
     private void init()
     {
-
-        questionsView=findViewById(R.id.ans_recycler_view);
-        //tvQuesID=findViewById(R.id.tv_quesID);
-        //catNameTV=findViewById(R.id.qa_catName);
-       // quesListB=findViewById(R.id.ques_list_gridB);
+        questionsView=findViewById(R.id.questions_view);
+        tvQuesID=findViewById(R.id.tv_quesID);
+        catNameTV=findViewById(R.id.qa_catName);
+        prevQuesB=findViewById(R.id.prev_quesB);
+        nextQuesB=findViewById(R.id.next_quesB);
+        //quesListB=findViewById(R.id.ques_list_gridB);
+        //qatopicname=findViewById(R.id.qa_topicName);
 
         quesID=0;
-        //tvQuesID.setText("1/" + String.valueOf(g_quesList.size()));
-        //catNameTV.setText(g_catList.get(g_selected_cat_index).getName());
+        tvQuesID.setText("1/" + String.valueOf(g_quesList.size()));
+        catNameTV.setText(g_catList.get(g_selected_cat_index).getName() + " ANSWER SHEET");
 
-        //g_quesList.get(0).setStatus(UNANSWERED);
+        //String topicname;
+        //topicname=getIntent().getStringExtra("TOPIC_NAME");
+        //qatopicname.setText(topicname);
     }
 
     private void setSnapHelper()
@@ -99,16 +84,45 @@ public class AnswerActivity extends AppCompatActivity {
                 View view=snapHelper.findSnapView(recyclerView.getLayoutManager());
                 quesID=recyclerView.getLayoutManager().getPosition(view);
 
+                tvQuesID.setText(String.valueOf(quesID + 1) + "/" +String.valueOf(g_quesList.size()));
+
             }
 
             @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy)
-            {
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
             }
         });
 
     }
 
+    private void setClickListeners()
+    {
+
+        prevQuesB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (quesID > 0)
+                {
+                    questionsView.smoothScrollToPosition(quesID - 1);
+                }
+
+            }
+        });
+
+        nextQuesB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (quesID < g_quesList.size() - 1)
+                {
+                    questionsView.smoothScrollToPosition(quesID + 1);
+                }
+
+            }
+        });
+
+    }
 
 }

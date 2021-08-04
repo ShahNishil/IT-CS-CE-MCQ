@@ -87,14 +87,14 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/tv_question_correctanswer"
+        android:layout_height="wrap_content"
+        android:id="@+id/correctanswer"
         android:layout_margin="8dp"
         android:padding="8dp"
         android:gravity="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-        android:text="Answer"
+        android:text="ANSWER"
         android:textStyle="bold"
         />
 

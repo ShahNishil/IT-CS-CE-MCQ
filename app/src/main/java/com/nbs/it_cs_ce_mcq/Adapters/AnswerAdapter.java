@@ -1,5 +1,7 @@
 package com.nbs.it_cs_ce_mcq.Adapters;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.nbs.it_cs_ce_mcq.DbQuery;
 import com.nbs.it_cs_ce_mcq.Models.QuestionModel;
 import com.nbs.it_cs_ce_mcq.R;
@@ -45,14 +48,18 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
         return questionsList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder
+    {
 
-        private TextView ques;
-        private TextView optionA, optionB, optionC, optionD, status, answer;
+        private TextView ques, quesNo;
+        private TextView optionA, optionB, optionC, optionD, status, answer, myans;
+        private int correct;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            quesNo=itemView.findViewById(R.id.quesNo);
             ques=itemView.findViewById(R.id.quesName);
             optionA=itemView.findViewById(R.id.optionA);
             optionB=itemView.findViewById(R.id.optionB);
@@ -66,16 +73,51 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
         private void setData(final int pos)
         {
 
+            quesNo.setText("Question No : " + String.valueOf(pos + 1));
             ques.setText(questionsList.get(pos).getQuestion());
-            optionA.setText(questionsList.get(pos).getOptionA());
-            optionB.setText(questionsList.get(pos).getOptionB());
-            optionC.setText(questionsList.get(pos).getOptionC());
-            optionD.setText(questionsList.get(pos).getOptionD());
-            answer.setText(questionsList.get(pos).getCorrectAns());
-            status.setText(questionsList.get(pos).getStatus());
+            optionA.setText("(A)  " + questionsList.get(pos).getOptionA());
+            optionB.setText("(B)  " + questionsList.get(pos).getOptionB());
+            optionC.setText("(C)  " + questionsList.get(pos).getOptionC());
+            optionD.setText("(D)  " + questionsList.get(pos).getOptionD());
+
+
+            correct=questionsList.get(pos).getCorrectAns();
+
+            correctans(pos);
 
         }
 
+        private void correctans(int pos)
+        {
+
+
+            if (correct==1) {
+                answer.setText("Correct Answer: " + questionsList.get(pos).getOptionA());
+            }
+            else if (correct==2) {
+                answer.setText("Correct Answer: " + questionsList.get(pos).getOptionB());
+            }
+            else if (correct==3) {
+                answer.setText("Correct Answer: " + questionsList.get(pos).getOptionC());
+            }
+            else if (correct==4) {
+                answer.setText("Correct Answer: " + questionsList.get(pos).getOptionD());
+            }
+
+
+
+            if (DbQuery.g_quesList.get(pos).getSelectedAns()==DbQuery.g_quesList.get(pos).getCorrectAns())
+            {
+                status.setText("CORRECT");
+                status.setTextColor(Color.parseColor("#2DF836"));
+            }
+            else
+            {
+                status.setText("WRONG");
+                status.setTextColor(Color.parseColor("#FF0000"));
+            }
+
+        }
 
     }
 }
