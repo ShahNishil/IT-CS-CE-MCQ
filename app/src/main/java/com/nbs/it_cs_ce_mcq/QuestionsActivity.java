@@ -279,7 +279,7 @@ public class QuestionsActivity extends AppCompatActivity {
         Button cancelB=view.findViewById(R.id.cancelB);
         Button confirmB=view.findViewById(R.id.confirmB);
         TextView content=view.findViewById(R.id.content);
-        content.setText("Do You Want To Exit Test ?");
+        content.setText("Do You Really Want To Submit Test ?");
 
         builder.setView(view);
 

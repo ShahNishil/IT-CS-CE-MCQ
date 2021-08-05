@@ -77,7 +77,7 @@ public class CertificateActivity extends AppCompatActivity {
     private String subStr, idStr, nameStr;
     public static int COUNT=0;
     String testname2;
-    String score;
+    int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +99,7 @@ public class CertificateActivity extends AppCompatActivity {
         editTextId=findViewById(R.id.editTextId);
 
         testname2=getIntent().getStringExtra("TEST_NAME1");
-        score=getIntent().getStringExtra("SCORE");
+        score=getIntent().getIntExtra("SCORE", score);
 
         editTextSub.setText(testname2);
 
@@ -109,7 +109,7 @@ public class CertificateActivity extends AppCompatActivity {
 
     }
 
-    public void createPdf(String dest, String Name, String Subject, String Id, String Mark) {
+    public void createPdf(String dest, String Name, String Subject, String Id, Integer Mark) {
 
         if (new File(dest).exists()) {
             new File(dest).delete();
@@ -249,7 +249,7 @@ public class CertificateActivity extends AppCompatActivity {
             String name=editTextName.getText().toString();
             String subject = testname2;
             String id = randomnum();
-            String mark = score;
+            Integer mark = score;
 
             nameStr=editTextName.getText().toString().trim();
 

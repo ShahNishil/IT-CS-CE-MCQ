@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
         setFragement(new LeaderBoardFragment());
     }
-
+/**
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-/**
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
     {
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     };
-**/
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
+**/
 
 
 

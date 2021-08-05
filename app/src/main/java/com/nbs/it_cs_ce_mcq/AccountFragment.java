@@ -1,6 +1,7 @@
 package com.nbs.it_cs_ce_mcq;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,7 +27,7 @@ import java.util.Objects;
 
  public class AccountFragment extends Fragment {
 
-    private LinearLayout logoutB, leaderboardB, profileB, bookmarkB;
+    private LinearLayout logoutB, moreAppB, rateusB, profileB, shareB;
     private TextView profile_img_text, name, score, rank;
 
      public AccountFragment() {
@@ -84,11 +85,48 @@ import java.util.Objects;
         profileB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent=new Intent(getContext(), MyProfileActivity.class);
                 startActivity(intent);
             }
         });
+
+        shareB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent myIntent=new Intent(Intent.ACTION_SEND);
+                myIntent.setType("text/plain");
+                String shareBody="This is the best mcq app for IT-CS-CE course. Which also gives you a certificate after completing the test in this app.\n\n" + "https://play.google.com/store/apps/details?id=com.nbs.it_cs_ce_mcq&h1=en";
+                String shareSub="Best App For IT-CS-CE Mcqs Practice";
+                myIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                myIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(myIntent, "Share Using"));
+
+            }
+        });
+
+        rateusB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + "com.nbs.it_cs_ce_mcq")));
+                }
+                catch (Exception ex)
+                {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + "com.nbs.it_cs_ce_mcq")));
+                }
+            }
+        });
+
+        moreAppB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=NBS+technologies&hl=en_US&gl=US"));
+                startActivity(intent);
+            }
+        });
+
 
         return view;
     }
@@ -99,10 +137,11 @@ import java.util.Objects;
         logoutB=view.findViewById(R.id.logoutB);
         profile_img_text=view.findViewById(R.id.profile_img_text);
         name=view.findViewById(R.id.name);
-        //rank=view.findViewById(R.id.Rank);
+        shareB=view.findViewById(R.id.shareB);
+        rateusB=view.findViewById(R.id.rateB);
+        moreAppB=view.findViewById(R.id.moreApp);
         score=view.findViewById(R.id.total_score);
         profileB=view.findViewById(R.id.profileB);
-
 
     }
 

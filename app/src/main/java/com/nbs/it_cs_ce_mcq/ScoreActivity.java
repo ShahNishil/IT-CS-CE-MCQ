@@ -32,7 +32,7 @@ public class ScoreActivity extends AppCompatActivity {
     private Button genCertiB, reAttemptB, viewAnsB, openpdfB;
     private long timeTaken;
     private Dialog progressDialog;
-    private int finalscore;
+    private static int finalscore;
     static String testname1;
     static String testname2;
     static int count;

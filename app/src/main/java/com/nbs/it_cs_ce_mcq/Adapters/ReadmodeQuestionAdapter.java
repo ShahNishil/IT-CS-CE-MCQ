@@ -159,13 +159,13 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
                     DbQuery.g_quesList.get(quesID).setSelectedAns(option_num);
                     prevSelectedB=btn;
                 }
-           /**
+                /**
                     prevSelectedB.setBackgroundResource(R.drawable.unselected_btn);
                     btn.setBackgroundResource(R.drawable.selected_btn);
 
                     DbQuery.g_quesList.get(quesID).setSelectedAns(option_num);
                     prevSelectedB=btn;
-**/
+                **/
             }
 
         }
@@ -183,6 +183,9 @@ public class ReadmodeQuestionAdapter extends RecyclerView.Adapter<ReadmodeQuesti
                 {
                     btn.setBackgroundResource(R.drawable.selected_btn_wrong);
                 }
+
+                correctans(quesID);
+
                 //btn.setBackgroundResource(R.drawable.selected_btn);
             }
             else
