@@ -23,6 +23,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.Color;
@@ -78,6 +80,8 @@ public class CertificateActivity extends AppCompatActivity {
     public static int COUNT=0;
     String testname2;
     int score;
+    private AdView mAdView, mAdView1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +100,18 @@ public class CertificateActivity extends AppCompatActivity {
 
         editTextName=findViewById(R.id.editTextName);
         editTextSub=findViewById(R.id.editTextSub);
-        editTextId=findViewById(R.id.editTextId);
+        //editTextId=findViewById(R.id.editTextId);
+
+        /** ad unit **/
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+        /** ad unit 2 **/
+        mAdView1 = findViewById(R.id.adView1);
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        mAdView1.loadAd(adRequest1);
 
         testname2=getIntent().getStringExtra("TEST_NAME1");
         score=getIntent().getIntExtra("SCORE", score);

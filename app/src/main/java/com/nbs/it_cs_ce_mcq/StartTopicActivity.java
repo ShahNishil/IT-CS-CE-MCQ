@@ -1,15 +1,28 @@
 package com.nbs.it_cs_ce_mcq;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import java.util.List;
 
@@ -24,12 +37,23 @@ public class StartTopicActivity extends AppCompatActivity {
     private Dialog progressDialog;
     private TextView dialogText;
     public String topicname;
+    private AdView mAdView;
+    private static final String TAG = "StartTopicActivity";
+    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+    private InterstitialAd interstitialAd;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_topic_question);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+        });
+
+        loadAd();
 
         init();
 
@@ -43,8 +67,6 @@ public class StartTopicActivity extends AppCompatActivity {
         dialogText.setText("Loading...");
 
         progressDialog.show();
-
-
 
         loadquestions(new MyCompleteListener() {
             @Override
@@ -76,19 +98,32 @@ public class StartTopicActivity extends AppCompatActivity {
         backB=findViewById(R.id.st_backB);
         testName=findViewById(R.id.st_test_name);
 
+        /** ad unit **/
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         backB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 StartTopicActivity.this.finish();
+
+                loadAd();
+                showInterstitial();
             }
         });
 
         startTestB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent=new Intent(StartTopicActivity.this, ReadmodeQuestionActivity.class).putExtra("TOPIC_NAME", topicname);
                 startActivity(intent);
                 finish();
+
+                loadAd();
+                showInterstitial();
+
             }
         });
 
@@ -101,6 +136,87 @@ public class StartTopicActivity extends AppCompatActivity {
         totalQ.setText(String.valueOf(DbQuery.g_quesList.size()));
         topicname=getIntent().getStringExtra("TOPIC_NAME");
         testName.setText("Topic Name : " + topicname);
+    }
+
+
+    public void loadAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        InterstitialAd.load(
+                this,
+                AD_UNIT_ID,
+                adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        StartTopicActivity.this.interstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                        interstitialAd.setFullScreenContentCallback(
+                                new FullScreenContentCallback() {
+                                    @Override
+                                    public void onAdDismissedFullScreenContent() {
+                                        // Called when fullscreen content is dismissed.
+                                        // Make sure to set your reference to null so you don't
+                                        // show it a second time.
+                                        StartTopicActivity.this.interstitialAd = null;
+                                        Log.d("TAG", "The ad was dismissed.");
+                                    }
+
+                                    @Override
+                                    public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                        // Called when fullscreen content failed to show.
+                                        // Make sure to set your reference to null so you don't
+                                        // show it a second time.
+                                        StartTopicActivity.this.interstitialAd = null;
+                                        Log.d("TAG", "The ad failed to show.");
+                                    }
+
+                                    @Override
+                                    public void onAdShowedFullScreenContent() {
+                                        // Called when fullscreen content is shown.
+                                        Log.d("TAG", "The ad was shown.");
+                                    }
+                                });
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i(TAG, loadAdError.getMessage());
+                        interstitialAd = null;
+
+                        String error =
+                                String.format(
+                                        "domain: %s, code: %d, message: %s",
+                                        loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
+                        Toast.makeText(
+                                StartTopicActivity.this, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                });
+    }
+
+
+    private void showInterstitial() {
+        // Show the ad if it's ready. Otherwise toast and restart the game.
+        if (interstitialAd != null) {
+            interstitialAd.show(this);
+        }
+        else {
+            Log.d("TAG", "The interstitial ad wasn't ready yet.");
+        }
+    }
+
+
+    @Override
+    public void onBackPressed()
+    {
+        StartTopicActivity.this.finish();
+
+        loadAd();
+        showInterstitial();
+
     }
 
 }

@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.nbs.it_cs_ce_mcq.Adapters.TestAdapter;
 
 import java.util.Objects;
@@ -25,6 +27,7 @@ public class TestActivity extends AppCompatActivity {
     private TestAdapter adapter;
     private Dialog progressDialog;
     private TextView dialogText;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,6 +43,12 @@ public class TestActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         testView=findViewById(R.id.test_recycler_view);
+
+        /** ad unit **/
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         progressDialog = new Dialog(TestActivity.this);
         progressDialog.setContentView(R.layout.dialog_layout);
@@ -100,5 +109,6 @@ public class TestActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
 
 }

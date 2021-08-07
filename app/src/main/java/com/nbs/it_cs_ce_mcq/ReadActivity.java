@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.nbs.it_cs_ce_mcq.Adapters.ReadAdapter;
 
 import java.util.Objects;
@@ -25,6 +27,7 @@ public class ReadActivity extends AppCompatActivity {
     private ReadAdapter adapter;
     private Dialog progressDialog;
     private TextView dialogText;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,6 +43,11 @@ public class ReadActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         testView=findViewById(R.id.test_recycler_view);
+
+        /** ad unit **/
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         progressDialog = new Dialog(ReadActivity.this);
         progressDialog.setContentView(R.layout.dialog_layout);

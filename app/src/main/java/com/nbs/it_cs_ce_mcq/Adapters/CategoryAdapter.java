@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.nbs.it_cs_ce_mcq.DbQuery;
 import com.nbs.it_cs_ce_mcq.Models.categoryModel;
 import com.nbs.it_cs_ce_mcq.R;
@@ -17,6 +18,7 @@ import java.util.List;
 public class CategoryAdapter extends BaseAdapter {
 
     private final List<categoryModel> cat_list;
+
 
     public CategoryAdapter(List<categoryModel> cat_list)
     {
@@ -56,7 +58,6 @@ public class CategoryAdapter extends BaseAdapter {
             public void onClick(View v)
             {
                 DbQuery.g_selected_cat_index=i;
-
 
                 Intent intent=new Intent(myView.getContext(), TestActivity.class);
                 myView.getContext().startActivity(intent);

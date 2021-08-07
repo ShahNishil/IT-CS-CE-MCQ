@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.nbs.it_cs_ce_mcq.DbQuery;
 import com.nbs.it_cs_ce_mcq.Models.TestModel;
 import com.nbs.it_cs_ce_mcq.R;
@@ -55,6 +56,10 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
         private TextView topScore;
         private ProgressBar progressBar;
         private TextView testTopic;
+
+        private static final String TAG = "TestAdapter";
+        private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+        private InterstitialAd interstitialAd;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

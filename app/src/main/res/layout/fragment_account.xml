@@ -86,40 +86,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
-        <!--
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="RANK"
-                            android:gravity="center"
-                            android:textSize="18sp"
-                            android:padding="8dp"
-                            android:layout_weight="1"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/rank"
-                            android:text="NA"
-                            android:textSize="22sp"
-                            android:gravity="center"
-                            android:layout_marginTop="8dp"
-                            android:textColor="@color/colorPrimary"
-                            android:layout_weight="1"
-                            />
-
-                    </LinearLayout>
-        -->
-
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -161,7 +127,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:id="@+id/divider"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="78dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/ll1"
@@ -172,12 +138,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:id="@+id/ll3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll2"
-        android:padding="32dp"
-        android:layout_marginTop="32dp"
+        android:padding="9dp"
+        android:layout_marginTop="12dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -249,6 +216,41 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:id="@+id/divider2"
+            android:background="?android:attr/listDivider"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll3"
+            android:gravity="center"
+            >
+
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            </com.google.android.gms.ads.AdView>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/divider3"
             android:background="?android:attr/listDivider"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
@@ -350,7 +352,8 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+
+</LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

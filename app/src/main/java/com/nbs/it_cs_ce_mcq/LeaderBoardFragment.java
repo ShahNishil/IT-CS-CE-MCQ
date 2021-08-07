@@ -8,12 +8,15 @@ import android.os.Bundle;
         import android.widget.GridView;
         import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.nbs.it_cs_ce_mcq.Adapters.LeaderBoardAdapter;
 
 
 public class LeaderBoardFragment extends Fragment {
 
     private GridView catView;
+    private AdView mAdView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,6 +28,12 @@ public class LeaderBoardFragment extends Fragment {
         ((MainActivity)getActivity()).getSupportActionBar().setTitle("Home");
 
         catView=view.findViewById(R.id.cat_Grid);
+
+        /** ad unit **/
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
 
         //loadCategories();

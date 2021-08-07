@@ -4,6 +4,7 @@ import android.util.ArrayMap;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

@@ -3,6 +3,8 @@ package com.nbs.it_cs_ce_mcq;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +23,19 @@ import java.util.concurrent.TimeUnit;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.OnUserEarnedRewardListener;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.nbs.it_cs_ce_mcq.Adapters.AnswerAdapter;
 import com.nbs.it_cs_ce_mcq.ui.CertificateActivity;
 
@@ -37,6 +52,11 @@ public class ScoreActivity extends AppCompatActivity {
     static String testname2;
     static int count;
     int correctQ=0, wrongQ=0, unattemptQ=0;
+    private static final String TAG = "ScoreActivity";
+    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+    private static final String AD_UNIT_ID_1= "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+    private InterstitialAd interstitialAd;
+    private RewardedAd mRewardedAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +88,38 @@ public class ScoreActivity extends AppCompatActivity {
         dialogText.setText("Loading....");
         progressDialog.show();
 
+        /** ads code **/
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+        });
+
+        loadAd();
+        loadAd1();
+
+
+        /** rewarded ads code **/
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        RewardedAd.load(this, "ca-app-pub-3940256099942544/5224354917",
+                adRequest, new RewardedAdLoadCallback()
+                {
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error.
+                        Log.d(TAG, loadAdError.getMessage());
+                        mRewardedAd = null;
+                    }
+
+                    @Override
+                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
+                        mRewardedAd = rewardedAd;
+                        Log.d(TAG, "Ad was loaded.");
+                    }
+                });
+
+
+
         init();
 
         loadData();
@@ -94,6 +146,22 @@ public class ScoreActivity extends AppCompatActivity {
                     Intent intent = new Intent(ScoreActivity.this, CertificateActivity.class).putExtra("TEST_NAME1", testname1).putExtra("SCORE", finalscore);
                     startActivity(intent);
                     finish();
+
+                    if (mRewardedAd != null) {
+                        Activity activityContext = ScoreActivity.this;
+                        mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                            @Override
+                            public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                                // Handle the reward.
+                                Log.d(TAG, "The user earned the reward.");
+                                int rewardAmount = rewardItem.getAmount();
+                                String rewardType = rewardItem.getType();
+                            }
+                        });
+                    } else {
+                        Log.d(TAG, "The rewarded ad wasn't ready yet.");
+                    }
+
                 }
                 else
                 {
@@ -115,9 +183,18 @@ public class ScoreActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             alertDialog.dismiss();
+
+                            loadAd1();
+                            showInterstitial();
+
                         }
                     });
                     alertDialog.show();
+
+                    loadAd1();
+                    showInterstitial();
+
+
                 }
             }
         });
@@ -127,6 +204,10 @@ public class ScoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ScoreActivity.this, AnswerActivity.class);
                 startActivity(intent);
+
+                loadAd();
+                showInterstitial();
+
             }
         });
 
@@ -135,6 +216,9 @@ public class ScoreActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 reAttempt();
+
+                loadAd1();
+                showInterstitial();
 
             }
         });
@@ -255,6 +339,9 @@ public class ScoreActivity extends AppCompatActivity {
         if (item.getItemId() == android.R.id.home)
         {
             ScoreActivity.this.finish();
+
+            loadAd1();
+            showInterstitial();
         }
 
         return super.onOptionsItemSelected(item);
@@ -263,21 +350,163 @@ public class ScoreActivity extends AppCompatActivity {
 
     public void openPDF(View view)
     {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Context mContext;
-                    String dest;
-                    mContext = getApplicationContext();
-                    dest = FileUtils.getAppPath(mContext) + "Certificate.pdf";
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Context mContext;
+                        String dest;
+                        mContext = getApplicationContext();
+                        dest = FileUtils.getAppPath(mContext) + "Certificate.pdf";
 
-                    FileUtils.openFile(mContext, new File(dest));
-                } catch (Exception e) {
-                    Log.d("TAG", "run: ERror");
+                        FileUtils.openFile(mContext, new File(dest));
+                    } catch (Exception e) {
+                        Log.d("TAG", "run: ERror");
+                    }
                 }
-            }
-        }, 1000);
+            }, 1000);
+        }
+
+
+    public void loadAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        InterstitialAd.load(
+                this,
+                AD_UNIT_ID,
+                adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        ScoreActivity.this.interstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                        interstitialAd.setFullScreenContentCallback(
+                                new FullScreenContentCallback() {
+                                    @Override
+                                    public void onAdDismissedFullScreenContent() {
+                                        // Called when fullscreen content is dismissed.
+                                        // Make sure to set your reference to null so you don't
+                                        // show it a second time.
+                                        ScoreActivity.this.interstitialAd = null;
+                                        Log.d("TAG", "The ad was dismissed.");
+                                    }
+
+                                    @Override
+                                    public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                        // Called when fullscreen content failed to show.
+                                        // Make sure to set your reference to null so you don't
+                                        // show it a second time.
+                                        ScoreActivity.this.interstitialAd = null;
+                                        Log.d("TAG", "The ad failed to show.");
+                                    }
+
+                                    @Override
+                                    public void onAdShowedFullScreenContent() {
+                                        // Called when fullscreen content is shown.
+                                        Log.d("TAG", "The ad was shown.");
+                                    }
+                                });
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i(TAG, loadAdError.getMessage());
+                        interstitialAd = null;
+
+                        String error =
+                                String.format(
+                                        "domain: %s, code: %d, message: %s",
+                                        loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
+                        Toast.makeText(
+                                ScoreActivity.this, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                });
     }
+
+
+    public void loadAd1() {
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        InterstitialAd.load(
+                this,
+                AD_UNIT_ID_1,
+                adRequest1,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        ScoreActivity.this.interstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                        interstitialAd.setFullScreenContentCallback(
+                                new FullScreenContentCallback() {
+                                    @Override
+                                    public void onAdDismissedFullScreenContent() {
+                                        // Called when fullscreen content is dismissed.
+                                        // Make sure to set your reference to null so you don't
+                                        // show it a second time.
+                                        ScoreActivity.this.interstitialAd = null;
+                                        Log.d("TAG", "The ad was dismissed.");
+                                    }
+
+                                    @Override
+                                    public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                        // Called when fullscreen content failed to show.
+                                        // Make sure to set your reference to null so you don't
+                                        // show it a second time.
+                                        ScoreActivity.this.interstitialAd = null;
+                                        Log.d("TAG", "The ad failed to show.");
+                                    }
+
+                                    @Override
+                                    public void onAdShowedFullScreenContent() {
+                                        // Called when fullscreen content is shown.
+                                        Log.d("TAG", "The ad was shown.");
+                                    }
+                                });
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i(TAG, loadAdError.getMessage());
+                        interstitialAd = null;
+
+                        String error =
+                                String.format(
+                                        "domain: %s, code: %d, message: %s",
+                                        loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
+                        Toast.makeText(
+                                ScoreActivity.this, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                });
+    }
+
+
+
+    private void showInterstitial() {
+        // Show the ad if it's ready. Otherwise toast and restart the game.
+        if (interstitialAd != null) {
+            interstitialAd.show(this);
+        }
+        else {
+            Log.d("TAG", "The interstitial ad wasn't ready yet.");
+        }
+    }
+
+
+    @Override
+    public void onBackPressed()
+    {
+
+        ScoreActivity.this.finish();
+        loadAd1();
+        showInterstitial();
+
+    }
+
 
 }

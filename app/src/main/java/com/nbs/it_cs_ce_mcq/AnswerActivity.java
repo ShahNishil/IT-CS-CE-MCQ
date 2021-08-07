@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.nbs.it_cs_ce_mcq.Adapters.AnswerAdapter;
 import com.nbs.it_cs_ce_mcq.Adapters.ReadmodeQuestionAdapter;
 
@@ -30,6 +33,7 @@ public class AnswerActivity extends AppCompatActivity {
     private ImageView quesListB;
     private int quesID;
     AnswerAdapter rmquesAdapter;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,12 @@ public class AnswerActivity extends AppCompatActivity {
         nextQuesB=findViewById(R.id.next_quesB);
         //quesListB=findViewById(R.id.ques_list_gridB);
         //qatopicname=findViewById(R.id.qa_topicName);
+
+        /** ad unit **/
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         quesID=0;
         tvQuesID.setText("1/" + String.valueOf(g_quesList.size()));
