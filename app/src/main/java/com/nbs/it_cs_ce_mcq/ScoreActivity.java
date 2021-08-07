@@ -350,7 +350,10 @@ public class ScoreActivity extends AppCompatActivity {
 
     public void openPDF(View view)
     {
-            new Handler().postDelayed(new Runnable() {
+        loadAd();
+        showInterstitial();
+
+        new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     try {
