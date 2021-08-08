@@ -186,6 +186,14 @@ public class QuestionsActivity extends AppCompatActivity {
                     questionsView.smoothScrollToPosition(quesID - 1);
                 }
 
+                if (quesID == 5)
+                {
+                    /** ad unit **/
+                    //mAdView = findViewById(R.id.adView);
+                    AdRequest adRequest = new AdRequest.Builder().build();
+                    mAdView.loadAd(adRequest);
+                }
+
             }
         });
 
@@ -196,6 +204,14 @@ public class QuestionsActivity extends AppCompatActivity {
                 if (quesID < g_quesList.size() - 1)
                 {
                     questionsView.smoothScrollToPosition(quesID + 1);
+                }
+
+                if (quesID == 5)
+                {
+                    /** ad unit **/
+                    //mAdView = findViewById(R.id.adView);
+                    AdRequest adRequest = new AdRequest.Builder().build();
+                    mAdView.loadAd(adRequest);
                 }
 
             }
