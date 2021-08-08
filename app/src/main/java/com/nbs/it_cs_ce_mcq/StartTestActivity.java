@@ -38,24 +38,24 @@ public class StartTestActivity extends AppCompatActivity {
     private Dialog progressDialog;
     private TextView dialogText;
     public String testnam;
-    private AdView mAdView;
-    private static final String TAG = "StartTestActivity";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
-    private InterstitialAd interstitialAd;
+    //private AdView mAdView;
+    //private static final String TAG = "StartTestActivity";
+    //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+    //private InterstitialAd interstitialAd;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_test);
-
+/**
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {}
         });
 
         loadAd();
-
+**/
 
         init();
 
@@ -104,19 +104,19 @@ public class StartTestActivity extends AppCompatActivity {
         backB=findViewById(R.id.st_backB);
         testName=findViewById(R.id.st_test_name);
 
-        /** ad unit **/
+        /** ad unit
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
+    **/
 
         backB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 StartTestActivity.this.finish();
 
-                loadAd();
-                showInterstitial();
+                //loadAd();
+                //showInterstitial();
 
             }
         });
@@ -128,8 +128,8 @@ public class StartTestActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 
-                loadAd();
-                showInterstitial();
+                //loadAd();
+                //showInterstitial();
 
             }
         });
@@ -149,7 +149,7 @@ public class StartTestActivity extends AppCompatActivity {
 
     }
 
-
+/**
     public void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         InterstitialAd.load(
@@ -229,6 +229,6 @@ public class StartTestActivity extends AppCompatActivity {
         showInterstitial();
 
     }
-
+**/
 
 }

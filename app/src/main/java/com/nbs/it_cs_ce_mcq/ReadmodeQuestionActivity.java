@@ -211,14 +211,6 @@ public class ReadmodeQuestionActivity extends AppCompatActivity {
                         // Handle the error
                         Log.i(TAG, loadAdError.getMessage());
                         interstitialAd = null;
-
-                        String error =
-                                String.format(
-                                        "domain: %s, code: %d, message: %s",
-                                        loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
-                        Toast.makeText(
-                                ReadmodeQuestionActivity.this, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT)
-                                .show();
                     }
                 });
     }
@@ -240,10 +232,9 @@ public class ReadmodeQuestionActivity extends AppCompatActivity {
     {
         ReadmodeQuestionActivity.this.finish();
 
-        loadAd();
+      //  loadAd();
         showInterstitial();
 
     }
-
 
 }

@@ -39,9 +39,9 @@ public class SignUpActivity extends AppCompatActivity {
     private Dialog progressDialog;
     private TextView dialogText;
 
-    private static final String TAG = "SignUpActivity";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
-    private InterstitialAd interstitialAd;
+ //   private static final String TAG = "SignUpActivity";
+  //  private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+   // private InterstitialAd interstitialAd;
 
 
     @Override
@@ -49,14 +49,14 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-
+/**
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {}
         });
 
         loadAd();
-
+ **/
         name=findViewById(R.id.username);
         email=findViewById(R.id.emailID);
         pass=findViewById(R.id.password);
@@ -79,8 +79,8 @@ public class SignUpActivity extends AppCompatActivity {
 
                 finish();
 
-                loadAd();
-                showInterstitial();
+                //loadAd();
+                //showInterstitial();
             }
         });
 
@@ -92,8 +92,8 @@ public class SignUpActivity extends AppCompatActivity {
                     signupNewUser();
                 }
 
-                loadAd();
-                showInterstitial();
+                //loadAd();
+                //showInterstitial();
             }
         });
     }
@@ -191,7 +191,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-
+/**
     public void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         InterstitialAd.load(
@@ -271,5 +271,7 @@ public class SignUpActivity extends AppCompatActivity {
         showInterstitial();
 
     }
+**/
+
 
 }

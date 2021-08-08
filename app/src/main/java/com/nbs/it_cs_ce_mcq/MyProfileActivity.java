@@ -39,23 +39,24 @@ public class MyProfileActivity extends AppCompatActivity {
     private LinearLayout buttonLayout;
     private String nameStr;
     private Dialog progressDialog;
-    private AdView mAdView;
-    private static final String TAG = "MyProfileActivity";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
-    private InterstitialAd interstitialAd;
+ //   private AdView mAdView;
+   // private static final String TAG = "MyProfileActivity";
+    //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+    //private InterstitialAd interstitialAd;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
-
+/**
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {}
         });
 
         loadAd();
+**/
 
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -71,11 +72,11 @@ public class MyProfileActivity extends AppCompatActivity {
         cancelB=findViewById(R.id.cancelB);
         buttonLayout=findViewById(R.id.button_layout);
 
-        /** ad unit **/
+        /** ad unit
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
+         **/
 
         progressDialog = new Dialog(MyProfileActivity.this);
         progressDialog.setContentView(R.layout.dialog_layout);
@@ -184,7 +185,7 @@ public class MyProfileActivity extends AppCompatActivity {
 
     }
 
-
+/**
     public void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         InterstitialAd.load(
@@ -264,5 +265,5 @@ public class MyProfileActivity extends AppCompatActivity {
         showInterstitial();
 
     }
-
+**/
 }

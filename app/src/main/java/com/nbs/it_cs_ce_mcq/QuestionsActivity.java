@@ -72,6 +72,7 @@ public class QuestionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questions_list_layout);
 
+
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {}
@@ -292,7 +293,7 @@ public class QuestionsActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     alertDialog.dismiss();
 
-                    loadAd();
+                   // loadAd();
                     showInterstitial();
 
                 }
@@ -325,7 +326,7 @@ public class QuestionsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 alertDialog.dismiss();
 
-                loadAd();
+               // loadAd();
                 showInterstitial();
 
             }
@@ -345,7 +346,7 @@ public class QuestionsActivity extends AppCompatActivity {
                 startActivity(intent);
                 QuestionsActivity.this.finish();
 
-                loadAd();
+               // loadAd();
                 showInterstitial();
 
             }
@@ -447,14 +448,6 @@ public class QuestionsActivity extends AppCompatActivity {
                         // Handle the error
                         Log.i(TAG, loadAdError.getMessage());
                         interstitialAd = null;
-
-                        String error =
-                                String.format(
-                                        "domain: %s, code: %d, message: %s",
-                                        loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
-                        Toast.makeText(
-                                QuestionsActivity.this, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT)
-                                .show();
                     }
                 });
     }
@@ -476,7 +469,6 @@ public class QuestionsActivity extends AppCompatActivity {
     {
         QuestionsActivity.this.finish();
 
-        loadAd();
         showInterstitial();
 
     }

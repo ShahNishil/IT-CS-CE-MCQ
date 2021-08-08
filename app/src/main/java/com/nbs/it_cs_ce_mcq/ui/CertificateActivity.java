@@ -80,7 +80,7 @@ public class CertificateActivity extends AppCompatActivity {
     public static int COUNT=0;
     String testname2;
     int score;
-    private AdView mAdView, mAdView1;
+    private AdView mAdView;
 
 
     @Override
@@ -108,10 +108,11 @@ public class CertificateActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
 
-        /** ad unit 2 **/
+        /** ad unit 2
         mAdView1 = findViewById(R.id.adView1);
         AdRequest adRequest1 = new AdRequest.Builder().build();
         mAdView1.loadAd(adRequest1);
+     **/
 
         testname2=getIntent().getStringExtra("TEST_NAME1");
         score=getIntent().getIntExtra("SCORE", score);

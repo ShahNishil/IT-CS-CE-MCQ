@@ -49,9 +49,9 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private int RC_SIGN_IN=104;
 
-    private static final String TAG = "LoginActivity";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
-    private InterstitialAd interstitialAd;
+ //   private static final String TAG = "LoginActivity";
+ //   private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+  //  private InterstitialAd interstitialAd;
 
 
     @Override
@@ -59,13 +59,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
+/**
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {}
         });
 
         loadAd();
+**/
 
         email = findViewById(R.id.email);
         pass = findViewById(R.id.password);
@@ -101,8 +102,8 @@ public class LoginActivity extends AppCompatActivity {
                     login();
                 }
 
-                loadAd();
-                showInterstitial();
+                //loadAd();
+                //showInterstitial();
 
             }
         });
@@ -113,8 +114,8 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
 
-                loadAd();
-                showInterstitial();
+                //loadAd();
+                //showInterstitial();
 
             }
         });
@@ -293,7 +294,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
+/**
     public void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         InterstitialAd.load(
@@ -372,5 +373,7 @@ public class LoginActivity extends AppCompatActivity {
         showInterstitial();
 
     }
+**/
+
 
 }

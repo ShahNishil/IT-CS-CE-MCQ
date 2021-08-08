@@ -16,7 +16,7 @@ import com.nbs.it_cs_ce_mcq.Adapters.LeaderBoardAdapter;
 public class LeaderBoardFragment extends Fragment {
 
     private GridView catView;
-    private AdView mAdView;
+    //private AdView mAdView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,10 +29,11 @@ public class LeaderBoardFragment extends Fragment {
 
         catView=view.findViewById(R.id.cat_Grid);
 
-        /** ad unit **/
+        /** ad unit
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+    **/
 
 
 

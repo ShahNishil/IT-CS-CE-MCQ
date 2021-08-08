@@ -94,7 +94,7 @@ public class ScoreActivity extends AppCompatActivity {
             public void onInitializationComplete(InitializationStatus initializationStatus) {}
         });
 
-        loadAd();
+//        loadAd();
         loadAd1();
 
 
@@ -158,7 +158,8 @@ public class ScoreActivity extends AppCompatActivity {
                                 String rewardType = rewardItem.getType();
                             }
                         });
-                    } else {
+                    }
+                    else {
                         Log.d(TAG, "The rewarded ad wasn't ready yet.");
                     }
 
@@ -184,14 +185,14 @@ public class ScoreActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             alertDialog.dismiss();
 
-                            loadAd1();
+                          //  loadAd1();
                             showInterstitial();
 
                         }
                     });
                     alertDialog.show();
 
-                    loadAd1();
+                   // loadAd1();
                     showInterstitial();
 
 
@@ -217,7 +218,7 @@ public class ScoreActivity extends AppCompatActivity {
 
                 reAttempt();
 
-                loadAd1();
+                //loadAd1();
                 showInterstitial();
 
             }
@@ -350,8 +351,8 @@ public class ScoreActivity extends AppCompatActivity {
 
     public void openPDF(View view)
     {
-        loadAd();
-        showInterstitial();
+      //  loadAd();
+      //  showInterstitial();
 
         new Handler().postDelayed(new Runnable() {
                 @Override
@@ -417,14 +418,6 @@ public class ScoreActivity extends AppCompatActivity {
                         // Handle the error
                         Log.i(TAG, loadAdError.getMessage());
                         interstitialAd = null;
-
-                        String error =
-                                String.format(
-                                        "domain: %s, code: %d, message: %s",
-                                        loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
-                        Toast.makeText(
-                                ScoreActivity.this, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT)
-                                .show();
                     }
                 });
     }
@@ -476,14 +469,6 @@ public class ScoreActivity extends AppCompatActivity {
                         // Handle the error
                         Log.i(TAG, loadAdError.getMessage());
                         interstitialAd = null;
-
-                        String error =
-                                String.format(
-                                        "domain: %s, code: %d, message: %s",
-                                        loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
-                        Toast.makeText(
-                                ScoreActivity.this, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT)
-                                .show();
                     }
                 });
     }
@@ -506,7 +491,7 @@ public class ScoreActivity extends AppCompatActivity {
     {
 
         ScoreActivity.this.finish();
-        loadAd1();
+      //  loadAd1();
         showInterstitial();
 
     }

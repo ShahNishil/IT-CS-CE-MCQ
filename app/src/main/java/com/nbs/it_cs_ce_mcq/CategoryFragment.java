@@ -23,8 +23,7 @@ import com.nbs.it_cs_ce_mcq.Adapters.CategoryAdapter;
 public class CategoryFragment extends Fragment {
 
     private GridView catView;
-    private AdView mAdView;
-    private InterstitialAd mInterstitialAd;
+    //private AdView mAdView;
 
 
     @Override
@@ -40,10 +39,11 @@ public class CategoryFragment extends Fragment {
 
         catView=view.findViewById(R.id.cat_Grid);
 
-        /** ad unit **/
+        /** ad unit
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+    **/
 
         //loadCategories();
 

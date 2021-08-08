@@ -27,7 +27,7 @@ public class ReadActivity extends AppCompatActivity {
     private ReadAdapter adapter;
     private Dialog progressDialog;
     private TextView dialogText;
-    private AdView mAdView;
+    //private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,10 +44,11 @@ public class ReadActivity extends AppCompatActivity {
 
         testView=findViewById(R.id.test_recycler_view);
 
-        /** ad unit **/
+        /** ad unit
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+    **/
 
         progressDialog = new Dialog(ReadActivity.this);
         progressDialog.setContentView(R.layout.dialog_layout);

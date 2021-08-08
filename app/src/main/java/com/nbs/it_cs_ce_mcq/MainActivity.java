@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
@@ -49,9 +50,10 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FrameLayout main_frame;
     private TextView drawerProfileName, drawerProfileText;
-    private static final String TAG = "MainActivity";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
-    private InterstitialAd interstitialAd;
+    //private static final String TAG = "MainActivity";
+    //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+    //private InterstitialAd interstitialAd;
+    private AdView mAdView;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener()
@@ -63,20 +65,20 @@ public class MainActivity extends AppCompatActivity {
             {
                 case R.id.navigation_home:
                     setFragement(new CategoryFragment());
-                    loadAd();
-                    showInterstitial();
+                    //loadAd();
+                    //showInterstitial();
                     return true;
 
                 case R.id.navigation_leaderboard:
                     setFragement(new LeaderBoardFragment());
-                    loadAd();
-                    showInterstitial();
+                    //loadAd();
+                    //showInterstitial();
                     return true;
 
                 case R.id.navigation_account:
                     setFragement(new AccountFragment());
-                    loadAd();
-                    showInterstitial();
+                    //loadAd();
+                    //showInterstitial();
                     return true;
             }
             return false;
@@ -87,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
 
@@ -96,12 +99,19 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Categories");
 
+/**
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {}
         });
 
         loadAd();
+**/
+
+        /**  ad unit  **/
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         /**  binding.appBarMain.toolbar.setOnClickListener(new View.OnClickListener() {
@@ -197,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
      }
 
 
-
+/**
     public void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         InterstitialAd.load(
@@ -266,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("TAG", "The interstitial ad wasn't ready yet.");
         }
     }
-
+**/
 
 
 }

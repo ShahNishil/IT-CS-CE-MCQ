@@ -31,7 +31,7 @@ import java.util.Objects;
 
     private LinearLayout logoutB, moreAppB, rateusB, profileB, shareB;
     private TextView profile_img_text, name, score, rank;
-    private AdView mAdView;
+    //private AdView mAdView;
 
      public AccountFragment() {
         // Required empty public constructor
@@ -146,11 +146,11 @@ import java.util.Objects;
         score=view.findViewById(R.id.total_score);
         profileB=view.findViewById(R.id.profileB);
 
-        /** ad unit **/
+        /** ad unit
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
+        **/
 
     }
 

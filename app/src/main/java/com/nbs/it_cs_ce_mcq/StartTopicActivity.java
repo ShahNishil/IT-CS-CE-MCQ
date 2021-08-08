@@ -37,7 +37,7 @@ public class StartTopicActivity extends AppCompatActivity {
     private Dialog progressDialog;
     private TextView dialogText;
     public String topicname;
-    private AdView mAdView;
+//    private AdView mAdView;
     private static final String TAG = "StartTopicActivity";
     private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
     private InterstitialAd interstitialAd;
@@ -98,17 +98,17 @@ public class StartTopicActivity extends AppCompatActivity {
         backB=findViewById(R.id.st_backB);
         testName=findViewById(R.id.st_test_name);
 
-        /** ad unit **/
+        /** ad unit
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
+**/
         backB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 StartTopicActivity.this.finish();
 
-                loadAd();
+                //loadAd();
                 showInterstitial();
             }
         });
@@ -121,7 +121,7 @@ public class StartTopicActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 
-                loadAd();
+             //   loadAd();
                 showInterstitial();
 
             }
@@ -185,14 +185,6 @@ public class StartTopicActivity extends AppCompatActivity {
                         // Handle the error
                         Log.i(TAG, loadAdError.getMessage());
                         interstitialAd = null;
-
-                        String error =
-                                String.format(
-                                        "domain: %s, code: %d, message: %s",
-                                        loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
-                        Toast.makeText(
-                                StartTopicActivity.this, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT)
-                                .show();
                     }
                 });
     }
@@ -208,13 +200,11 @@ public class StartTopicActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     public void onBackPressed()
     {
         StartTopicActivity.this.finish();
 
-        loadAd();
         showInterstitial();
 
     }
