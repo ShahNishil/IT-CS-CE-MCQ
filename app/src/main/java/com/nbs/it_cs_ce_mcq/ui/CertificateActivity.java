@@ -260,7 +260,25 @@ public class CertificateActivity extends AppCompatActivity {
     public void createPDF(View view) {
         if (checker.lacksPermissions(REQUIRED_PERMISSION)) {
             PermissionsActivity.startActivityForResult(CertificateActivity.this, PERMISSION_REQUEST_CODE, REQUIRED_PERMISSION);
-        } else {
+
+
+            String name=editTextName.getText().toString();
+            String subject = testname2;
+            String id = randomnum();
+            Integer mark = score;
+
+            nameStr=editTextName.getText().toString().trim();
+
+            if (nameStr.isEmpty())
+            {
+                editTextName.setError("Enter Your Name");
+                return;
+            }
+
+            createPdf(dest,name,subject,id,mark);
+
+        }
+        else {
 
             String name=editTextName.getText().toString();
             String subject = testname2;
