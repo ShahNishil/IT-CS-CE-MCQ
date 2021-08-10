@@ -52,10 +52,11 @@ public class ScoreActivity extends AppCompatActivity {
     static String testname2;
     static int count;
     int correctQ=0, wrongQ=0, unattemptQ=0;
+
     private static final String TAG = "ScoreActivity";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
-    private static final String AD_UNIT_ID_1= "ca-app-pub-3940256099942544/1033173712"; //interstrialads
-    private InterstitialAd interstitialAd;
+    //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+    //private static final String AD_UNIT_ID_1= "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+    //private InterstitialAd interstitialAd;
     private RewardedAd mRewardedAd;
 
     @Override
@@ -95,7 +96,7 @@ public class ScoreActivity extends AppCompatActivity {
         });
 
 //        loadAd();
-        loadAd1();
+//        loadAd1();
 
 
         /** rewarded ads code **/
@@ -126,23 +127,33 @@ public class ScoreActivity extends AppCompatActivity {
 
         count=getIntent().getIntExtra("COUNT", count);
 
-        if (count==0) {
-            count++;
-            enable1();
-        }
-        else if(count==1){
-            count++;
-            enable2();
-        }
-        else {
-            openpdfB.setVisibility(View.GONE);
-            genCertiB.setVisibility(View.GONE);
-        }
+        openpdfB.setVisibility(View.GONE);
+        //genCertiB.setVisibility(View.GONE);
 
+        if (DbQuery.g_quesList.size()==50) {
+
+            genCertiB.setVisibility(View.VISIBLE);
+            openpdfB.setVisibility(View.VISIBLE);
+
+            if (count == 0) {
+                count++;
+                enable1();
+            } else if (count == 1) {
+                count++;
+                enable2();
+            } else {
+                openpdfB.setVisibility(View.GONE);
+                genCertiB.setVisibility(View.GONE);
+            }
+        }
         genCertiB.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                if (correctQ>=7) {
+
+            if (DbQuery.g_quesList.size()==50)
+            {
+                if (correctQ >= 27)
+                {
                     Intent intent = new Intent(ScoreActivity.this, CertificateActivity.class).putExtra("TEST_NAME1", testname1).putExtra("SCORE", finalscore);
                     startActivity(intent);
                     finish();
@@ -163,40 +174,129 @@ public class ScoreActivity extends AppCompatActivity {
                         Log.d(TAG, "The rewarded ad wasn't ready yet.");
                     }
 
+
                 }
-                else
-                {
-                    AlertDialog.Builder builder=new AlertDialog.Builder(ScoreActivity.this);
+                else {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
                     builder.setCancelable(true);
 
-                    View view=getLayoutInflater().inflate(R.layout.alert_dialog_layout2,null);
-                    Button cancelB=view.findViewById(R.id.cancelB);
-                    TextView content=view.findViewById(R.id.content);
-                    TextView title=view.findViewById(R.id.title);
+                    View view = getLayoutInflater().inflate(R.layout.alert_dialog_layout2, null);
+                    Button cancelB = view.findViewById(R.id.cancelB);
+                    TextView content = view.findViewById(R.id.content);
+                    TextView title = view.findViewById(R.id.title);
                     title.setText("Generate Certificate");
-                    content.setText("Correct Answer Should Be More Than 7 To Get Certificate.");
+                    content.setText("Correct Answer Should Be More Than Or Equal To 27 To Get Certificate.");
 
                     builder.setView(view);
 
-                    AlertDialog alertDialog=builder.create();
+                    AlertDialog alertDialog = builder.create();
 
                     cancelB.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             alertDialog.dismiss();
 
-                          //  loadAd1();
-                            showInterstitial();
+                            if (mRewardedAd != null) {
+                                Activity activityContext = ScoreActivity.this;
+                                mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                                    @Override
+                                    public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                                        // Handle the reward.
+                                        Log.d(TAG, "The user earned the reward.");
+                                        int rewardAmount = rewardItem.getAmount();
+                                        String rewardType = rewardItem.getType();
+                                    }
+                                });
+                            }
+                            else {
+                                Log.d(TAG, "The rewarded ad wasn't ready yet.");
+                            }
 
                         }
                     });
                     alertDialog.show();
 
-                   // loadAd1();
-                    showInterstitial();
-
+                    if (mRewardedAd != null) {
+                        Activity activityContext = ScoreActivity.this;
+                        mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                            @Override
+                            public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                                // Handle the reward.
+                                Log.d(TAG, "The user earned the reward.");
+                                int rewardAmount = rewardItem.getAmount();
+                                String rewardType = rewardItem.getType();
+                            }
+                        });
+                    }
+                    else {
+                        Log.d(TAG, "The rewarded ad wasn't ready yet.");
+                    }
 
                 }
+            }
+            else
+            {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
+                builder.setCancelable(true);
+
+                View view = getLayoutInflater().inflate(R.layout.alert_dialog_layout2, null);
+                Button cancelB = view.findViewById(R.id.cancelB);
+                TextView content = view.findViewById(R.id.content);
+                TextView title = view.findViewById(R.id.title);
+                title.setText("Certificate Info");
+                content.setText("Go To Certificate Quiz To Get Certificate.");
+
+                builder.setView(view);
+
+                AlertDialog alertDialog = builder.create();
+
+                cancelB.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+
+                        if (mRewardedAd != null) {
+                            Activity activityContext = ScoreActivity.this;
+                            mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                                @Override
+                                public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                                    // Handle the reward.
+                                    Log.d(TAG, "The user earned the reward.");
+                                    int rewardAmount = rewardItem.getAmount();
+                                    String rewardType = rewardItem.getType();
+                                }
+                            });
+                        }
+                        else {
+                            Log.d(TAG, "The rewarded ad wasn't ready yet.");
+                        }
+
+
+                    }
+                });
+                alertDialog.show();
+
+                if (mRewardedAd != null) {
+                    Activity activityContext = ScoreActivity.this;
+                    mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                        @Override
+                        public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                            // Handle the reward.
+                            Log.d(TAG, "The user earned the reward.");
+                            int rewardAmount = rewardItem.getAmount();
+                            String rewardType = rewardItem.getType();
+                        }
+                    });
+                }
+                else {
+                    Log.d(TAG, "The rewarded ad wasn't ready yet.");
+                }
+
+
+            }
+
             }
         });
 
@@ -206,20 +306,50 @@ public class ScoreActivity extends AppCompatActivity {
                 Intent intent = new Intent(ScoreActivity.this, AnswerActivity.class);
                 startActivity(intent);
 
-                loadAd();
-                showInterstitial();
+            //    loadAd();
+            //    showInterstitial();
+
+                if (mRewardedAd != null) {
+                    Activity activityContext = ScoreActivity.this;
+                    mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                        @Override
+                        public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                            // Handle the reward.
+                            Log.d(TAG, "The user earned the reward.");
+                            int rewardAmount = rewardItem.getAmount();
+                            String rewardType = rewardItem.getType();
+                        }
+                    });
+                }
+                else {
+                    Log.d(TAG, "The rewarded ad wasn't ready yet.");
+                }
 
             }
         });
 
         reAttemptB.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
                 reAttempt();
 
-                //loadAd1();
-                showInterstitial();
+                if (mRewardedAd != null) {
+                    Activity activityContext = ScoreActivity.this;
+                    mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                        @Override
+                        public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                            // Handle the reward.
+                            Log.d(TAG, "The user earned the reward.");
+                            int rewardAmount = rewardItem.getAmount();
+                            String rewardType = rewardItem.getType();
+                        }
+                    });
+                }
+                else {
+                    Log.d(TAG, "The rewarded ad wasn't ready yet.");
+                }
 
             }
         });
@@ -341,8 +471,22 @@ public class ScoreActivity extends AppCompatActivity {
         {
             ScoreActivity.this.finish();
 
-            loadAd1();
-            showInterstitial();
+            if (mRewardedAd != null) {
+                Activity activityContext = ScoreActivity.this;
+                mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                    @Override
+                    public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                        // Handle the reward.
+                        Log.d(TAG, "The user earned the reward.");
+                        int rewardAmount = rewardItem.getAmount();
+                        String rewardType = rewardItem.getType();
+                    }
+                });
+            }
+            else {
+                Log.d(TAG, "The rewarded ad wasn't ready yet.");
+            }
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -371,7 +515,7 @@ public class ScoreActivity extends AppCompatActivity {
             }, 1000);
         }
 
-
+/**
     public void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         InterstitialAd.load(
@@ -465,7 +609,8 @@ public class ScoreActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError)
+                    {
                         // Handle the error
                         Log.i(TAG, loadAdError.getMessage());
                         interstitialAd = null;
@@ -474,8 +619,8 @@ public class ScoreActivity extends AppCompatActivity {
     }
 
 
-
-    private void showInterstitial() {
+   private void showInterstitial()
+   {
         // Show the ad if it's ready. Otherwise toast and restart the game.
         if (interstitialAd != null) {
             interstitialAd.show(this);
@@ -484,6 +629,7 @@ public class ScoreActivity extends AppCompatActivity {
             Log.d("TAG", "The interstitial ad wasn't ready yet.");
         }
     }
+**/
 
 
     @Override
@@ -491,8 +637,24 @@ public class ScoreActivity extends AppCompatActivity {
     {
 
         ScoreActivity.this.finish();
-      //  loadAd1();
-        showInterstitial();
+
+        if (mRewardedAd != null)
+        {
+            Activity activityContext = ScoreActivity.this;
+            mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                @Override
+                public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                    // Handle the reward.
+                    Log.d(TAG, "The user earned the reward.");
+                    int rewardAmount = rewardItem.getAmount();
+                    String rewardType = rewardItem.getType();
+                }
+            });
+        }
+        else
+        {
+            Log.d(TAG, "The rewarded ad wasn't ready yet.");
+        }
 
     }
 

@@ -57,9 +57,9 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
         private ProgressBar progressBar;
         private TextView testTopic;
 
-        private static final String TAG = "TestAdapter";
-        private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
-        private InterstitialAd interstitialAd;
+    //    private static final String TAG = "TestAdapter";
+  //      private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
+      //  private InterstitialAd interstitialAd;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -85,10 +85,10 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
 
-                    g_selected_test_index= pos;
+                    g_selected_test_index = pos;
 
-                    Intent intent=new Intent(itemView.getContext(), StartTestActivity.class).putExtra("TEST_NAME", testnam);
-                    itemView.getContext().startActivity(intent);
+                        Intent intent = new Intent(itemView.getContext(), StartTestActivity.class).putExtra("TEST_NAME", testnam);
+                        itemView.getContext().startActivity(intent);
 
                 }
             });

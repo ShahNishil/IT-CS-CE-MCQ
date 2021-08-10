@@ -103,7 +103,6 @@ public class QuestionsActivity extends AppCompatActivity {
 
     private void init()
     {
-
         questionsView=findViewById(R.id.questions_view);
         tvQuesID=findViewById(R.id.tv_quesID);
         timerTV=findViewById(R.id.tv_timer);
@@ -169,6 +168,15 @@ public class QuestionsActivity extends AppCompatActivity {
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy)
             {
                 super.onScrolled(recyclerView, dx, dy);
+
+                if (quesID == 5 || quesID == 11 ||quesID == 21 ||quesID == 31 ||quesID == 41)
+                {
+                    /** ad unit **/
+                    //mAdView = findViewById(R.id.adView);
+                    AdRequest adRequest = new AdRequest.Builder().build();
+                    mAdView.loadAd(adRequest);
+                }
+
             }
         });
 
@@ -186,7 +194,7 @@ public class QuestionsActivity extends AppCompatActivity {
                     questionsView.smoothScrollToPosition(quesID - 1);
                 }
 
-                if (quesID == 5)
+                if (quesID == 5 || quesID == 11 ||quesID == 21 ||quesID == 31 ||quesID == 41)
                 {
                     /** ad unit **/
                     //mAdView = findViewById(R.id.adView);
@@ -206,7 +214,8 @@ public class QuestionsActivity extends AppCompatActivity {
                     questionsView.smoothScrollToPosition(quesID + 1);
                 }
 
-                if (quesID == 5)
+
+                if (quesID == 5 || quesID == 11 ||quesID == 21 ||quesID == 31 ||quesID == 41)
                 {
                     /** ad unit **/
                     //mAdView = findViewById(R.id.adView);

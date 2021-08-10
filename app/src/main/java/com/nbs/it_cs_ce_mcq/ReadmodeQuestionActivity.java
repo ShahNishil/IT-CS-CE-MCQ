@@ -122,6 +122,15 @@ public class ReadmodeQuestionActivity extends AppCompatActivity {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+
+                if (quesID == 5)
+                {
+                    /** ad unit **/
+                    //mAdView = findViewById(R.id.adView);
+                    AdRequest adRequest = new AdRequest.Builder().build();
+                    mAdView.loadAd(adRequest);
+                }
+
             }
         });
 

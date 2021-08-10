@@ -7,14 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.nbs.it_cs_ce_mcq.Adapters.TestAdapter;
 
 import java.util.Objects;
@@ -24,6 +25,7 @@ public class TestActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private RecyclerView testView;
+    private Button certiB;
     private TestAdapter adapter;
     private Dialog progressDialog;
     private TextView dialogText;
@@ -43,6 +45,7 @@ public class TestActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         testView=findViewById(R.id.test_recycler_view);
+        certiB=findViewById(R.id.certiB);
 
         /** ad unit
         mAdView = findViewById(R.id.adView);
@@ -63,6 +66,20 @@ public class TestActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         testView.setLayoutManager(layoutManager);
+
+        certiB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int funname=6;
+
+                Intent intent = new Intent(TestActivity.this, StartTestActivity.class).putExtra("Function", funname);
+                startActivity(intent);
+
+            }
+        });
+
+
 
         DbQuery.loadTestData(new MyCompleteListener() {
             @Override

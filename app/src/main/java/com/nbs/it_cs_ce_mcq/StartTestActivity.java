@@ -2,7 +2,9 @@ package com.nbs.it_cs_ce_mcq;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,14 +22,19 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.OnUserEarnedRewardListener;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
 import java.util.List;
 
 import static com.nbs.it_cs_ce_mcq.DbQuery.g_catList;
+import static com.nbs.it_cs_ce_mcq.DbQuery.loadcertificatequestions;
 import static com.nbs.it_cs_ce_mcq.DbQuery.loadquestions;
 
 public class StartTestActivity extends AppCompatActivity {
@@ -37,17 +44,23 @@ public class StartTestActivity extends AppCompatActivity {
     private ImageView backB;
     private Dialog progressDialog;
     private TextView dialogText;
-    public String testnam;
+    public String testnam, topicname;
+    public int funname;
+    private CardView bestscore;
+
     //private AdView mAdView;
     //private static final String TAG = "StartTestActivity";
     //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //interstrialads
     //private InterstitialAd interstitialAd;
-
+    //private RewardedAd mRewardedAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_start_test);
+
+
 /**
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -71,24 +84,92 @@ public class StartTestActivity extends AppCompatActivity {
         progressDialog.show();
 
 
+        funname=getIntent().getIntExtra("Function", funname);
 
-        loadquestions(new MyCompleteListener() {
-            @Override
-            public void onSuccess() {
 
-                setData();
-                progressDialog.dismiss();
+        if (funname == 6)
+        {
 
-            }
+            bestscore.setVisibility(View.GONE);
+            testName.setText("Certificate Quiz");
+            testNo.setText("");
 
-            @Override
-            public void onFailure() {
 
-                progressDialog.dismiss();
-                Toast.makeText(StartTestActivity.this, "Something went wrong ! Please try again.", Toast.LENGTH_SHORT).show();
 
-            }
-        });
+            startTestB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(StartTestActivity.this, QuestionsActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                    //loadAd();
+                    //showInterstitial();
+
+                }
+            });
+
+            loadcertificatequestions(new MyCompleteListener() {
+                @Override
+                public void onSuccess() {
+
+                    setData();
+                    progressDialog.dismiss();
+
+                }
+
+                @Override
+                public void onFailure() {
+
+                    progressDialog.dismiss();
+                    Toast.makeText(StartTestActivity.this, "Something went wrong ! Please try again.", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+
+        }
+        else
+        {
+
+            testNo.setText("Test No : " + String.valueOf(DbQuery.g_selected_test_index + 1));
+            testnam = getIntent().getStringExtra("TEST_NAME");
+            testName.setText("Test Name : " + testnam);
+
+
+            startTestB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(StartTestActivity.this, QuestionsActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                    //loadAd();
+                    //showInterstitial();
+
+                }
+            });
+
+
+            loadquestions(new MyCompleteListener() {
+                @Override
+                public void onSuccess() {
+
+                    setData();
+                    progressDialog.dismiss();
+
+                }
+
+                @Override
+                public void onFailure()
+                {
+
+                    progressDialog.dismiss();
+                    Toast.makeText(StartTestActivity.this, "Something went wrong ! Please try again.", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+
+        }
 
     }
 
@@ -103,8 +184,9 @@ public class StartTestActivity extends AppCompatActivity {
         startTestB=findViewById(R.id.start_testB);
         backB=findViewById(R.id.st_backB);
         testName=findViewById(R.id.st_test_name);
+        bestscore=findViewById(R.id.best_score);
 
-        /** ad unit
+    /** ad unit
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -121,35 +203,20 @@ public class StartTestActivity extends AppCompatActivity {
             }
         });
 
-        startTestB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(StartTestActivity.this, QuestionsActivity.class);
-                startActivity(intent);
-                finish();
-
-                //loadAd();
-                //showInterstitial();
-
-            }
-        });
-
     }
 
     private void setData()
     {
         catName.setText(g_catList.get(DbQuery.g_selected_cat_index).getName());
-        testNo.setText("Test No : " + String.valueOf(DbQuery.g_selected_test_index + 1));
+        time.setText(String.valueOf(DbQuery.g_testList.get(DbQuery.g_selected_test_index).getTime()));
+
         totalQ.setText(String.valueOf(DbQuery.g_quesList.size()));
         bestScore.setText(String.valueOf(DbQuery.g_testList.get(DbQuery.g_selected_test_index).getTopScore()));
-        time.setText(String.valueOf(DbQuery.g_testList.get(DbQuery.g_selected_test_index).getTime()));
         // testName.setText("Test Name : " + String.valueOf(DbQuery.g_selected_test_index).getTopicName());
-        testnam=getIntent().getStringExtra("TEST_NAME");
-        testName.setText("Test Name : " + testnam);
 
     }
 
-/**
+    /**
     public void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         InterstitialAd.load(

@@ -14,7 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="16dp"
-        android:text="Advance JAVA"
+        android:text=""
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -125,6 +125,7 @@
             app:cardElevation="5dp"
             app:cardUseCompatPadding="true"
             app:cardCornerRadius="5dp"
+            android:id="@+id/best_score"
             >
 
             <LinearLayout

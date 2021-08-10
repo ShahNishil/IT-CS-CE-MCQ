@@ -33,7 +33,7 @@ public class ReadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_read);
 
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
